@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="en-us">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>Device Registration API - Eclipse Hono</title>
+    <meta name="generator" content="Hugo 0.42" />
+
+    
+    <meta name="description" content="A set of micro-services for connecting millions of devices.">
+    
+    <link rel="canonical" href="https://www.eclipse.org/hono/api/device-registration-api/">
+    
+    <meta name="author" content="The Eclipse Hono Project">
+    
+
+    <meta property="og:url" content="https://www.eclipse.org/hono/api/device-registration-api/">
+    <meta property="og:title" content="Eclipse Hono">
+    <meta property="og:image" content="https://www.eclipse.org/hono/images/logo-32x32px.png">
+    <meta name="apple-mobile-web-app-title" content="Eclipse Hono">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.eclipse.org/hono/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://www.eclipse.org/hono/images/favicon.ico">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('https://www.eclipse.org/hono/fonts/icon.eot');
+        src: url('https://www.eclipse.org/hono/fonts/icon.eot')
+               format('embedded-opentype'),
+             url('https://www.eclipse.org/hono/fonts/icon.woff')
+               format('woff'),
+             url('https://www.eclipse.org/hono/fonts/icon.ttf')
+               format('truetype'),
+             url('https://www.eclipse.org/hono/fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/application.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/temporary.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/palettes.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu&#43;Mono">
+    <style>
+      body, input {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/css/hono.css">
+    
+    <link rel="stylesheet" href="//www.eclipse.org/eclipse.org-common/themes/solstice/public/stylesheets/vendor/cookieconsent/cookieconsent.min.css">
+    
+    <script src="https://www.eclipse.org/hono/javascripts/modernizr.js"></script>
+    <script src="//www.eclipse.org/eclipse.org-common/themes/solstice/public/javascript/vendor/cookieconsent/default.min.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-orange palette-accent-teal">
+
+
+
+	
+	
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        Device Registration API
+      </div>
+    </div>
+
+    
+
+    
+    <div class="button button-github" role="button" aria-label="GitHub">
+      <a href="https://github.com/eclipse/hono" title="@eclipse/hono on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+    </div>
+    
+    
+        
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="https://www.eclipse.org/hono/" class="project">
+    <div class="banner">
+      
+        <div class="drawerlogo">
+          <img src="https://www.eclipse.org/hono/images/logo-32x32px.png">
+        </div>
+      
+      <div class="name">
+        <strong>Eclipse Hono&trade; </strong>
+        
+          <br>
+          eclipse/hono
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+        <ul class="repo">
+          <li class="repo-download">
+            <a href="https://www.eclipse.org/hono/download/" title="Download" data-action="download">
+              <i class="icon icon-download"></i> Download
+            </a>
+          </li>
+          <li class="repo-stars">
+            <a href="https://github.com/eclipse/hono/stargazers" target="_blank" title="Stargazers" data-action="star">
+              <i class="icon icon-star"></i> Stars
+              <span class="count">&ndash;</span>
+            </a>
+          </li>
+        </ul>
+        <hr>
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Getting started" href="/hono/getting-started/">
+	
+	Getting started
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Downloads" href="/hono/download/">
+	
+	Downloads
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Sandbox" href="/hono/sandbox/">
+	
+	Sandbox
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Concepts" href="/hono/concepts/">
+	
+	Concepts
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="User Guide" href="/hono/user-guide/">
+	
+	User Guide
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Admin Guide" href="/hono/admin-guide/">
+	
+	Admin Guide
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Developer Guide" href="/hono/dev-guide/">
+	
+	Developer Guide
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="API" href="/hono/api/">
+	
+	API
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Deployment" href="/hono/deployment/">
+	
+	Deployment
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Architecture" href="/hono/architecture/">
+	
+	Architecture
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Community" href="/hono/community/">
+	
+	Community
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="License" href="/hono/license/">
+	
+	License
+</a>
+
+
+
+  
+</li>
+
+
+        </ul>
+        
+
+        
+        <hr>
+        <span class="section">Build Status:</span>
+
+        <ul>
+          
+          <li>
+            <a href="https://ci.eclipse.org/hono/job/Hono-CI/" title="Eclipse Build Status" target="_blank">
+              <img src="https://ci.eclipse.org/hono/buildStatus/icon?job=Hono-CI">
+            </a>
+          </li>
+          
+
+          <li>
+            <a href="https://travis-ci.org/eclipse/hono" title="Travis Build Status" target="_blank">
+              <img src="https://travis-ci.org/eclipse/hono.svg?branch=master" />
+            </a>
+          </li>
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>Device Registration API </h1>
+
+			<p>The <em>Device Registration API</em> is used to make Hono aware of devices that will connect to the service and send telemetry data.
+It can be used by <em>Protocol Adapters</em> to register devices that are not directly connected to Hono using an AMQP 1.0 connection.
+<em>Solutions</em> and other consumers may use the API to obtain information about a single device that is registered to Hono.
+</p>
+
+<p>Note, however, that in real world applications the registration information will probably be kept and managed by an existing <em>system of record</em>, using e.g. a database for persisting the data. The Device Registration API accounts for this fact by means of defining only the <a href="#assert-device-registration">Assert Device Registration</a> operation as <em>mandatory</em>, i.e. this operation is strictly required by a Hono instance for it to work properly, whereas the remaining operations are defined as <em>optional</em> from a Hono perspective.</p>
+
+<p>The Device Registration API is defined by means of AMQP 1.0 message exchanges, i.e. a client needs to connect to Hono using an AMQP 1.0 client in order to invoke operations of the API as described in the following sections.</p>
+
+<h1 id="preconditions">Preconditions</h1>
+
+<p>The preconditions for performing any of the operations are as follows:</p>
+
+<ol>
+<li>Client has established an AMQP connection with Hono.</li>
+<li>Client has established an AMQP link in role <em>sender</em> with Hono using target address <code>registration/${tenant_id}</code>. This link is used by the client to send registration commands to Hono.</li>
+<li>Client has established an AMQP link in role <em>receiver</em> with Hono using source address <code>registration/${tenant_id}/${reply-to}</code> where <em>reply-to</em> may be any arbitrary string chosen by the client. This link is used by the client to receive responses to the registration requests it has sent to Hono. This link&rsquo;s source address is also referred to as the <em>reply-to</em> address for the request messages.</li>
+</ol>
+
+<p>This flow of messages is illustrated by the following sequence diagram (showing the AMQP performatives):</p>
+
+<p><img src="../connectToDeviceRegistration.png" alt="Device Registration message flow preconditions" /></p>
+
+<h1 id="operations">Operations</h1>
+
+<p>The operations described in the following sections can be used by clients to manage device registration information. In real world scenarios the provisioning of devices will most likely be an orchestrated process spanning multiple components of which Hono will only be one.</p>
+
+<p>Conducting and orchestrating the overall provisioning process is not in scope of Hono. However, Hono&rsquo;s device registration API can easily be used as part of such an overall provisioning process.</p>
+
+<h2 id="register-device">Register Device</h2>
+
+<p>Clients use this command to initially <em>add</em> information about a new device to Hono. Each device is registered within a <em>tenant</em>, providing the scope of the device&rsquo;s identifier.</p>
+
+<p>This operation is <em>optional</em>, implementors of this API may provide other means for adding registration information, e.g. a RESTful API or a configuration file.</p>
+
+<p><strong>Message Flow</strong></p>
+
+<p>The following sequence diagram illustrates the flow of messages involved in a <em>Client</em> registering a device.</p>
+
+<p><img src="../registerDeviceInformation_Success.png" alt="Register Device message flow" /></p>
+
+<p><strong>Request Message Format</strong></p>
+
+<p>The following table provides an overview of the properties a client needs to set on a <em>register device</em> message in addition to the <a href="#standard-request-properties">Standard Request Properties</a>.</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="center">Mandatory</th>
+<th align="left">Location</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><em>subject</em></td>
+<td align="center">yes</td>
+<td align="left"><em>properties</em></td>
+<td align="left"><em>string</em></td>
+<td align="left">MUST be set to <code>register</code>.</td>
+</tr>
+</tbody>
+</table>
+
+<p>The request message MAY include payload as defined in the <a href="#payload-format">Payload Format</a> section below.</p>
+
+<p>The key/value pairs provided in the payload may be useful e.g. for recording metadata about the device like the manufacturer or model.</p>
+
+<p><strong>Response Message Format</strong></p>
+
+<p>A response to an <em>add credentials</em> request contains the <a href="#standard-response-properties">Standard Response Properties</a>.</p>
+
+<p>The response message&rsquo;s <em>status</em> property may contain the following codes:</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Code</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><em>201</em></td>
+<td align="left">Created, the device has been successfully registered.</td>
+</tr>
+
+<tr>
+<td align="left"><em>409</em></td>
+<td align="left">Conflict, there already exists a device registration for the given <em>device_id</em> within this tenant.</td>
+</tr>
+</tbody>
+</table>
+
+<p>For status codes indicating an error (codes in the <code>400 - 499</code> range) the message body MAY contain a detailed description of the error that occurred.</p>
+
+<h2 id="get-registration-information">Get Registration Information</h2>
+
+<p>Clients use this command to <em>retrieve</em> information about a registered device.</p>
+
+<p>This operation is <em>optional</em>, implementors of this API may provide other means for retrieving registration information, e.g. a RESTful API.</p>
+
+<p><strong>Message Flow</strong></p>
+
+<p>The following sequence diagram illustrates the flow of messages involved in a <em>Client</em> retrieving registration information.</p>
+
+<p><img src="../getDeviceInformation_Success.png" alt="Get Registration Information message flow" /></p>
+
+<p><strong>Request Message Format</strong></p>
+
+<p>The following table provides an overview of the properties a client needs to set on a message to get registration information in addition to the <a href="#standard-request-properties">Standard Request Properties</a>.</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="center">Mandatory</th>
+<th align="left">Location</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><em>subject</em></td>
+<td align="center">yes</td>
+<td align="left"><em>properties</em></td>
+<td align="left"><em>string</em></td>
+<td align="left">MUST be set to <code>get</code>.</td>
+</tr>
+</tbody>
+</table>
+
+<p>The body of the message SHOULD be empty and will be ignored if it is not.</p>
+
+<p><strong>Response Message Format</strong></p>
+
+<p>A response to a <em>get registration information</em> request contains the <a href="#standard-response-properties">Standard Response Properties</a>.</p>
+
+<p>The response message includes payload as defined in the <a href="#payload-format">Payload Format</a> section below. The <code>data</code> member contains the key/value pairs that have been registered for the device.</p>
+
+<p>The response message&rsquo;s <em>status</em> property may contain the following codes:</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Code</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><em>200</em></td>
+<td align="left">OK, the payload contains the registration information for the device.</td>
+</tr>
+
+<tr>
+<td align="left"><em>404</em></td>
+<td align="left">Not Found, there is no device registered with the given <em>device_id</em> within the given <em>tenant_id</em>.</td>
+</tr>
+</tbody>
+</table>
+
+<p>For status codes indicating an error (codes in the <code>400 - 499</code> range) the message body MAY contain a detailed description of the error that occurred.</p>
+
+<h2 id="assert-device-registration">Assert Device Registration</h2>
+
+<p>Clients use this command to get a signed <em>assertion</em> that a device is registered for a particular tenant and is enabled. The assertion is supposed to be included when <a href="/hono/api/telemetry-api/#upload-telemetry-data">uploading telemetry data</a> or <a href="/hono/api/event-api/#send-event">publishing an event</a> for a device so that the Telemetry or Event service implementation does not need to call out to the Device Registration service on every message in order to verify the device&rsquo;s registration status.</p>
+
+<p>This operation is <em>mandatory</em> to implement.</p>
+
+<p><strong>Message Flow</strong></p>
+
+<p>The following sequence diagram illustrates the flow of messages involved in a <em>Client</em> getting an assertion of a device registration.</p>
+
+<p><img src="../assertDeviceRegistration_Success.png" alt="Assert Device Registration message flow" /></p>
+
+<p><strong>Request Message Format</strong></p>
+
+<p>The following table provides an overview of the properties a client needs to set on a message to get registration information in addition to the <a href="#standard-request-properties">Standard Request Properties</a>.</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="center">Mandatory</th>
+<th align="left">Location</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><em>subject</em></td>
+<td align="center">yes</td>
+<td align="left"><em>properties</em></td>
+<td align="left"><em>string</em></td>
+<td align="left">MUST be set to <code>assert</code>.</td>
+</tr>
+
+<tr>
+<td align="left"><em>gateway_id</em></td>
+<td align="center">no</td>
+<td align="left"><em>application-properties</em></td>
+<td align="left"><em>string</em></td>
+<td align="left">The identifier of the gateway that wants to get an assertion <em>on behalf</em> of another device (given in the <em>device_id</em> property).<br>An implementation SHOULD verify that the gateway exists, is enabled and is authorized to get an assertion for, and thus send data on behalf of, the device.</td>
+</tr>
+</tbody>
+</table>
+
+<p>The body of the message SHOULD be empty and will be ignored if it is not.</p>
+
+<p><strong>Response Message Format</strong></p>
+
+<p>A response to an <em>assertion</em> request contains the <a href="#standard-response-properties">Standard Response Properties</a>.</p>
+
+<p>The body of the response message consists of a single <em>AMQP Value</em> section containing a UTF-8 encoded string representation of a single JSON object having the following properties:</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="center">Mandatory</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><em>device-id</em></td>
+<td align="center"><em>yes</em></td>
+<td align="left"><em>string</em></td>
+<td align="left">The ID of the device that is subject of the assertion.</td>
+</tr>
+
+<tr>
+<td align="left"><em>assertion</em></td>
+<td align="center"><em>yes</em></td>
+<td align="left"><em>string</em></td>
+<td align="left">A <a href="https://jwt.io/introduction/">JSON Web Token</a> which MUST contain the device id (<code>sub</code> claim), the tenant id (private <code>ten</code> claim) and an expiration time (<code>exp</code> claim). The token MAY contain additional claims as well. A client SHOULD silently ignore claims it does not understand.</td>
+</tr>
+
+<tr>
+<td align="left"><em>defaults</em></td>
+<td align="center"><em>no</em></td>
+<td align="left"><em>JSON object</em></td>
+<td align="left">Default values to be used by protocol adapters for augmenting messages from devices with missing information like a <em>content type</em>. It is up to the discretion of a protocol adapter if and how to use the given default values when processing messages published by the device.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Below is an example for a payload of a response to an <em>assert</em> request for device <code>4711</code> which also includes a default <em>content-type</em>:</p>
+
+<pre><code class="language-json">{
+  &quot;device-id&quot; : &quot;4711&quot;,
+  &quot;assertion&quot; : &quot;eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0NzExIiwidGVuIjoiREVGQVVMVF9URU5BTlQiLCJleHAiOjE1MDMwMTY0MzJ9.Gz8VYpLso-IuasLrSm6YVg1irofz7RKEYS4kM2CUQ5o&quot;,
+  &quot;defaults&quot;: {
+    &quot;content-type&quot;: &quot;application/vnd.acme+json&quot;
+  }
+}
+</code></pre>
+
+<p>The response message&rsquo;s <em>status</em> property may contain the following codes:</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Code</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><em>200</em></td>
+<td align="left">OK, the device is registered for the given tenant and is enabled. The payload contains the signed assertion.</td>
+</tr>
+
+<tr>
+<td align="left"><em>403</em></td>
+<td align="left">Forbidden, the gateway with the given <em>gateway id</em> either does not exist, is not enabled or is not authorized to get an assertion for the device with the given <em>device id</em>.</td>
+</tr>
+
+<tr>
+<td align="left"><em>404</em></td>
+<td align="left">Not Found, there is no device registered with the given <em>device id</em> within the given <em>tenant id</em> or the device is not enabled.</td>
+</tr>
+</tbody>
+</table>
+
+<p>For status codes indicating an error (codes in the <code>400 - 499</code> range) the message body MAY contain a detailed description of the error that occurred.</p>
+
+<h2 id="update-device-registration">Update Device Registration</h2>
+
+<p>Clients use this command to <em>update</em> information about an already registered device. All of the information that has been previously registered for the device gets <em>replaced</em> with the information contained in the request message.</p>
+
+<p>This operation is <em>optional</em>, implementors of this API may provide other means for updating registration information, e.g. a RESTful API or a configuration file.</p>
+
+<p><strong>Message Flow</strong></p>
+
+<p>The following sequence diagram illustrates the flow of messages involved in a <em>Client</em> updating registration information.</p>
+
+<p><img src="../updateDeviceInformation_Success.png" alt="Update Registration Information message flow" /></p>
+
+<p><strong>Request Message Format</strong></p>
+
+<p>The following table provides an overview of the properties a client needs to set on an <em>update registration</em> message in addition to the <a href="#standard-request-properties">Standard Request Properties</a>.</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="center">Mandatory</th>
+<th align="left">Location</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><em>subject</em></td>
+<td align="center">yes</td>
+<td align="left"><em>properties</em></td>
+<td align="left"><em>string</em></td>
+<td align="left">MUST be set to <code>update</code>.</td>
+</tr>
+</tbody>
+</table>
+
+<p>The request message MAY include payload as defined in the <a href="#payload-format">Payload Format</a> section below.</p>
+
+<p><strong>Response Message Format</strong></p>
+
+<p>A response to an <em>update registration</em> request contains the <a href="#standard-response-properties">Standard Response Properties</a>.</p>
+
+<p>The response message&rsquo;s <em>status</em> property may contain the following codes:</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Code</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><em>204</em></td>
+<td align="left">No Content, the device registration has been updated successfully.</td>
+</tr>
+
+<tr>
+<td align="left"><em>404</em></td>
+<td align="left">Not Found, there is no device registered with the given <em>device_id</em> within the given <em>tenant_id</em>.</td>
+</tr>
+</tbody>
+</table>
+
+<p>For status codes indicating an error (codes in the <code>400 - 499</code> range) the message body MAY contain a detailed description of the error that occurred.</p>
+
+<h2 id="deregister-device">Deregister Device</h2>
+
+<p>Clients use this command to <em>remove</em> all information about a device from Hono. Once a device is deregistered, clients can no longer use Hono to interact with the device nor can they consume any more data produced by the device.</p>
+
+<p>This operation is <em>optional</em>, implementors of this API may provide other means for deleting registration information, e.g. a RESTful API or a configuration file.</p>
+
+<p><strong>Message Flow</strong></p>
+
+<p>The following sequence diagram illustrates the flow of messages involved in a <em>Client</em> deregistering a device.</p>
+
+<p><img src="../deregisterDeviceInformation_Success.png" alt="Deregister Device message flow" /></p>
+
+<p><strong>Request Message Format</strong></p>
+
+<p>The following table provides an overview of the properties a client needs to set on a <em>deregister device</em> message in addition to the <a href="#standard-request-properties">Standard Request Properties</a>.</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="center">Mandatory</th>
+<th align="left">Location</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><em>subject</em></td>
+<td align="center">yes</td>
+<td align="left"><em>properties</em></td>
+<td align="left"><em>string</em></td>
+<td align="left">MUST be set to <code>deregister</code>.</td>
+</tr>
+</tbody>
+</table>
+
+<p>The body of the message SHOULD be empty and will be ignored if it is not.</p>
+
+<p><strong>Response Message Format</strong></p>
+
+<p>A response to a <em>deregister device</em> request contains the <a href="#standard-response-properties">Standard Response Properties</a>.</p>
+
+<p>The response may contain the following status codes:</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Code</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><em>204</em></td>
+<td align="left">No Content, the device has been successfully deregistered.</td>
+</tr>
+
+<tr>
+<td align="left"><em>404</em></td>
+<td align="left">Not Found, there is no device registered with the given <em>device_id</em> within the given <em>tenant_id</em>.</td>
+</tr>
+</tbody>
+</table>
+
+<p>For status codes indicating an error (codes in the <code>400 - 499</code> range) the message body MAY contain a detailed description of the error that occurred.</p>
+
+<h1 id="standard-message-properties">Standard Message Properties</h1>
+
+<p>Due to the nature of the request/response message pattern of the operations of the Device Registration API, there are some standard properties shared by all of the request and response messages exchanged as part of the operations.</p>
+
+<h2 id="standard-request-properties">Standard Request Properties</h2>
+
+<p>The following table provides an overview of the properties shared by all request messages regardless of the particular operation being invoked.</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="center">Mandatory</th>
+<th align="left">Location</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><em>subject</em></td>
+<td align="center">yes</td>
+<td align="left"><em>properties</em></td>
+<td align="left"><em>string</em></td>
+<td align="left">MUST be set to the value defined by the particular operation being invoked.</td>
+</tr>
+
+<tr>
+<td align="left"><em>correlation-id</em></td>
+<td align="center">no</td>
+<td align="left"><em>properties</em></td>
+<td align="left"><em>message-id</em></td>
+<td align="left">MAY contain an ID used to correlate a response message to the original request. If set, it is used as the <em>correlation-id</em> property in the response, otherwise the value of the <em>message-id</em> property is used.</td>
+</tr>
+
+<tr>
+<td align="left"><em>message-id</em></td>
+<td align="center">yes</td>
+<td align="left"><em>properties</em></td>
+<td align="left"><em>string</em></td>
+<td align="left">MUST contain an identifier that uniquely identifies the message at the sender side.</td>
+</tr>
+
+<tr>
+<td align="left"><em>reply-to</em></td>
+<td align="center">yes</td>
+<td align="left"><em>properties</em></td>
+<td align="left"><em>string</em></td>
+<td align="left">MUST contain the source address that the client wants to received response messages from. This address MUST be the same as the source address used for establishing the client&rsquo;s receive link (see <a href="#preconditions">Preconditions</a>).</td>
+</tr>
+
+<tr>
+<td align="left"><em>device_id</em></td>
+<td align="center">yes</td>
+<td align="left"><em>application-properties</em></td>
+<td align="left"><em>string</em></td>
+<td align="left">MUST contain the ID of the device that is subject to the operation.</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="standard-response-properties">Standard Response Properties</h2>
+
+<p>The following table provides an overview of the properties shared by all response messages regardless of the particular operation being invoked.</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="center">Mandatory</th>
+<th align="left">Location</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><em>correlation-id</em></td>
+<td align="center">yes</td>
+<td align="left"><em>properties</em></td>
+<td align="left"><em>message-id</em></td>
+<td align="left">Contains the <em>message-id</em> (or the <em>correlation-id</em>, if specified) of the request message that this message is the response to.</td>
+</tr>
+
+<tr>
+<td align="left"><em>device_id</em></td>
+<td align="center">yes</td>
+<td align="left"><em>application-properties</em></td>
+<td align="left"><em>string</em></td>
+<td align="left">Contains the ID of the device.</td>
+</tr>
+
+<tr>
+<td align="left"><em>tenant_id</em></td>
+<td align="center">yes</td>
+<td align="left"><em>application-properties</em></td>
+<td align="left"><em>string</em></td>
+<td align="left">Contains the ID of the tenant to which the device belongs.</td>
+</tr>
+
+<tr>
+<td align="left"><em>status</em></td>
+<td align="center">yes</td>
+<td align="left"><em>application-properties</em></td>
+<td align="left"><em>int</em></td>
+<td align="left">Contains the status code indicating the outcome of the operation. Concrete values and their semantics are defined for each particular operation.</td>
+</tr>
+
+<tr>
+<td align="left"><em>cache_control</em></td>
+<td align="center">no</td>
+<td align="left"><em>application-properties</em></td>
+<td align="left"><em>string</em></td>
+<td align="left">Contains an <a href="https://tools.ietf.org/html/rfc2616#section-14.9">RFC 2616</a> compliant <em>cache directive</em>. The directive contained in the property MUST be obeyed by clients that are caching responses.</td>
+</tr>
+</tbody>
+</table>
+
+<h1 id="delivery-states">Delivery States</h1>
+
+<p>Hono uses the following AMQP message delivery states when receiving request messages from clients:</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Delivery State</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><em>ACCEPTED</em></td>
+<td align="left">Indicates that Hono has successfully received and accepted the request for processing.</td>
+</tr>
+
+<tr>
+<td align="left"><em>REJECTED</em></td>
+<td align="left">Indicates that Hono has received the request but was not able to process it. The <em>error</em> field contains information regarding the reason why. Clients should not try to re-send the request using the same message properties in this case.</td>
+</tr>
+</tbody>
+</table>
+
+<h1 id="payload-format">Payload Format</h1>
+
+<p>Most of the operations of the Device Registration API allow or require the inclusion of registration data in the payload of the
+request or response messages of the operation. Such payload is carried in the body of the corresponding AMQP
+messages as part of a single <em>AMQP Value</em> section.</p>
+
+<p>The registration data is carried in the payload as a UTF-8 encoded string representation of a single JSON object. It is an error to include payload that is not of this type.</p>
+
+<h2 id="request-payload">Request Payload</h2>
+
+<p>The JSON object conveyed in the payload MAY contain an arbitrary number of members with arbitrary names. Clients may register <em>default</em> values for a device which can be used by protocol adapters to augment messages with missing information that have been published by the device. Protocol adapters extract default values from the <code>defaults</code> JSON object registered for a device.</p>
+
+<p>Below is an example for a payload of a request for registering a device with a default content type:</p>
+
+<pre><code class="language-json">{
+  &quot;manufacturer&quot;: &quot;ACME Corp.&quot;,
+  &quot;firmware&quot;: &quot;v1.5&quot;,
+  &quot;defaults&quot;: {
+    &quot;content-type&quot;: &quot;application/vnd.acme+json&quot;
+  }
+}
+</code></pre>
+
+<div class="admonition note">
+<p class="admonition-title"></p>
+<p>The device&rsquo;s <em>enabled</em> property will be set to <em>true</em> by default if the request message either does not contain any payload at all or
+if the payload does not contain the <em>enabled</em> property.</p>
+</div>
+
+<h2 id="response-payload">Response Payload</h2>
+
+<p>The JSON object conveyed in a response payload always contains a string typed member of name <code>device-id</code> whose value is the ID of the device as provided during registration.
+In addition, the object contains a member with name <code>data</code> of type <code>json object</code>. The <code>data</code> object always contains a property called <code>enabled</code> which indicates whether the device may be interacted with or not.</p>
+
+<p>Below is an example for a payload of a response to a <em>get</em> request for device <code>4711</code>:</p>
+
+<pre><code class="language-json">{
+  &quot;device-id&quot; : &quot;4711&quot;,
+  &quot;data&quot; : {
+    &quot;enabled&quot;: true,
+    &quot;manufacturer&quot;: &quot;ACME Corp.&quot;,
+    &quot;firmware&quot;: &quot;v1.5&quot;,
+    &quot;defaults&quot;: {
+      &quot;content-type&quot;: &quot;application/vnd.acme+json&quot;
+    }
+  }
+}
+</code></pre>
+
+      <aside class="copyright" role="note">
+  <div class="logo">
+    <a href="https://www.eclipse.org" target="_blank">
+      <img src="https://www.eclipse.org/hono/images/eclipse_foundation_logo.png" />
+    </a>
+  </div>
+  <p class="notice">
+    
+    &copy; 2018 The Eclipse Hono Project &ndash;
+    
+    Documentation built with
+    <a href="https://www.gohugo.io" target="_blank">Hugo</a>
+    using the
+    <a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+  </p>
+  <p class="quickLinks">
+    <a href="http://www.eclipse.org/legal/privacy.php" target="_blank">
+      &gt; Privacy Policy
+    </a>
+    <a href="http://www.eclipse.org/legal/termsofuse.php" target="_blank">
+      &gt; Terms of Use
+    </a>
+    <a href="http://www.eclipse.org/legal/copyright.php" target="_blank">
+      &gt; Copyright Agent
+    </a>
+    <a href="http://www.eclipse.org/legal" target="_blank">
+      &gt; Legal
+    </a>
+    <a href="https://eclipse.org/security" target="_blank">
+      &gt; Report a Vulnerability
+    </a>
+  </p>
+</aside>
+
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="https://www.eclipse.org/hono/api/tenant-api/" title="Tenant API">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              Tenant API
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="https://www.eclipse.org/hono/api/telemetry-api/" title="Telemetry API">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Telemetry API
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = 'https:\/\/www.eclipse.org\/hono\/';
+      var repo_id  = 'eclipse\/hono';
+    
+    </script>
+
+    <script src="https://www.eclipse.org/hono/javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            if(!headers[i].id)
+                a.setAttribute("href", headers[i].parentNode.href);
+            else
+                a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "#";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+      
+      <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-5WLCZXC');
+      </script>
+    
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

@@ -1,0 +1,14 @@
+hono:
+  app:
+    maxInstances: 1
+  auth:
+    amqp:
+      insecurePortEnabled: true
+      insecurePortBindAddress: 0.0.0.0
+      keyPath: /etc/hono/certs/auth-server-key.pem
+      certPath: /etc/hono/certs/auth-server-cert.pem
+    svc:
+      permissionsPath: file:///etc/hono/permissions.json
+spring:
+  jmx:
+    enabled: false

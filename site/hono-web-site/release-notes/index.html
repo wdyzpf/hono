@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="en-us">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>Release Notes - Eclipse Hono</title>
+    <meta name="generator" content="Hugo 0.42" />
+
+    
+    <meta name="description" content="A set of micro-services for connecting millions of devices.">
+    
+    <link rel="canonical" href="https://www.eclipse.org/hono/release-notes/">
+    
+    <meta name="author" content="The Eclipse Hono Project">
+    
+
+    <meta property="og:url" content="https://www.eclipse.org/hono/release-notes/">
+    <meta property="og:title" content="Eclipse Hono">
+    <meta property="og:image" content="https://www.eclipse.org/hono/images/logo-32x32px.png">
+    <meta name="apple-mobile-web-app-title" content="Eclipse Hono">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.eclipse.org/hono/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://www.eclipse.org/hono/images/favicon.ico">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('https://www.eclipse.org/hono/fonts/icon.eot');
+        src: url('https://www.eclipse.org/hono/fonts/icon.eot')
+               format('embedded-opentype'),
+             url('https://www.eclipse.org/hono/fonts/icon.woff')
+               format('woff'),
+             url('https://www.eclipse.org/hono/fonts/icon.ttf')
+               format('truetype'),
+             url('https://www.eclipse.org/hono/fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/application.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/temporary.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/palettes.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu&#43;Mono">
+    <style>
+      body, input {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/css/hono.css">
+    
+    <link rel="stylesheet" href="//www.eclipse.org/eclipse.org-common/themes/solstice/public/stylesheets/vendor/cookieconsent/cookieconsent.min.css">
+    
+    <script src="https://www.eclipse.org/hono/javascripts/modernizr.js"></script>
+    <script src="//www.eclipse.org/eclipse.org-common/themes/solstice/public/javascript/vendor/cookieconsent/default.min.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-orange palette-accent-teal">
+
+
+
+	
+	
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        Release Notes
+      </div>
+    </div>
+
+    
+
+    
+    <div class="button button-github" role="button" aria-label="GitHub">
+      <a href="https://github.com/eclipse/hono" title="@eclipse/hono on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+    </div>
+    
+    
+        
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="https://www.eclipse.org/hono/" class="project">
+    <div class="banner">
+      
+        <div class="drawerlogo">
+          <img src="https://www.eclipse.org/hono/images/logo-32x32px.png">
+        </div>
+      
+      <div class="name">
+        <strong>Eclipse Hono&trade; </strong>
+        
+          <br>
+          eclipse/hono
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+        <ul class="repo">
+          <li class="repo-download">
+            <a href="https://www.eclipse.org/hono/download/" title="Download" data-action="download">
+              <i class="icon icon-download"></i> Download
+            </a>
+          </li>
+          <li class="repo-stars">
+            <a href="https://github.com/eclipse/hono/stargazers" target="_blank" title="Stargazers" data-action="star">
+              <i class="icon icon-star"></i> Stars
+              <span class="count">&ndash;</span>
+            </a>
+          </li>
+        </ul>
+        <hr>
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Getting started" href="/hono/getting-started/">
+	
+	Getting started
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Downloads" href="/hono/download/">
+	
+	Downloads
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Sandbox" href="/hono/sandbox/">
+	
+	Sandbox
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Concepts" href="/hono/concepts/">
+	
+	Concepts
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="User Guide" href="/hono/user-guide/">
+	
+	User Guide
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Admin Guide" href="/hono/admin-guide/">
+	
+	Admin Guide
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Developer Guide" href="/hono/dev-guide/">
+	
+	Developer Guide
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="API" href="/hono/api/">
+	
+	API
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Deployment" href="/hono/deployment/">
+	
+	Deployment
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Architecture" href="/hono/architecture/">
+	
+	Architecture
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Community" href="/hono/community/">
+	
+	Community
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="License" href="/hono/license/">
+	
+	License
+</a>
+
+
+
+  
+</li>
+
+
+        </ul>
+        
+
+        
+        <hr>
+        <span class="section">Build Status:</span>
+
+        <ul>
+          
+          <li>
+            <a href="https://ci.eclipse.org/hono/job/Hono-CI/" title="Eclipse Build Status" target="_blank">
+              <img src="https://ci.eclipse.org/hono/buildStatus/icon?job=Hono-CI">
+            </a>
+          </li>
+          
+
+          <li>
+            <a href="https://travis-ci.org/eclipse/hono" title="Travis Build Status" target="_blank">
+              <img src="https://travis-ci.org/eclipse/hono.svg?branch=master" />
+            </a>
+          </li>
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>Release Notes </h1>
+
+			
+
+<h2 id="0-7-m2-not-released-yet">0.7-M2 (not released yet)</h2>
+
+<h3 id="new-features">New Features</h3>
+
+<ul>
+<li>The Auth Server can now be used to authenticate clients connecting to the Apache Qpid Dispatch Router which is used in the example deployment. For this purpose the Auth Server is configured as a <em>remote auth server</em> implementing <a href="https://qpid.apache.org/releases/qpid-dispatch-1.1.0/man/qdrouterd.conf.html#_authserviceplugin">Dispatch Router&rsquo;s <em>Auth Service Plugin</em> mechanism</a>. Using this mechanism it is now possible to manage all identities and authorities using the Auth Server&rsquo;s configuration file.</li>
+<li>The HTTP protocol adapter now supports to receive responses to a command that was previously sent to a device.
+Refer to the documentation of the <a href="/hono/user-guide/http-adapter/#sending-a-response-to-a-previously-received-command">HTTP adapter</a>
+for the details of the new HTTP URIs.</li>
+</ul>
+
+<h3 id="fixes-enhancements">Fixes &amp; Enhancements</h3>
+
+<ul>
+<li>The Device Registry&rsquo;s AMQP endpoints can now be configured with the number of credits they should flow to clients connecting to the endpoints. The default value is 100. See <a href="/hono/admin-guide/device-registry-config/#service-configuration">Device Registry admin guide</a> for details.</li>
+<li>Hono&rsquo;s service components can now be configured to use OpenSSL instead of the JVM&rsquo;s default SSL engine. The <a href="/hono/admin-guide/secure_communication/#using-openssl">admin guide</a> describes how to do this.</li>
+</ul>
+
+<h2 id="0-7-m1">0.7-M1</h2>
+
+<h3 id="fixes-enhancements-1">Fixes &amp; Enhancements</h3>
+
+<ul>
+<li><code>HonoClientImpl</code>&rsquo;s strategy for attempting to establish a connection with a peer has been enhanced. The client&rsquo;s <em>connect</em> methods by default will only try three times to establish a TCP connection with the peer before giving up. Based on the value of the new <em>reconnectAttempts</em> property of <code>ClientConfigProperties</code>, the client will then either re-try to connect to the peer (including a fresh DNS lookup of the peer&rsquo;s host name) or fail the overall connection attempt. This way, the client will not get stuck in an endless loop if the peer&rsquo;s IP address has changed or the peer has crashed while the client tries to connect to it.</li>
+<li>The Java Virtual Machines run by Docker images provided by Hono now consider resource limitations defined for a container on startup. See <a href="/hono/deployment/resource-limitation/">Limiting Resource Usage</a> for details how this can e.g. be used to limit memory consumption. The example deployment already makes use of this mechanism.</li>
+</ul>
+
+<h2 id="0-6">0.6</h2>
+
+<h3 id="new-features-1">New Features</h3>
+
+<ul>
+<li>Protocol adapters, services and HonoClient now support TLS 1.2 only by default when using TLS to secure communication. However, additional protocols can be enabled by means of setting environment variables as described in the admin guides.</li>
+<li>The deployment examples for OpenShift got overhauled. The two provided
+examples are not both based on EnMasse and follow a similar architecture. The
+newly added <em>source-to-image</em>&rdquo; based approach doesn&rsquo;t require a local
+development setup but created new images directly in the OpenShift
+instance. It also makes more use of ConfigMaps and service key/cert management.</li>
+<li><strong>Tech preview</strong>: Protocol adapters do have the ability to send out connection events. Those
+events are best-effort events, indicating when a connection has been
+established and when it has been lost. There is a pluggable way of
+handling/creating those events, including two default implementations. A
+logger implementation, which simply logs to the logging system. And one
+implementation which sends out events to the <em>Hono Event API</em>.<br />
+<strong>Note</strong>: This feature is part of the Eclipse IoT integration effort and not
+yet considered a public API.</li>
+<li>The HTTP protocol adapter now supports authentication of devices based on X.509 client certificates. Each tenant can be configured with an individual trust anchor which the HTTP adapter will retrieve using the Tenant API when a device tries to authenticate with a certificate as part of a TLS handshake. The Credentials API now supports a <a href="/hono/api/credentials-api/#x-509-certificate">new credentials type</a> for registering a mapping of the certificate&rsquo;s <em>subject DN</em> to the device identifier. Please consult the <a href="/hono/user-guide/http-adapter/#device-authentication">HTTP adapter User Guide</a> for details regarding usage.</li>
+<li>The HTTP adapter now supports uploading telemetry messages using QoS 1 (<code>AT_LEAST_ONCE</code>). Clients must set the <code>QoS-Level</code> request header if they want the HTTP adapter to upload telemetry messages using QoS 1.</li>
+<li>The concept and implementation of <em>Device notifications</em> were added. It enables devices to signal that they are ready to receive an upstream message by specifying a <code>time til disconnect</code> parameter with any downstream message. Please see <a href="/hono/concepts/device-notifications/">Device notifications</a> for details.</li>
+<li><strong>Tech preview</strong>: <em>Command and Control</em> is now available for the HTTP protocol adapter (NB: currently without responses from the device to the application).
+It enables HTTP devices to signal how long they stay <em>connected</em> to the HTTP protocol adapter, resulting in a delayed response.
+The response then may contain a command sent by the application. Please refer to the <a href="/hono/user-guide/command-and-control/">Command and Control example</a>
+and the <a href="/hono/concepts/command-and-control/">Command and Control Concepts</a> to find more details.<br />
+<strong>Note</strong>: This feature is available now as a first fully working version but is considered to possibly have some unknown issues that may not make it
+fully production ready yet.</li>
+</ul>
+
+<h3 id="fixes-enhancements-2">Fixes &amp; Enhancements</h3>
+
+<ul>
+<li>Hono&rsquo;s standard protocol adapters can now be connected directly to the AMQP Network, i.e. without going through Hono Messaging. For Hono&rsquo;s standard adapters Hono Messaging does not provide any additional value because the devices&rsquo; registration status is already being validated by the protocol adapters. Omitting Hono Messaging should therefore reduce message processing latency for standard adapters. However, custom protocol adapters still need to be connected to Hono Messaging. The Getting started guide, the Sandbox and the deployment scripts have been changed accordingly. Note that it is still possible to connect all adapters to Hono Messaging, though.</li>
+</ul>
+
+<h3 id="api-changes">API Changes</h3>
+
+<ul>
+<li>The Tenant API&rsquo;s <em>get Tenant Information</em> operation has been changed to expect search criteria in the request message&rsquo;s payload instead of the application-properties. This change has been made in order to support other search criteria than just the tenant identifier. In particular, the <em>get Tenant Information</em> operation can now be used to find a tenant based on the subject DN of a trusted certificate authority that has been configured for the tenant. See <a href="/hono/api/tenant-api/#get-tenant-information">get Tenant Information</a> for details.</li>
+
+<li><p>The result type of <code>org.eclipse.hono.util.MessageHelper.getPayload(Message msg)</code> has been changed from <code>String</code> to the more generic <code>io.vertx.core.buffer.Buffer</code> to be able to handle e.g. binary data.</p></li>
+
+<li><p>The default way how <code>HonoClient</code> instances are being created has changed.
+As the default implemention <code>HonoClientImpl</code> was located in an internal
+<code>impl</code> package, it wasn&rsquo;t accessible when using OSGi as this was package wasn&rsquo;t
+exported. The old constructor is still available. In combination with that the
+<code>ConnectionFactoryImpl</code> builder concept was removed as it didn&rsquo;t add anything
+on top of the <code>ClientConfigProperties</code>. The <code>ConnectionBuilderImpl</code> class
+was also moved to an <code>impl</code> package to follow the pattern of
+<code>HonoClientImpl</code>. The two new methods to created instances are are:
+<code>org.eclipse.hono.connection.ConnectionFactory.newConnectionFactory(Vertx, ClientConfigProperties)</code>
+and
+<code>org.eclipse.hono.client.HonoClient.newClient(Vertx, ClientConfigProperties)</code>.</p></li>
+</ul>
+
+<h2 id="0-6-m2">0.6-M2</h2>
+
+<h3 id="api-changes-1">API Changes</h3>
+
+<ul>
+<li>The <code>HonoClient.isConnected()</code> method has been changed to return a <code>Future&lt;Void&gt;</code> instead of <code>Future&lt;Boolean&gt;</code>. The future will succeed if the client is connected and will fail otherwise. This change makes it easier to compose the check with other futures.</li>
+<li>The signatures of the (base) methods for processing requests of <code>org.eclipse.hono.service.credentials.BaseCredentialsService</code>, <code>org.eclipse.hono.service.registration.BaseRegistrationService</code> and <code>org.eclipse.hono.service.tenant.BaseTenantService</code> have changed to both accept and return an <code>org.eclipse.hono.util.EventBusMessage</code>. Subclasses overriding the corresponding methods will need to be adapted accordingly.</li>
+</ul>
+
+<h3 id="fixes-enhancements-3">Fixes &amp; Enhancements</h3>
+
+<ul>
+<li>The <em>hono-client</em> and <em>hono-core</em> artifacts no longer depend on classes from the <em>Spring</em> framework which can help reducing the footprint of applications that want to use the Hono client but otherwise do not employ any Spring libraries.</li>
+<li>The Qpid Dispatch Router used in the example configuration has been updated to version 1.0.1.</li>
+<li>vert.x has been updated to version 3.5.1.</li>
+<li>The MQTT adapter now also supports shortened versions of the telemetry and event topic names. Devices may use just <code>t</code> instead of <code>telemetry</code> and <code>e</code> instead of <code>event</code>.</li>
+</ul>
+
+<h2 id="0-6-m1">0.6-M1</h2>
+
+<h3 id="new-features-2">New Features</h3>
+
+<ul>
+<li>The MQTT protocol adapter now supports publishing telemetry data using either QoS 0 or QoS 1. In case of QoS 1 the adapter will send an MQTT <em>PUBACK</em> to the device once the downstream peer has settled the message with the AMQP <em>accepted</em> outcome.</li>
+<li>Hono now specifies a <a href="/hono/api/tenant-api/">Tenant API</a> and contains an exemplary implementation of this API.
+The purpose of the API is to make Hono aware of the tenants that are available in an installation. This comprises of:
+
+<ul>
+<li>a file-based version of the Tenant API service that implements all mandatory and optional operations</li>
+<li>the implementation of the AMQP 1.0 endpoint as part of the device registry component</li>
+<li>the AMQP 1.0 based implementation of the mandatory <strong>get</strong> operation of the API</li>
+<li>an HTTP endpoint to support CRUD operations for tenants (GET, POST, PUT, DELETE) for convenience</li>
+</ul></li>
+<li><code>org.eclipse.hono.client.impl.AbstractRequestResponseClient</code> now supports generic caching of responses to service invocations based on <em>cache directives</em>. See <a href="/hono/admin-guide/hono-client-configuration/">Hono Client Configuration</a> for details.</li>
+<li>The protocol adapters now can be enabled/disabled <em>per tenant</em> using the <a href="/hono/api/tenant-api/">Tenant API</a>. A protocol adapter that has been disabled for a tenant will reject telemetry messages and events published by any device that belongs to the particular tenant.</li>
+</ul>
+
+<h3 id="fixes-enhancements-4">Fixes &amp; Enhancements</h3>
+
+<ul>
+<li>HonoClient now fails all futures it returns with instances of <code>org.eclipse.hono.client.ServiceInvocationException</code> if something goes wrong. Client code can inspect the exception&rsquo;s <em>errorCode</em> property to get a better understanding of the reason for the failure.</li>
+</ul>
+
+<h2 id="0-5">0.5</h2>
+
+<h3 id="new-features-3">New Features</h3>
+
+<ul>
+<li>We have added a protocol adapter for allowing <a href="https://www.eclipse.org/kura">Eclipse Kura</a> gateways to publish <em>control</em> and <em>data</em> messages to Hono&rsquo;s Telemetry and Event API. See <a href="/hono/admin-guide/kura-adapter-config/">Kura Adapter</a> for details.</li>
+<li><code>RegistrationClientImpl</code> now supports caching of registration assertions received from a Device Registration service. The protocol adapters already make use of this feature  so that they do not need to do a remote service invocation unless a cached assertion has expired. The protocol adapters support two new configuration variables to set the minimum and maximum cache size.</li>
+<li>Devices can now be configured to act as <em>gateways</em> and publish data <em>on behalf of</em> other devices that are not connected to a protocol adapter directly but to the gateway. This is useful for receiving data from devices using narrow band radio communication like <a href="https://www.sigfox.com">SigFox</a> or <a href="https://www.lora-alliance.org/">LoRa</a>. See <a href="/hono/admin-guide/device-registry-config/#configuring-gateway-devices">Configuring Gateway Devices</a> for details.</li>
+</ul>
+
+<h3 id="fixes-enhancements-5">Fixes &amp; Enhancements</h3>
+
+<ul>
+<li>See <a href="https://github.com/eclipse/hono/issues?utf8=%E2%9C%93&amp;q=is%3Aissue%20milestone%3A0.5">Git Hub</a> for the list of issues addressed.</li>
+<li>The documentation of Hono&rsquo;s individual components has been split up into information relevant for <em>using</em> the components (<em>User Guide</em>) and information relevant for <em>configuring</em> the components (<em>Admin Guide</em>).</li>
+</ul>
+
+<h3 id="configuration-changes">Configuration Changes</h3>
+
+<ul>
+<li>All Hono Docker images after 0.5-M10 now use <code>eclipse/</code> instead of <code>eclipsehono/</code> as the prefix in the image repository name.</li>
+<li>The default names of the files used by the Device Registry component for persisting data have changed:
+
+<ul>
+<li><code>/home/hono/registration/device-identities.json</code> has been changed to <code>/var/lib/hono/device-registry/device-identities.json</code></li>
+<li><code>/home/hono/registration/credentials.json</code> has been changed to <code>/var/lib/hono/device-registry/credentials.json</code></li>
+</ul></li>
+<li>The Device Registry used in the <em>Getting started</em> guide now by default persists data to a file system volume.</li>
+<li>The <em>REST Adapter</em> has been renamed to <em>HTTP Adapter</em> because it does not really comply with the common requirements for RESTful services. As part of this effort, the names of the HTTP adapter&rsquo;s configuration variables have also been changed accordingly. See <a href="/hono/admin-guide/http-adapter-config/#service-configuration">HTTP Adapter Configuration</a> for details.</li>
+<li>The Device Registry component&rsquo;s <code>HONO_CREDENTIALS_SRV_CREDENTIALS_FILENAME</code> configuration variable has been shortened to just <code>HONO_CREDENTIALS_SVC_FILENAME</code> to match its counterpart for configuring the filename of the device registration service implementation.</li>
+</ul>
+
+<h3 id="api-changes-2">API Changes</h3>
+
+<ul>
+<li>The <a href="/hono/api/telemetry-api/">Telemetry API</a> has been updated to recommend clients to use <em>AT LEAST ONCE</em> delivery semantics instead of <em>AT MOST ONCE</em>. This change has been made to better support end-to-end flow control between protocol adapters (devices) and downstream consumers. Note that this change has no impact on the <em>quality of service</em> that devices and consumers experience, i.e. telemetry data published by a device to a protocol adapter is still <em>not guaranteed</em> to be delivered to a downstream consumer even if the device has received an acknowledgement from the protocol adapter indicating that it has accepted the data (e.g. a 202 HTTP status code).</li>
+<li>The <code>org.eclipse.hono.client.HonoClient</code> interface has been changed:
+
+<ul>
+<li>All methods that had previously returned <code>HonoClient</code> have been changed to return <code>Future&lt;HonoClient&gt;</code> instead. Returning the client instance had originally been intended to be useful for chaining commands. However, there was nothing much to chain because the effect of invoking the (asynchronous) operations is usually not immediately visible in the client, e.g. when invoking the <em>connect</em> method, the returned client will most likely not (yet) be connected.</li>
+<li>All methods that had previously accepted a <code>Handler&lt;AsyncResult&gt;</code> have been changed to return a <code>Future</code> instead. This makes orchestration of these methods and their results using <code>Future.compose</code>, <code>Future.map</code> etc. much easier.</li>
+</ul></li>
+<li>The <code>org.eclipse.hono.client.MessageSender</code> interface has been changed:
+
+<ul>
+<li>All methods now return a <code>Future&lt;ProtonDelivery&gt;</code> to indicate the outcome of the operation according to the sender specific delivery semantics.
+For a Telemetry client this means that the future will be succeeded immediately after the message has been sent, i.e. the client does not wait
+for a downstream container to accept the message.
+For an Event client this means that the future will be succeeded once the downstream container has settled and accepted the message.</li>
+<li>All operations accepting a disposition handler have been removed in order to relieve clients from the burden of (correctly) implementing the delivery semantics.</li>
+</ul></li>
+<li>The <code>org.eclipse.hono.client.RegistrationClient</code> interface has been changed:
+
+<ul>
+<li>All methods that had previously accepted a <code>Handler&lt;AsyncResult&gt;</code> have been changed to return a <code>Future</code> instead. This makes orchestration of these methods and their results using <code>Future.compose</code>, <code>Future.map</code> etc. much easier.</li>
+</ul></li>
+<li>The <code>org.eclipse.hono.client.CredentialsClient</code> interface has been changed:
+
+<ul>
+<li>All methods that had previously accepted a <code>Handler&lt;AsyncResult&gt;</code> have been changed to return a <code>Future</code> instead. This makes orchestration of these methods and their results using <code>Future.compose</code>, <code>Future.map</code> etc. much easier.</li>
+</ul></li>
+<li>The <a href="/hono/api/device-registration-api/#assert-device-registration">assert Device Registration</a> operation of the Device Registration API has been extended with an optional <em>gateway_id</em> parameter which can be used to get a registration status assertion on behalf of another device. This is mainly intended to support use cases where devices do not connect to a protocol adapter directly but are connected to a <em>gateway</em> component which <em>acts on behalf of</em> its connected devices when publishing data to a protocol adapter.
+A corresponding <em>assertRegsitration</em> operation has been added to the <code>org.eclipse.hono.client.RegistrationClient</code> and <code>org.eclipse.hono.service.registration.RegistrationService</code> interfaces which require both a device ID and a gateway ID being passed in as parameters.</li>
+</ul>
+
+<h2 id="0-5-m10">0.5-M10</h2>
+
+<h3 id="new-features-4">New Features</h3>
+
+<ul>
+<li>We have set up a <a href="/hono/sandbox/">Sandbox server</a> at <code>hono.eclipse.org</code> which can be used to connect devices and consumers for testing purposes without the need to run a Hono instance locally.</li>
+</ul>
+
+<h3 id="fixes-enhancements-6">Fixes &amp; Enhancements</h3>
+
+<p>See <a href="https://github.com/eclipse/hono/issues?utf8=%E2%9C%93&amp;q=is%3Aissue%20milestone%3A0.5-M10">Git Hub</a> for the list of issues addressed.</p>
+
+<h3 id="configuration-changes-1">Configuration Changes</h3>
+
+<ul>
+<li>The example <em>Dispatch Router</em> is configured to use balanced distribution of messages to consumers (vs. multicast before). For full AMQP flow control, this is the preferred option.</li>
+</ul>
+
+
+      <aside class="copyright" role="note">
+  <div class="logo">
+    <a href="https://www.eclipse.org" target="_blank">
+      <img src="https://www.eclipse.org/hono/images/eclipse_foundation_logo.png" />
+    </a>
+  </div>
+  <p class="notice">
+    
+    &copy; 2018 The Eclipse Hono Project &ndash;
+    
+    Documentation built with
+    <a href="https://www.gohugo.io" target="_blank">Hugo</a>
+    using the
+    <a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+  </p>
+  <p class="quickLinks">
+    <a href="http://www.eclipse.org/legal/privacy.php" target="_blank">
+      &gt; Privacy Policy
+    </a>
+    <a href="http://www.eclipse.org/legal/termsofuse.php" target="_blank">
+      &gt; Terms of Use
+    </a>
+    <a href="http://www.eclipse.org/legal/copyright.php" target="_blank">
+      &gt; Copyright Agent
+    </a>
+    <a href="http://www.eclipse.org/legal" target="_blank">
+      &gt; Legal
+    </a>
+    <a href="https://eclipse.org/security" target="_blank">
+      &gt; Report a Vulnerability
+    </a>
+  </p>
+</aside>
+
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="https://www.eclipse.org/hono/license/" title="License">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              License
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+  </div>
+</nav>
+
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = 'https:\/\/www.eclipse.org\/hono\/';
+      var repo_id  = 'eclipse\/hono';
+    
+    </script>
+
+    <script src="https://www.eclipse.org/hono/javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            if(!headers[i].id)
+                a.setAttribute("href", headers[i].parentNode.href);
+            else
+                a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "#";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+      
+      <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-5WLCZXC');
+      </script>
+    
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

@@ -1,0 +1,111 @@
+[
+  ["router", {
+    "id": "Hono.Sandbox.Router",
+    "mode": "standalone",
+    "workerThreads": 3
+  }],
+
+  ["authServicePlugin", {
+    "name": "Hono Auth",
+    "host": "hono-service-auth.hono",
+    "port": 5672
+  }],
+
+  ["sslProfile", {
+    "name": "external",
+    "certDb": "/run/secrets/trusted-certs.pem",
+    "certFile": "/run/secrets/hono.eclipse.org-cert.pem",
+    "keyFile": "/run/secrets/hono.eclipse.org-key.pem"
+  }],
+
+  ["listener", {
+    "sslProfile": "external",
+    "requireSsl": true,
+    "host": "0.0.0.0",
+    "port": 5671,
+    "initialHandshakeTimeoutSeconds": 3,
+    "maxSessionFrames": 100,
+    "authenticatePeer": true,
+    "saslMechanisms": "PLAIN",
+    "saslPlugin": "Hono Auth"
+  }],
+
+  ["listener", {
+    "host": "0.0.0.0",
+    "port": 5672,
+    "initialHandshakeTimeoutSeconds": 3,
+    "maxSessionFrames": 100,
+    "authenticatePeer": true,
+    "saslMechanisms": "PLAIN",
+    "saslPlugin": "Hono Auth"
+  }],
+
+  ["listener", {
+    "host": "0.0.0.0",
+    "port": 5673,
+    "initialHandshakeTimeoutSeconds": 3,
+    "maxSessionFrames": 100,
+    "authenticatePeer": false,
+    "logMessage": "none"
+  }],
+
+  ["connector", {
+    "name": "broker",
+    "host": "hono-artemis.hono",
+    "port": 5672,
+    "role": "route-container",
+    "saslUsername": "artemis",
+    "saslPassword": "artemis"
+  }],
+
+  ["linkRoute", {
+    "prefix": "event/",
+    "dir": "in",
+    "connection": "broker"
+  }],
+
+  ["linkRoute", {
+    "prefix": "event/",
+    "dir": "out",
+    "connection": "broker"
+  }],
+
+  ["policy", {
+    "maxConnections": 220,
+    "enableVhostPolicy": true,
+    "defaultVhost": "hono"
+  }],
+
+  ["vhost", {
+      "id": "hono",
+      "maxConnections": 200,
+      "maxConnectionsPerUser": 200,
+      "maxConnectionsPerHost": 50,
+      "allowUnknownUser": true,
+      "groups": {
+        "$default": {
+          "maxSessions": 10,
+          "remoteHosts": "*"
+        }
+      }
+  }],
+
+  ["vhost", {
+      "id": "hono-internal",
+      "maxConnections": 20,
+      "allowUnknownUser": true,
+      "groups": {
+        "$default": {
+          "remoteHosts": "*",
+          "allowUserIdProxy": true,
+          "targets": "telemetry/*, event/*",
+          "sources": "control/*"
+        }
+      }
+  }],
+
+  ["log", {
+    "module": "DEFAULT",
+    "enable": "info+"
+  }]
+]

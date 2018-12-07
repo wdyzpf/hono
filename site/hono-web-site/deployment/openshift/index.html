@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="en-us">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>OpenShift with EnMasse - Eclipse Hono</title>
+    <meta name="generator" content="Hugo 0.42" />
+
+    
+    <meta name="description" content="A set of micro-services for connecting millions of devices.">
+    
+    <link rel="canonical" href="https://www.eclipse.org/hono/deployment/openshift/">
+    
+    <meta name="author" content="The Eclipse Hono Project">
+    
+
+    <meta property="og:url" content="https://www.eclipse.org/hono/deployment/openshift/">
+    <meta property="og:title" content="Eclipse Hono">
+    <meta property="og:image" content="https://www.eclipse.org/hono/images/logo-32x32px.png">
+    <meta name="apple-mobile-web-app-title" content="Eclipse Hono">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.eclipse.org/hono/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://www.eclipse.org/hono/images/favicon.ico">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('https://www.eclipse.org/hono/fonts/icon.eot');
+        src: url('https://www.eclipse.org/hono/fonts/icon.eot')
+               format('embedded-opentype'),
+             url('https://www.eclipse.org/hono/fonts/icon.woff')
+               format('woff'),
+             url('https://www.eclipse.org/hono/fonts/icon.ttf')
+               format('truetype'),
+             url('https://www.eclipse.org/hono/fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/application.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/temporary.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/palettes.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu&#43;Mono">
+    <style>
+      body, input {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/css/hono.css">
+    
+    <link rel="stylesheet" href="//www.eclipse.org/eclipse.org-common/themes/solstice/public/stylesheets/vendor/cookieconsent/cookieconsent.min.css">
+    
+    <script src="https://www.eclipse.org/hono/javascripts/modernizr.js"></script>
+    <script src="//www.eclipse.org/eclipse.org-common/themes/solstice/public/javascript/vendor/cookieconsent/default.min.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-orange palette-accent-teal">
+
+
+
+	
+	
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        OpenShift with EnMasse
+      </div>
+    </div>
+
+    
+
+    
+    <div class="button button-github" role="button" aria-label="GitHub">
+      <a href="https://github.com/eclipse/hono" title="@eclipse/hono on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+    </div>
+    
+    
+        
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="https://www.eclipse.org/hono/" class="project">
+    <div class="banner">
+      
+        <div class="drawerlogo">
+          <img src="https://www.eclipse.org/hono/images/logo-32x32px.png">
+        </div>
+      
+      <div class="name">
+        <strong>Eclipse Hono&trade; </strong>
+        
+          <br>
+          eclipse/hono
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+        <ul class="repo">
+          <li class="repo-download">
+            <a href="https://www.eclipse.org/hono/download/" title="Download" data-action="download">
+              <i class="icon icon-download"></i> Download
+            </a>
+          </li>
+          <li class="repo-stars">
+            <a href="https://github.com/eclipse/hono/stargazers" target="_blank" title="Stargazers" data-action="star">
+              <i class="icon icon-star"></i> Stars
+              <span class="count">&ndash;</span>
+            </a>
+          </li>
+        </ul>
+        <hr>
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Getting started" href="/hono/getting-started/">
+	
+	Getting started
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Downloads" href="/hono/download/">
+	
+	Downloads
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Sandbox" href="/hono/sandbox/">
+	
+	Sandbox
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Concepts" href="/hono/concepts/">
+	
+	Concepts
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="User Guide" href="/hono/user-guide/">
+	
+	User Guide
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Admin Guide" href="/hono/admin-guide/">
+	
+	Admin Guide
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Developer Guide" href="/hono/dev-guide/">
+	
+	Developer Guide
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="API" href="/hono/api/">
+	
+	API
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Deployment" href="/hono/deployment/">
+	
+	Deployment
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Architecture" href="/hono/architecture/">
+	
+	Architecture
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Community" href="/hono/community/">
+	
+	Community
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="License" href="/hono/license/">
+	
+	License
+</a>
+
+
+
+  
+</li>
+
+
+        </ul>
+        
+
+        
+        <hr>
+        <span class="section">Build Status:</span>
+
+        <ul>
+          
+          <li>
+            <a href="https://ci.eclipse.org/hono/job/Hono-CI/" title="Eclipse Build Status" target="_blank">
+              <img src="https://ci.eclipse.org/hono/buildStatus/icon?job=Hono-CI">
+            </a>
+          </li>
+          
+
+          <li>
+            <a href="https://travis-ci.org/eclipse/hono" title="Travis Build Status" target="_blank">
+              <img src="https://travis-ci.org/eclipse/hono.svg?branch=master" />
+            </a>
+          </li>
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>OpenShift with EnMasse </h1>
+
+			<p>This guide describes how to deploy Eclipse Hono™ using EnMasse as messaging
+backend on a single-master/single-node local OpenShift installation using
+&ldquo;minishift&rdquo;.</p>
+
+<p></p>
+
+<p>All the Eclipse Hono&trade; components can be deployed on OpenShift, thanks to
+the resources YAML files that are provided through the repository. These files
+describe such components in terms of <em>deployments</em> and <em>services</em> in order to
+have the right pods running in the OpenShift cluster so that they are able
+to communicate with each other.</p>
+
+<div class="admonition warning">
+<p class="admonition-title">Use for demos only</p>
+<p><p>The intention of this deployment example is to provide a very simple to
+replicate setup of Hono based on OpenShift. It is mostly suitable for
+developing, testing and demo purposes. For full production usage, you&rsquo;ll need
+to consider the following topics which are not covered by this example
+deployment:</p>
+
+<ul>
+<li>Running EnMasse with full authentication enabled</li>
+<li>Integration between EnMasse and Hono authentication</li>
+<li>Configuring and supporting multi-tenancy in both platforms</li>
+</ul>
+
+<p>These are all subjects to current and future developments in this area. This
+document will be updated accordingly with the progress.</p>
+</p>
+</div>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<p>The main prerequisite for this kind of deployment is to have an available
+OpenShift cluster. For local development purposes it is pretty simple to start
+up such a cluster using &ldquo;minishift&rdquo;. It will run a single node/single master
+OpenShift cluster inside a virtual machine on your local computer.</p>
+
+<p>You should have the following tools installed on your local system:</p>
+
+<ul>
+<li>OpenShift Origin client tools, 3.7.x+ – required to communicate with the
+OpenShift cluster</li>
+<li>Minishift, 1.13.x+ – required to run local OpenShift cluster</li>
+<li>Bash – required to execute setup scripts</li>
+</ul>
+
+<p>In case you want to use an existing OpenShift cluster you only need the the
+&ldquo;client tools&rdquo; don&rsquo;t need to install &ldquo;minishift&rdquo;.</p>
+
+<h3 id="openshift-origin-client-tools">OpenShift Origin client tools</h3>
+
+<p>The client tools can be downloaded from the
+<a href="https://github.com/openshift/origin/releases">OpenShift Origin</a> project
+repository. Simply download the archive, unpack it and drop it into a directory
+where it can be found by the local PATH lookup.</p>
+
+<h3 id="minishift">Minishift</h3>
+
+<p>Minishift is a tool that helps you run OpenShift locally by running a
+single-node OpenShift cluster inside a VM. Follow
+<a href="https://docs.openshift.org/latest/minishift/getting-started/index.html">this guide</a>
+for installing and having Minishift up and running.</p>
+
+<p>OpenShift limits the number of pods you can start by the number of system
+resources available. Minishift will only provide a small subset of your host
+machine resources by default. However this is too limited for a Hono deployment
+and so the following start command has to be used in order to provide enough
+resources to the Minishift instance:</p>
+
+<pre><code class="language-sh">$ minishift start --cpus 4 --memory 8GB --disk-size 40GB
+</code></pre>
+
+<div class="admonition note">
+<p class="admonition-title">Resource limits</p>
+<p>Once you created your Minishift cluster instance with <code>minishift start</code> the
+resource arguments (like <code>--cpus</code>) are ignored in future calls to
+<code>minishift start</code> as the virtual machine has already been created. You will
+need to destroy the instance using <code>minishift delete</code> before it will accept
+the new resource limits.</p>
+</div>
+
+<p>After Minishift has been started up, the following steps need to be performed:</p>
+
+<ol>
+<li><p>Set the <code>DOCKER_HOST</code> environment variable to point to the Docker daemon
+running inside the Minishift VM and set path to the OpenShift command line
+utilities</p>
+
+<pre><code class="language-sh">$ eval $(minishift docker-env)
+$ eval $(minishift oc-env)
+</code></pre></li>
+
+<li><p>Build the Hono Docker images and deploy them to the Docker registry in the
+Minishift instance</p>
+
+<pre><code class="language-sh">~/hono$ mvn clean install -Pbuild-docker-image
+</code></pre></li>
+</ol>
+
+<p>Those two steps will run a Hono build on your local machine and assemble the
+docker images on the Docker registry running inside the Minishift instance.</p>
+
+<h2 id="create-a-new-project">Create a new project</h2>
+
+<p>In this setup everything will be deployed into a single OpenShift project. We
+do need to create this project before executing the next steps. A new project
+can be created by executing the following command from the command line:</p>
+
+<pre><code class="language-sh">$ oc new-project hono
+</code></pre>
+
+<div class="admonition note">
+<p class="admonition-title">Project name</p>
+<p>This tutorial and all scripts assume that the project name will be <code>hono</code>. If
+you choose a different name, you will need to adapt commands and shell scripts
+accordingly. It is strongly recommended to stick to the default name <code>hono</code>.</p>
+</div>
+
+<h2 id="deploy-enmasse">Deploy EnMasse</h2>
+
+<p>This deployment will use EnMasse as its messaging backend. So the first thing
+we need is to run EnMasse messaging platform on OpenShift in a project
+called <code>hono</code>. For that, download the EnMasse release from the
+<a href="https://github.com/EnMasseProject/enmasse/releases">download page</a>.
+These instructions were tested using version <code>0.20.0</code>. Newer versions might
+work as well, but are not tested. Extract the EnMasse release and execute
+the following command from the newly created directory:</p>
+
+<pre><code class="language-sh">./deploy.sh -n hono -m https://$(minishift ip):8443
+</code></pre>
+
+<p>This should get the installation of EnMasse running. For more information on
+how to run and configure EnMasse, take a look at the
+<a href="http://enmasse.io/documentation/">EnMasse documentation</a>.</p>
+
+<div class="admonition note">
+<p class="admonition-title">Be patient</p>
+<p>The deployment of EnMasse will pull a few docker images during the startup
+process. It is recommended to wait until all 7 pods are running and OK.</p>
+</div>
+
+<p>When the EnMasse deployment is complete, the Minishift dashboard of the <code>hono</code>
+project should look something like this:</p>
+
+<p><img src="../openshift_09_enmasse_ready.png" alt="EnMasse Ready" /></p>
+
+<h2 id="script-based-deployment">Script based Deployment</h2>
+
+<p>Now we are ready to deploy Hono. From the
+<code>example/target/deploy/openshift</code> directory, run:</p>
+
+<pre><code class="language-sh">~hono/example/target/deploy/openshift$ bash ./openshift_deploy.sh
+</code></pre>
+
+<p>This should start all necessary Hono components, configured to connect to the
+EnMasse instance running in the same project.</p>
+
+<p>The script will try to use Minishift cluster address by default. If you wish
+to deploy Hono to some other OpenShift cluster, you must specify the address
+of the cluster as an argument, like:</p>
+
+<pre><code class="language-sh">~hono/example/target/deploy/openshift$ bash ./openshift_deploy.sh https://192.168.64.3:8443
+</code></pre>
+
+<p>In order to see the deployed components, you can launch OpenShift&rsquo;s web UI
+in a browser by issuing:</p>
+
+<pre><code class="language-sh">$ minishift dashboard
+</code></pre>
+
+<p>You can login with username <code>developer</code> and password <code>developer</code>. Be sure
+to switch to the <code>Eclipse Hono</code> project in the UI in order to see the
+components deployed as part of Hono.</p>
+
+<p>The screenshots below show Hono&rsquo;s components deployed to OpenShift:</p>
+
+
+<figure>
+    
+        <img src="../openshift_01_hono_ready.png" alt="Screenshot of OpenShift showing Hono deployment state" />
+    
+    
+    <figcaption>
+        <p>
+        Hono dashbaord in OpenShift
+        
+            
+        
+        </p> 
+    </figcaption>
+    
+</figure>
+
+
+<h2 id="undeploying-hono">Undeploying Hono</h2>
+
+<p>There also is a script for shutting down and undeploying Hono:</p>
+
+<pre><code class="language-sh">~hono/example/target/deploy/openshift$ bash ./openshift_undeploy.sh
+</code></pre>
+
+<div class="admonition note">
+<p class="admonition-title">Be patient</p>
+<p>Undeploying the project will take a short moment. If you try to re-created the
+<code>hono</code> project before the cleanup is complete you will receive an error that
+the project <code>hono</code> cannot be created because it already (still) exists.</p>
+</div>
+
+<h2 id="extract-certificate">Extract Certificate</h2>
+
+<p>In order to connect the external consumer to EnMasse, we need to use a
+proper SSL certificate. We can extract one from the OpenShift using the
+following command (from the <code>example</code> directory):</p>
+
+<pre><code class="language-sh">~hono/example$ oc extract secret/external-certs-messaging --to=target/config/hono-demo-certs-jar/ -n hono
+</code></pre>
+
+<p>This will create two new files with the key and certificate which we will
+use to connect the Hono consumer.</p>
+
+<h2 id="access-to-hono-services">Access to Hono services</h2>
+
+<p>The OpenShift deployment provides access to Eclipse Hono by means of
+<em>services</em>, the main ones are:</p>
+
+<ul>
+<li><strong>messaging</strong>: router network for the business application in order to consume data</li>
+<li><strong>hono-adapter-mqtt-vertx</strong>: protocol adapter for publishing telemetry data and events using the MQTT protocol</li>
+<li><strong>hono-adapter-http-vertx</strong>: protocol adapter for publishing telemetry data and events using the HTTP protocol</li>
+<li><strong>hono-service-device-registry</strong>: component for registering and managing devices</li>
+</ul>
+
+<p>You can check these services through the <code>oc get services</code> command having the following output :</p>
+
+<pre><code>NAME                           CLUSTER-IP       EXTERNAL-IP   PORT(S)                                           AGE
+address-controller             172.30.40.104    &lt;none&gt;        8080/TCP,8081/TCP,5672/TCP                        2h
+configuration                  172.30.28.244    &lt;none&gt;        5671/TCP                                          2h
+console                        172.30.104.176   &lt;none&gt;        5672/TCP,8080/TCP                                 2h
+grafana                        172.30.206.225   &lt;none&gt;        3000/TCP                                          2h
+hono-adapter-http-vertx        172.30.206.33    &lt;nodes&gt;       8080:30080/TCP,8443:30443/TCP                     2h
+hono-adapter-kura              172.30.119.55    &lt;nodes&gt;       1883:31884/TCP,8883:30884/TCP                     2h
+hono-adapter-mqtt-vertx        172.30.33.184    &lt;nodes&gt;       1883:31883/TCP,8883:30883/TCP                     2h
+hono-service-auth              172.30.25.62     &lt;none&gt;        5671/TCP                                          2h
+hono-service-device-registry   172.30.219.76    &lt;nodes&gt;       5671:31671/TCP,8080:31080/TCP,8443:31443/TCP      2h
+hono-service-messaging         172.30.60.68     &lt;nodes&gt;       5671:32671/TCP                                    2h
+influxdb                       172.30.234.72    &lt;none&gt;        2003/TCP,8083/TCP,8086/TCP                        2h
+messaging                      172.30.86.158    &lt;none&gt;        5672/TCP,5671/TCP,55671/TCP,56671/TCP,55672/TCP   2h
+mqtt                           172.30.29.31     &lt;none&gt;        1883/TCP,8883/TCP                                 2h
+none-authservice               172.30.202.44    &lt;none&gt;        5671/TCP                                          2h
+queue-scheduler                172.30.196.224   &lt;none&gt;        5672/TCP                                          2h
+ragent                         172.30.182.52    &lt;none&gt;        5671/TCP                                          2h
+subscription                   172.30.91.190    &lt;none&gt;        5672/TCP                                          2h
+</code></pre>
+
+<p>Services are accessed from the &ldquo;outside&rdquo; of OpenShift using &ldquo;routes&rdquo;, which
+map external traffic to internal services. You can get a list of all routes
+from the project by executing <code>oc get routes</code>, which should give you the
+following output:</p>
+
+<pre><code>NAME                                 HOST/PORT                                                     PATH      SERVICES                       PORT          TERMINATION   WILDCARD
+console                              console-hono.192.168.42.2.nip.io                                        console                        http                        None
+grafana                              grafana-hono.192.168.42.2.nip.io                                        grafana                        3000-tcp                    None
+hono-adapter-http-vertx              hono-adapter-http-vertx-hono.192.168.42.2.nip.io                        hono-adapter-http-vertx        8080                        None
+hono-adapter-http-vertx-sec          hono-adapter-http-vertx-sec-hono.192.168.42.2.nip.io                    hono-adapter-http-vertx        8443          passthrough   None
+hono-adapter-kura                    hono-adapter-kura-hono.192.168.42.2.nip.io                              hono-adapter-kura              1883                        None
+hono-adapter-kura-sec                hono-adapter-kura-sec-hono.192.168.42.2.nip.io                          hono-adapter-kura              8883          passthrough   None
+hono-adapter-mqtt-vertx              hono-adapter-mqtt-vertx-hono.192.168.42.2.nip.io                        hono-adapter-mqtt-vertx        1883                        None
+hono-adapter-mqtt-vertx-sec          hono-adapter-mqtt-vertx-sec-hono.192.168.42.2.nip.io                    hono-adapter-mqtt-vertx        8883          passthrough   None
+hono-service-auth                    hono-service-auth-hono.192.168.42.2.nip.io                              hono-service-auth              5671          passthrough   None
+hono-service-device-registry-amqps   hono-service-device-registry-amqps-hono.192.168.42.2.nip.io             hono-service-device-registry   5671          passthrough   None
+hono-service-device-registry-http    hono-service-device-registry-http-hono.192.168.42.2.nip.io              hono-service-device-registry   8080                        None
+hono-service-device-registry-https   hono-service-device-registry-https-hono.192.168.42.2.nip.io             hono-service-device-registry   8443          passthrough   None
+hono-service-messaging               hono-service-messaging-hono.192.168.42.2.nip.io                         hono-service-messaging         5671          passthrough   None
+messaging                            messaging-hono.192.168.42.2.nip.io                                      messaging                      amqps         passthrough   None
+mqtt                                 mqtt-hono.192.168.42.2.nip.io                                           mqtt                           secure-mqtt   passthrough   None
+restapi                              restapi-hono.192.168.42.2.nip.io                              /v1       address-controller             http                        None
+</code></pre>
+
+<p>In the following sections, when using a hostname, we will be using the hostnames
+as provided by the &ldquo;get routes&rdquo; command above. Using Minishift or a real
+OpenShift cluster, it works the same way.</p>
+
+<h3 id="starting-a-consumer">Starting a Consumer</h3>
+
+<p>As described in the <a href="/hono/getting-started/">Getting Started</a>
+guide, data produced by devices is usually consumed by downstream applications
+which connect directly to the router network service. You can start the client
+from the <code>example</code> folder as follows:</p>
+
+<pre><code class="language-sh">~hono/example$ mvn spring-boot:run -Drun.arguments=--hono.client.host=$(oc get route messaging --template='{{.spec.host}}'),--hono.client.port=443,--hono.client.trustStorePath=target/config/hono-demo-certs-jar/tls.crt
+</code></pre>
+
+<h3 id="uploading-telemetry-with-http">Uploading Telemetry with HTTP</h3>
+
+<p>In order to upload telemetry data to Hono, the device needs to be registered
+with the system. You can register the device using the <em>Device Registry</em> by
+running the following command (i.e. for a device with ID <code>4711</code>):</p>
+
+<pre><code class="language-sh">$ curl -X POST -i -H 'Content-Type: application/json' -d '{&quot;device-id&quot;: &quot;4711&quot;}' http://$(oc get route hono-service-device-registry-http --template='{{.spec.host}}')/registration/DEFAULT_TENANT
+</code></pre>
+
+<p>After having the device registered, uploading telemetry is just a simple
+HTTP POST command to the <em>HTTP Adapter</em>:</p>
+
+<pre><code class="language-sh">$ curl -X POST -i -u sensor1@DEFAULT_TENANT:hono-secret -H 'Content-Type: application/json' --data-binary '{&quot;temp&quot;: 5}' http://$(oc get route hono-adapter-http-vertx --template='{{.spec.host}}')/telemetry
+</code></pre>
+
+<div class="admonition note">
+<p class="admonition-title">503 Service unavailable</p>
+<p><p>You might run into the issue that the previous HTTP POST operation returns
+<code>503 Service Unavailable</code>. In this case the HTTP protocol adapter has no
+&ldquo;credit&rdquo;, meaning it has no downstream consumer which would accept the message.</p>
+
+<p>This will be the case when you have no consumer running. So before uploading
+telemetry data you need to ensure that at least one consumer is running as
+described in <a href="#starting-a-consumer">Starting a consumer</a>.</p>
+</p>
+</div>
+
+<h3 id="uploading-telemetry-with-mqtt">Uploading Telemetry with MQTT</h3>
+
+<p>Other than using the <em>HTTP Adapter</em>, it&rsquo;s possible to upload telemetry data
+using the <em>MQTT Adapter</em> as well:</p>
+
+<pre><code class="language-sh">$ mosquitto_pub -h $(minishift ip) -p 31883 -u 'sensor1@DEFAULT_TENANT' -P hono-secret -t telemetry -m '{&quot;temp&quot;: 5}'
+</code></pre>
+
+<div class="admonition note">
+<p class="admonition-title">Mosquitto TLS SNI support</p>
+<p><p>As of writing Mosquitto (which provides the <code>mosquitto_pub</code>) command doesn&rsquo;t
+support TLS SNI, which is however required when using MQTT with OpenShift
+routes. The workaround is to use the &ldquo;Node port&rdquo; as in the example above.</p>
+
+<p>Other MQTT clients do not have this limitations so using TLS with SNI should
+be preferred in this case.</p>
+</p>
+</div>
+
+<h3 id="usernames-passwords">Usernames &amp; passwords</h3>
+
+<p>The username and password used above for device <code>4711</code> are part of the example
+configuration that comes with Hono.
+See <a href="/hono/concepts/device-identity/">Device Identity</a> for an
+explanation of how devices are identified in Hono and how device identity is
+related to authentication.</p>
+
+      <aside class="copyright" role="note">
+  <div class="logo">
+    <a href="https://www.eclipse.org" target="_blank">
+      <img src="https://www.eclipse.org/hono/images/eclipse_foundation_logo.png" />
+    </a>
+  </div>
+  <p class="notice">
+    
+    &copy; 2018 The Eclipse Hono Project &ndash;
+    
+    Documentation built with
+    <a href="https://www.gohugo.io" target="_blank">Hugo</a>
+    using the
+    <a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+  </p>
+  <p class="quickLinks">
+    <a href="http://www.eclipse.org/legal/privacy.php" target="_blank">
+      &gt; Privacy Policy
+    </a>
+    <a href="http://www.eclipse.org/legal/termsofuse.php" target="_blank">
+      &gt; Terms of Use
+    </a>
+    <a href="http://www.eclipse.org/legal/copyright.php" target="_blank">
+      &gt; Copyright Agent
+    </a>
+    <a href="http://www.eclipse.org/legal" target="_blank">
+      &gt; Legal
+    </a>
+    <a href="https://eclipse.org/security" target="_blank">
+      &gt; Report a Vulnerability
+    </a>
+  </p>
+</aside>
+
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="https://www.eclipse.org/hono/deployment/kubernetes/" title="Kubernetes">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              Kubernetes
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="https://www.eclipse.org/hono/deployment/openshift_s2i/" title="OpenShift with source-to-image (S2I)">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              OpenShift with source-to-image (S2I)
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = 'https:\/\/www.eclipse.org\/hono\/';
+      var repo_id  = 'eclipse\/hono';
+    
+    </script>
+
+    <script src="https://www.eclipse.org/hono/javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            if(!headers[i].id)
+                a.setAttribute("href", headers[i].parentNode.href);
+            else
+                a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "#";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+      
+      <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-5WLCZXC');
+      </script>
+    
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

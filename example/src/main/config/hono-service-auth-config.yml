@@ -1,0 +1,13 @@
+hono:
+  app:
+    maxInstances: 1
+  auth:
+    amqp:
+      bindAddress: 0.0.0.0
+      keyPath: ${secret.path}/auth-server-key.pem
+      certPath: ${secret.path}/auth-server-cert.pem
+      trustStorePath: ${secret.path}/trusted-certs.pem
+      insecurePortBindAddress: 0.0.0.0
+      insecurePortEnabled: true
+    svc:
+      permissionsPath: file://${secret.path}/permissions.json

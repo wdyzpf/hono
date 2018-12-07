@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="en-us">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>Implement a Custom Hono HTTP Protocol Adapter - Eclipse Hono</title>
+    <meta name="generator" content="Hugo 0.42" />
+
+    
+    <meta name="description" content="A set of micro-services for connecting millions of devices.">
+    
+    <link rel="canonical" href="https://www.eclipse.org/hono/dev-guide/custom_http_adapter/">
+    
+    <meta name="author" content="The Eclipse Hono Project">
+    
+
+    <meta property="og:url" content="https://www.eclipse.org/hono/dev-guide/custom_http_adapter/">
+    <meta property="og:title" content="Eclipse Hono">
+    <meta property="og:image" content="https://www.eclipse.org/hono/images/logo-32x32px.png">
+    <meta name="apple-mobile-web-app-title" content="Eclipse Hono">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.eclipse.org/hono/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://www.eclipse.org/hono/images/favicon.ico">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('https://www.eclipse.org/hono/fonts/icon.eot');
+        src: url('https://www.eclipse.org/hono/fonts/icon.eot')
+               format('embedded-opentype'),
+             url('https://www.eclipse.org/hono/fonts/icon.woff')
+               format('woff'),
+             url('https://www.eclipse.org/hono/fonts/icon.ttf')
+               format('truetype'),
+             url('https://www.eclipse.org/hono/fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/application.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/temporary.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/palettes.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu&#43;Mono">
+    <style>
+      body, input {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/css/hono.css">
+    
+    <link rel="stylesheet" href="//www.eclipse.org/eclipse.org-common/themes/solstice/public/stylesheets/vendor/cookieconsent/cookieconsent.min.css">
+    
+    <script src="https://www.eclipse.org/hono/javascripts/modernizr.js"></script>
+    <script src="//www.eclipse.org/eclipse.org-common/themes/solstice/public/javascript/vendor/cookieconsent/default.min.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-orange palette-accent-teal">
+
+
+
+	
+	
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        Implement a Custom Hono HTTP Protocol Adapter
+      </div>
+    </div>
+
+    
+
+    
+    <div class="button button-github" role="button" aria-label="GitHub">
+      <a href="https://github.com/eclipse/hono" title="@eclipse/hono on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+    </div>
+    
+    
+        
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="https://www.eclipse.org/hono/" class="project">
+    <div class="banner">
+      
+        <div class="drawerlogo">
+          <img src="https://www.eclipse.org/hono/images/logo-32x32px.png">
+        </div>
+      
+      <div class="name">
+        <strong>Eclipse Hono&trade; </strong>
+        
+          <br>
+          eclipse/hono
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+        <ul class="repo">
+          <li class="repo-download">
+            <a href="https://www.eclipse.org/hono/download/" title="Download" data-action="download">
+              <i class="icon icon-download"></i> Download
+            </a>
+          </li>
+          <li class="repo-stars">
+            <a href="https://github.com/eclipse/hono/stargazers" target="_blank" title="Stargazers" data-action="star">
+              <i class="icon icon-star"></i> Stars
+              <span class="count">&ndash;</span>
+            </a>
+          </li>
+        </ul>
+        <hr>
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Getting started" href="/hono/getting-started/">
+	
+	Getting started
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Downloads" href="/hono/download/">
+	
+	Downloads
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Sandbox" href="/hono/sandbox/">
+	
+	Sandbox
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Concepts" href="/hono/concepts/">
+	
+	Concepts
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="User Guide" href="/hono/user-guide/">
+	
+	User Guide
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Admin Guide" href="/hono/admin-guide/">
+	
+	Admin Guide
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Developer Guide" href="/hono/dev-guide/">
+	
+	Developer Guide
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="API" href="/hono/api/">
+	
+	API
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Deployment" href="/hono/deployment/">
+	
+	Deployment
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Architecture" href="/hono/architecture/">
+	
+	Architecture
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Community" href="/hono/community/">
+	
+	Community
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="License" href="/hono/license/">
+	
+	License
+</a>
+
+
+
+  
+</li>
+
+
+        </ul>
+        
+
+        
+        <hr>
+        <span class="section">Build Status:</span>
+
+        <ul>
+          
+          <li>
+            <a href="https://ci.eclipse.org/hono/job/Hono-CI/" title="Eclipse Build Status" target="_blank">
+              <img src="https://ci.eclipse.org/hono/buildStatus/icon?job=Hono-CI">
+            </a>
+          </li>
+          
+
+          <li>
+            <a href="https://travis-ci.org/eclipse/hono" title="Travis Build Status" target="_blank">
+              <img src="https://travis-ci.org/eclipse/hono.svg?branch=master" />
+            </a>
+          </li>
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>Implement a Custom Hono HTTP Protocol Adapter </h1>
+
+			<p>Eclipse Hono&trade; comes with a default <em>HTTP Adapter</em> which can be used to interact with devices via HTTP.
+The default HTTP Adapter also serves as a blueprint for implementing a <em>custom</em> HTTP protocol adapter.
+</p>
+
+<p>This section will guide you through the steps to build your own custom HTTP protocol adapter.</p>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<p>You should be familiar with the setup and start of Hono. Refer to the
+<a href="/hono/getting-started/">Getting Started</a> guide.</p>
+
+<h2 id="the-standard-http-adapter">The standard HTTP Adapter</h2>
+
+<p>Hono&rsquo;s HTTP Adapter supports telemetry and event data processing. Please refer to the <a href="/hono/user-guide/http-adapter/">HTTP Adapter User Guide</a> and <a href="/hono/admin-guide/http-adapter-config/">HTTP Adapter Admin Guide</a> for details regarding the usage and configuration of the HTTP Adapter.</p>
+
+<p>You can find the source of the HTTP Adapter at <a href="https://github.com/eclipse/hono/tree/master/adapters/http-vertx">https://github.com/eclipse/hono/tree/master/adapters/http-vertx</a>.</p>
+
+<h2 id="anatomy-of-the-standard-http-adapter">Anatomy of the standard HTTP Adapter</h2>
+
+<p>Like many other Hono components, the HTTP Adapter is built on top of the <a href="https://vertx.io">Vert.x</a> framework.</p>
+
+<p>The HTTP Adapter&rsquo;s <code>VertxBasedHttpProtocolAdapter</code> class is derived from an abstract base class. This base class implements the base functionality for component initialization, receiving HTTP requests from devices or external clients, and forwarding of data to <em>Hono Messaging</em>.</p>
+
+<h2 id="derive-a-custom-http-protocol-adapter">Derive a custom HTTP Protocol Adapter</h2>
+
+<p>Use the standard HTTP Adapter as a blueprint.</p>
+
+<h3 id="adding-routes">Adding Routes</h3>
+
+<p>In Vert.x, a <em>route</em> is a mapping of an HTTP request to a <em>handler</em>. Inside a route, Vert.x provides a <code>RoutingContext</code>
+instance which gives access to the HTTP request (and response) object containing the HTTP headers.</p>
+
+<p>The standard HTTP Adapter overrides the abstract method <code>addRoutes()</code>, provided by the base class, and adds routes for processing telemetry data and events.</p>
+
+<pre><code class="language-java">// route for uploading telemetry data
+router.route(HttpMethod.PUT, String.format(&quot;/telemetry/:%s/:%s&quot;, PARAM_TENANT, PARAM_DEVICE_ID))
+    .handler(ctx -&gt; uploadTelemetryMessage(ctx, getTenantParam(ctx), getDeviceIdParam(ctx)));
+</code></pre>
+
+<p>The route for telemetry data parses the HTTP request, extracts the <em>tenant</em> and <em>deviceId</em> parameters from the
+request URL path, and forwards the message payload to the method <code>uploadTelemetryMessage()</code>, provided by the base class.</p>
+
+<p><strong>NB</strong> Note the Vert.x place holder indicators <code>:</code> inside the URL path pattern <code>/telemetry/:%s/:%s</code>. Vert.x makes matching
+place holders available as request parameters. See <a href="http://vertx.io/docs/vertx-web/java/#_capturing_path_parameters">Capturing path parameters</a> in the Vert.x documentation.</p>
+
+<p>The route for events looks very similar to the route for telemetry data. It forwards the event message payload to the <code>uploadEventMessage()</code> method.</p>
+
+<p>Please refer to the <a href="/hono/api/telemetry-api/">Telemetry API</a> and <a href="/hono/api/event-api/">Event API</a>
+for details about the different Hono APIs.</p>
+
+<p>In the custom HTTP protocol adapter adapt the routes according to your needs.</p>
+
+<h2 id="build-and-run-the-custom-http-protocol-adapter">Build and run the custom HTTP Protocol Adapter</h2>
+
+<p>If you have Hono running, you can launch your custom HTTP protocol adapter as a Docker Container or a Spring Boot application.</p>
+
+<p>You may adopt the Maven profile <code>build-docker-image</code> from the Maven POM file of the standard HTTP Adapter into your
+custom adapter&rsquo;s Maven POM file.</p>
+
+<p>Follow the guidelines for running the HTTP Adapter in <a href="/hono/admin-guide/http-adapter-config/">HTTP Adapter</a>. Don&rsquo;t forget to configure the custom protocol adapter to bind to a different port than the standard HTTP Adapter if you intend to run them both at the same time. See the <a href="/hono/admin-guide/http-adapter-config/#port-configuration">Port Configuration section</a> of the HTTP Adapter documentation for details.</p>
+
+<h2 id="using-the-custom-http-protocol-adapter">Using the custom HTTP Protocol Adapter</h2>
+
+<p>Now that you have your custom HTTP protocol adapter up and running, you can use any HTTP client, like <code>curl</code> or
+<code>HTTPie</code>, to publish data to your custom adapter.</p>
+
+<p>Note that before publishing data to your custom HTTP protocol adapter, you need to start a <em>consumer</em> for the tenant you intend to publish data for.
+Otherwise you will not be able to successfully send data. For this purpose, you may use the example consumer as described in the <a href="/hono/getting-started/">Getting Started</a> guide.</p>
+
+<h2 id="further-extend-the-custom-http-protocl-adapter">Further extend the custom HTTP Protocl Adapter</h2>
+
+<p>The abstract base class includes additional hooks which you may use to <em>plug into</em> the adapter&rsquo;s life cycle:</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Hook</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><code>preStartup()</code></td>
+<td align="left">called before start of adapter&rsquo;s HTTP server</td>
+</tr>
+
+<tr>
+<td align="left"><code>onStartupSuccess()</code></td>
+<td align="left">called after successful start of adapter</td>
+</tr>
+
+<tr>
+<td align="left"><code>preShutdown()</code></td>
+<td align="left">called before stop of adapter&rsquo;s HTTP server</td>
+</tr>
+
+<tr>
+<td align="left"><code>postShutdown</code></td>
+<td align="left">called after successful stop of adapter</td>
+</tr>
+</tbody>
+</table>
+
+      <aside class="copyright" role="note">
+  <div class="logo">
+    <a href="https://www.eclipse.org" target="_blank">
+      <img src="https://www.eclipse.org/hono/images/eclipse_foundation_logo.png" />
+    </a>
+  </div>
+  <p class="notice">
+    
+    &copy; 2018 The Eclipse Hono Project &ndash;
+    
+    Documentation built with
+    <a href="https://www.gohugo.io" target="_blank">Hugo</a>
+    using the
+    <a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+  </p>
+  <p class="quickLinks">
+    <a href="http://www.eclipse.org/legal/privacy.php" target="_blank">
+      &gt; Privacy Policy
+    </a>
+    <a href="http://www.eclipse.org/legal/termsofuse.php" target="_blank">
+      &gt; Terms of Use
+    </a>
+    <a href="http://www.eclipse.org/legal/copyright.php" target="_blank">
+      &gt; Copyright Agent
+    </a>
+    <a href="http://www.eclipse.org/legal" target="_blank">
+      &gt; Legal
+    </a>
+    <a href="https://eclipse.org/security" target="_blank">
+      &gt; Report a Vulnerability
+    </a>
+  </p>
+</aside>
+
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="https://www.eclipse.org/hono/dev-guide/java_client_sender/" title="Sending Messages from Java">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              Sending Messages from Java
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="https://www.eclipse.org/hono/api/authentication-api/" title="Authentication API">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Authentication API
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = 'https:\/\/www.eclipse.org\/hono\/';
+      var repo_id  = 'eclipse\/hono';
+    
+    </script>
+
+    <script src="https://www.eclipse.org/hono/javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            if(!headers[i].id)
+                a.setAttribute("href", headers[i].parentNode.href);
+            else
+                a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "#";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+      
+      <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-5WLCZXC');
+      </script>
+    
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

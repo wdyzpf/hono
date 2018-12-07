@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="en-us">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>Kura Adapter Configuration - Eclipse Hono</title>
+    <meta name="generator" content="Hugo 0.42" />
+
+    
+    <meta name="description" content="A set of micro-services for connecting millions of devices.">
+    
+    <link rel="canonical" href="https://www.eclipse.org/hono/admin-guide/kura-adapter-config/">
+    
+    <meta name="author" content="The Eclipse Hono Project">
+    
+
+    <meta property="og:url" content="https://www.eclipse.org/hono/admin-guide/kura-adapter-config/">
+    <meta property="og:title" content="Eclipse Hono">
+    <meta property="og:image" content="https://www.eclipse.org/hono/images/logo-32x32px.png">
+    <meta name="apple-mobile-web-app-title" content="Eclipse Hono">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.eclipse.org/hono/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://www.eclipse.org/hono/images/favicon.ico">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('https://www.eclipse.org/hono/fonts/icon.eot');
+        src: url('https://www.eclipse.org/hono/fonts/icon.eot')
+               format('embedded-opentype'),
+             url('https://www.eclipse.org/hono/fonts/icon.woff')
+               format('woff'),
+             url('https://www.eclipse.org/hono/fonts/icon.ttf')
+               format('truetype'),
+             url('https://www.eclipse.org/hono/fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/application.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/temporary.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/palettes.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu&#43;Mono">
+    <style>
+      body, input {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/css/hono.css">
+    
+    <link rel="stylesheet" href="//www.eclipse.org/eclipse.org-common/themes/solstice/public/stylesheets/vendor/cookieconsent/cookieconsent.min.css">
+    
+    <script src="https://www.eclipse.org/hono/javascripts/modernizr.js"></script>
+    <script src="//www.eclipse.org/eclipse.org-common/themes/solstice/public/javascript/vendor/cookieconsent/default.min.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-orange palette-accent-teal">
+
+
+
+	
+	
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        Kura Adapter Configuration
+      </div>
+    </div>
+
+    
+
+    
+    <div class="button button-github" role="button" aria-label="GitHub">
+      <a href="https://github.com/eclipse/hono" title="@eclipse/hono on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+    </div>
+    
+    
+        
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="https://www.eclipse.org/hono/" class="project">
+    <div class="banner">
+      
+        <div class="drawerlogo">
+          <img src="https://www.eclipse.org/hono/images/logo-32x32px.png">
+        </div>
+      
+      <div class="name">
+        <strong>Eclipse Hono&trade; </strong>
+        
+          <br>
+          eclipse/hono
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+        <ul class="repo">
+          <li class="repo-download">
+            <a href="https://www.eclipse.org/hono/download/" title="Download" data-action="download">
+              <i class="icon icon-download"></i> Download
+            </a>
+          </li>
+          <li class="repo-stars">
+            <a href="https://github.com/eclipse/hono/stargazers" target="_blank" title="Stargazers" data-action="star">
+              <i class="icon icon-star"></i> Stars
+              <span class="count">&ndash;</span>
+            </a>
+          </li>
+        </ul>
+        <hr>
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Getting started" href="/hono/getting-started/">
+	
+	Getting started
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Downloads" href="/hono/download/">
+	
+	Downloads
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Sandbox" href="/hono/sandbox/">
+	
+	Sandbox
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Concepts" href="/hono/concepts/">
+	
+	Concepts
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="User Guide" href="/hono/user-guide/">
+	
+	User Guide
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Admin Guide" href="/hono/admin-guide/">
+	
+	Admin Guide
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Developer Guide" href="/hono/dev-guide/">
+	
+	Developer Guide
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="API" href="/hono/api/">
+	
+	API
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Deployment" href="/hono/deployment/">
+	
+	Deployment
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Architecture" href="/hono/architecture/">
+	
+	Architecture
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Community" href="/hono/community/">
+	
+	Community
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="License" href="/hono/license/">
+	
+	License
+</a>
+
+
+
+  
+</li>
+
+
+        </ul>
+        
+
+        
+        <hr>
+        <span class="section">Build Status:</span>
+
+        <ul>
+          
+          <li>
+            <a href="https://ci.eclipse.org/hono/job/Hono-CI/" title="Eclipse Build Status" target="_blank">
+              <img src="https://ci.eclipse.org/hono/buildStatus/icon?job=Hono-CI">
+            </a>
+          </li>
+          
+
+          <li>
+            <a href="https://travis-ci.org/eclipse/hono" title="Travis Build Status" target="_blank">
+              <img src="https://travis-ci.org/eclipse/hono.svg?branch=master" />
+            </a>
+          </li>
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>Kura Adapter Configuration </h1>
+
+			<p>The Kura protocol adapter exposes an MQTT topic hierarchy allowing Eclipse Kura&trade; based gateways to publish <em>control</em> and <em>data</em> messages to Eclipse Hono&trade;&rsquo;s Telemetry and Event endpoints.
+</p>
+
+<p>The adapter is implemented as a Spring Boot application. It can be run either directly from the command line or by means of starting the corresponding <a href="https://hub.docker.com/r/eclipse/hono-adapter-kura/">Docker image</a> created from it.</p>
+
+<h2 id="service-configuration">Service Configuration</h2>
+
+<p>The following table provides an overview of the configuration variables and corresponding command line options for configuring the MQTT adapter.</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Environment Variable<br>Command Line Option</th>
+<th align="center">Mandatory</th>
+<th align="left">Default Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><code>HONO_APP_MAX_INSTANCES</code><br><code>--hono.app.maxInstances</code></td>
+<td align="center">no</td>
+<td align="left"><em>#CPU cores</em></td>
+<td align="left">The number of verticle instances to deploy. If not set, one verticle per processor core is deployed.</td>
+</tr>
+
+<tr>
+<td align="left"><code>HONO_APP_HEALTH_CHECK_PORT</code><br><code>--hono.app.healthCheckPort</code></td>
+<td align="center">no</td>
+<td align="left">-</td>
+<td align="left">The port that the HTTP server, which exposes the service&rsquo;s health check resources, should bind to. If set, the adapter will expose a <em>readiness</em> probe at URI <code>/readiness</code> and a <em>liveness</em> probe at URI <code>/liveness</code>.</td>
+</tr>
+
+<tr>
+<td align="left"><code>HONO_APP_HEALTH_CHECK_BIND_ADDRESS</code><br><code>--hono.app.healthCheckBindAddress</code></td>
+<td align="center">no</td>
+<td align="left"><code>127.0.0.1</code></td>
+<td align="left">The IP address of the network interface that the HTTP server, which exposes the service&rsquo;s health check resources, should be bound to. The HTTP server will only be started if <code>HONO_APP_HEALTH_CHECK_BIND_ADDRESS</code> is set explicitly.</td>
+</tr>
+
+<tr>
+<td align="left"><code>HONO_KURA_AUTHENTICATION_REQUIRED</code><br><code>--hono.kura.authenticationRequired</code></td>
+<td align="center">no</td>
+<td align="left"><code>true</code></td>
+<td align="left">If set to <code>true</code> the protocol adapter requires devices to authenticate when connecting to the adapter. The credentials provided by the device are verified using the configured <a href="#credentials-service-connection-configuration">Credentials Service</a>. Devices that have failed to authenticate are not allowed to publish any data.</td>
+</tr>
+
+<tr>
+<td align="left"><code>HONO_KURA_BIND_ADDRESS</code><br><code>--hono.kura.bindAddress</code></td>
+<td align="center">no</td>
+<td align="left"><code>127.0.0.1</code></td>
+<td align="left">The IP address of the network interface that the secure port should be bound to.<br>See <a href="#port-configuration">Port Configuration</a> below for details.</td>
+</tr>
+
+<tr>
+<td align="left"><code>HONO_KURA_CERT_PATH</code><br><code>--hono.kura.certPath</code></td>
+<td align="center">no</td>
+<td align="left">-</td>
+<td align="left">The absolute path to the PEM file containing the certificate that the protocol adapter should use for authenticating to clients. This option must be used in conjunction with <code>HONO_KURA_KEY_PATH</code>.<br>Alternatively, the <code>HONO_KURA_KEY_STORE_PATH</code> option can be used to configure a key store containing both the key as well as the certificate.</td>
+</tr>
+
+<tr>
+<td align="left"><code>HONO_KURA_CONTROL_PREFIX</code><br><code>--hono.kura.controlPrefix</code></td>
+<td align="center">no</td>
+<td align="left"><code>$EDC</code></td>
+<td align="left">The <em>topic.control-prefix</em> to use for determining if a message published by a Kura gateway is a <em>control</em> message. All messages published to a topic that does not start with this prefix are considered <em>data</em> messages.</td>
+</tr>
+
+<tr>
+<td align="left"><code>HONO_KURA_CTRL_MSG_CONTENT_TYPE</code><br><code>--hono.kura.ctrlMsgContentType</code></td>
+<td align="center">no</td>
+<td align="left"><code>application/vnd.eclipse.kura-control</code></td>
+<td align="left">The content type to set on AMQP messages created from Kura <em>control</em> messages.</td>
+</tr>
+
+<tr>
+<td align="left"><code>HONO_KURA_DATA_MSG_CONTENT_TYPE</code><br><code>--hono.kura.dataMsgContentType</code></td>
+<td align="center">no</td>
+<td align="left"><code>application/vnd.eclipse.kura-data</code></td>
+<td align="left">The content type to set on AMQP messages created from Kura <em>data</em> messages.</td>
+</tr>
+
+<tr>
+<td align="left"><code>HONO_KURA_DEFAULTS_ENABLED</code><br><code>--hono.kura.defaultsEnabled</code></td>
+<td align="center">no</td>
+<td align="left"><code>true</code></td>
+<td align="left">If set to <code>true</code> the protocol adapter uses <em>default values</em> registered for a device to augment messages published by the device with missing information like a content type. In particular, the protocol adapter adds default values registered for the device as (application) properties with the same name to the AMQP 1.0 messages it sends downstream to the Hono Messaging service.</td>
+</tr>
+
+<tr>
+<td align="left"><code>HONO_KURA_INSECURE_PORT</code><br><code>--hono.kura.insecurePort</code></td>
+<td align="center">no</td>
+<td align="left">-</td>
+<td align="left">The insecure port the protocol adapter should listen on.<br>See <a href="#port-configuration">Port Configuration</a> below for details.</td>
+</tr>
+
+<tr>
+<td align="left"><code>HONO_KURA_INSECURE_PORT_BIND_ADDRESS</code><br><code>--hono.kura.insecurePortBindAddress</code></td>
+<td align="center">no</td>
+<td align="left"><code>127.0.0.1</code></td>
+<td align="left">The IP address of the network interface that the insecure port should be bound to.<br>See <a href="#port-configuration">Port Configuration</a> below for details.</td>
+</tr>
+
+<tr>
+<td align="left"><code>HONO_KURA_INSECURE_PORT_ENABLED</code><br><code>--hono.kura.insecurePortEnabled</code></td>
+<td align="center">no</td>
+<td align="left"><code>false</code></td>
+<td align="left">If set to <code>true</code> the protocol adapter will open an insecure port (not secured by TLS) using either the port number set via <code>HONO_KURA_INSECURE_PORT</code> or the default MQTT port number (<code>1883</code>) if not set explicitly.<br>See <a href="#port-configuration">Port Configuration</a> below for details.</td>
+</tr>
+
+<tr>
+<td align="left"><code>HONO_KURA_KEY_PATH</code><br><code>--hono.kura.keyPath</code></td>
+<td align="center">no</td>
+<td align="left">-</td>
+<td align="left">The absolute path to the (PKCS8) PEM file containing the private key that the protocol adapter should use for authenticating to clients. This option must be used in conjunction with <code>HONO_KURA_CERT_PATH</code>. Alternatively, the <code>HONO_KURA_KEY_STORE_PATH</code> option can be used to configure a key store containing both the key as well as the certificate.</td>
+</tr>
+
+<tr>
+<td align="left"><code>HONO_KURA_KEY_STORE_PASSWORD</code><br><code>--hono.kura.keyStorePassword</code></td>
+<td align="center">no</td>
+<td align="left">-</td>
+<td align="left">The password required to read the contents of the key store.</td>
+</tr>
+
+<tr>
+<td align="left"><code>HONO_KURA_KEY_STORE_PATH</code><br><code>--hono.kura.keyStorePath</code></td>
+<td align="center">no</td>
+<td align="left">-</td>
+<td align="left">The absolute path to the Java key store containing the private key and certificate that the protocol adapter should use for authenticating to clients. Either this option or the <code>HONO_KURA_KEY_PATH</code> and <code>HONO_KURA_CERT_PATH</code> options need to be set in order to enable TLS secured connections with clients. The key store format can be either <code>JKS</code> or <code>PKCS12</code> indicated by a <code>.jks</code> or <code>.p12</code> file suffix respectively.</td>
+</tr>
+
+<tr>
+<td align="left"><code>HONO_KURA_MAX_PAYLOAD_SIZE</code><br><code>--hono.kura.maxPayloadSize</code></td>
+<td align="center">no</td>
+<td align="left"><code>2048</code></td>
+<td align="left">The maximum allowed size of an incoming MQTT message&rsquo;s payload in bytes. When a client sends a message with a larger payload, the message is discarded and the connection to the client gets closed.</td>
+</tr>
+
+<tr>
+<td align="left"><code>HONO_KURA_PORT</code><br><code>--hono.kura.port</code></td>
+<td align="center">no</td>
+<td align="left"><code>8883</code></td>
+<td align="left">The secure port that the protocol adapter should listen on.<br>See <a href="#port-configuration">Port Configuration</a> below for details.</td>
+</tr>
+
+<tr>
+<td align="left"><code>HONO_KURA_SECURE_PROTOCOLS</code><br><code>--hono.kura.secureProtocols</code></td>
+<td align="center">no</td>
+<td align="left"><code>TLSv1.2</code></td>
+<td align="left">A (comma separated) list of secure protocols that are supported when negotiating TLS sessions. Please refer to the <a href="https://vertx.io/docs/vertx-core/java/#ssl">vert.x documentation</a> for a list of supported protocol names.</td>
+</tr>
+
+<tr>
+<td align="left"><code>HONO_METRIC_REPORTER_GRAPHITE_ACTIVE</code><br><code>--hono.metric.reporter.graphite.active</code></td>
+<td align="center">no</td>
+<td align="left"><code>false</code></td>
+<td align="left">Activates the metrics reporter to Graphite (or a graphite compatible system - we use InfluxDB in the <code>example</code>).</td>
+</tr>
+
+<tr>
+<td align="left"><code>HONO_METRIC_REPORTER_GRAPHITE_HOST</code><br><code>--hono.metric.reporter.graphite.host</code></td>
+<td align="center">no</td>
+<td align="left"><code>localhost</code></td>
+<td align="left">Sets the host, to which the metrics will be reported.</td>
+</tr>
+
+<tr>
+<td align="left"><code>HONO_METRIC_REPORTER_GRAPHITE_PORT</code><br><code>--hono.metric.reporter.graphite.host</code></td>
+<td align="center">no</td>
+<td align="left"><code>2003</code></td>
+<td align="left">Sets the port - 2003 ist standard for Graphite.</td>
+</tr>
+
+<tr>
+<td align="left"><code>HONO_METRIC_REPORTER_GRAPHITE_PERIOD</code><br><code>--hono.metric.reporter.graphite.period</code></td>
+<td align="center">no</td>
+<td align="left"><code>5000</code></td>
+<td align="left">Sets the time interval for reporting.</td>
+</tr>
+
+<tr>
+<td align="left"><code>HONO_METRIC_REPORTER_GRAPHITE_PREFIX</code><br><code>--hono.metric.reporter.graphite.prefix</code></td>
+<td align="center">no</td>
+<td align="left">-</td>
+<td align="left">Prefix all metric names with the given string.</td>
+</tr>
+
+<tr>
+<td align="left"><code>HONO_METRIC_REPORTER_CONSOLE_ACTIVE</code><br><code>--hono.metric.reporter.console.active</code></td>
+<td align="center">no</td>
+<td align="left"><code>false</code></td>
+<td align="left">Activates the metrics reporter to the console/log.</td>
+</tr>
+
+<tr>
+<td align="left"><code>HONO_METRIC_REPORTER_CONSOLE_PERIOD</code><br><code>--hono.metric.reporter.console.period</code></td>
+<td align="center">no</td>
+<td align="left"><code>5000</code></td>
+<td align="left">Sets the time interval for reporting.</td>
+</tr>
+
+<tr>
+<td align="left"><code>HONO_METRIC_JVM_MEMORY</code><br><code>--hono.metric.jvm.memory</code></td>
+<td align="center">no</td>
+<td align="left"><code>false</code></td>
+<td align="left">Activates JVM memory metrics (from the Dropwizard JVM Instrumentation). The metric name is <code>hono.kura.jvm.memory</code>.</td>
+</tr>
+
+<tr>
+<td align="left"><code>HONO_METRIC_JVM_THREAD</code><br><code>--hono.metric.jvm.thread</code></td>
+<td align="center">no</td>
+<td align="left"><code>false</code></td>
+<td align="left">Activates JVM thread metrics (from the Dropwizard JVM Instrumentation). The metric name is <code>hono.kura.jvm.thread</code>.</td>
+</tr>
+
+<tr>
+<td align="left"><code>HONO_METRIC_VERTX</code><br><code>--hono.metric.vertx</code></td>
+<td align="center">no</td>
+<td align="left"><code>false</code></td>
+<td align="left">Activates the Vert.x metrics (from the Vert.x metrics project). The metric name is <code>hono.kura.vertx</code>.</td>
+</tr>
+</tbody>
+</table>
+
+<p>The variables only need to be set if the default values do not match your environment.</p>
+
+<h2 id="port-configuration">Port Configuration</h2>
+
+<p>The Kura protocol adapter can be configured to listen for connections on</p>
+
+<ul>
+<li>a secure port only (default) or</li>
+<li>an insecure port only or</li>
+<li>both a secure and an insecure port (dual port configuration)</li>
+</ul>
+
+<p>The Kura protocol adapter will fail to start if none of the ports is configured properly.</p>
+
+<h3 id="secure-port-only">Secure Port Only</h3>
+
+<p>The protocol adapter needs to be configured with a private key and certificate in order to open a TLS secured port.</p>
+
+<p>There are two alternative ways for doing so:</p>
+
+<ol>
+<li>either setting the <code>HONO_KURA_KEY_STORE_PATH</code> and the <code>HONO_KURA_KEY_STORE_PASSWORD</code> variables in order to load the key &amp; certificate from a password protected key store, or</li>
+<li>setting the <code>HONO_KURA_KEY_PATH</code> and <code>HONO_KURA_CERT_PATH</code> variables in order to load the key and certificate from two separate PEM files in PKCS8 format.</li>
+</ol>
+
+<p>When starting up, the protocol adapter will bind a TLS secured socket to the default secure MQTT port 8883. The port number can also be set explicitly using the <code>HONO_KURA_PORT</code> variable.</p>
+
+<p>The <code>HONO_KURA_BIND_ADDRESS</code> variable can be used to specify the network interface that the port should be exposed on. By default the port is bound to the <em>loopback device</em> only, i.e. the port will only be accessible from the local host. Setting this variable to <code>0.0.0.0</code> will let the port being bound to <strong>all</strong> network interfaces (be careful not to expose the port unintentionally to the outside world).</p>
+
+<h3 id="insecure-port-only">Insecure Port Only</h3>
+
+<p>The secure port will mostly be required for production scenarios. However, it might be desirable to expose a non-TLS secured port instead, e.g. for testing purposes. In any case, the non-secure port needs to be explicitly enabled either by</p>
+
+<ul>
+<li>explicitly setting <code>HONO_KURA_INSECURE_PORT</code> to a valid port number, or by</li>
+<li>implicitly configuring the default MQTT port (1883) by simply setting <code>HONO_KURA_INSECURE_PORT_ENABLED</code> to <code>true</code>.</li>
+</ul>
+
+<p>The protocol adapter issues a warning on the console if <code>HONO_KURA_INSECURE_PORT</code> is set to the default secure MQTT port (8883).</p>
+
+<p>The <code>HONO_KURA_INSECURE_PORT_BIND_ADDRESS</code> variable can be used to specify the network interface that the port should be exposed on. By default the port is bound to the <em>loopback device</em> only, i.e. the port will only be accessible from the local host. This variable might be used to e.g. expose the non-TLS secured port on a local interface only, thus providing easy access from within the local network, while still requiring encrypted communication when accessed from the outside over public network infrastructure.</p>
+
+<p>Setting this variable to <code>0.0.0.0</code> will let the port being bound to <strong>all</strong> network interfaces (be careful not to expose the port unintentionally to the outside world).</p>
+
+<h3 id="dual-port">Dual Port</h3>
+
+<p>The protocol adapter may be configured to open both a secure and a non-secure port at the same time simply by configuring both ports as described above. For this to work, both ports must be configured to use different port numbers, otherwise startup will fail.</p>
+
+<h3 id="ephemeral-ports">Ephemeral Ports</h3>
+
+<p>Both the secure as well as the insecure port numbers may be explicitly set to <code>0</code>. The protocol adapter will then use arbitrary (unused) port numbers determined by the operating system during startup.</p>
+
+<h2 id="tenant-service-connection-configuration">Tenant Service Connection Configuration</h2>
+
+<p>The adapter requires a connection to an implementation of Hono&rsquo;s <a href="/hono/api/tenant-api/">Tenant API</a> in order to retrieve information for a tenant.</p>
+
+<p>The connection to the Tenant Service is configured according to <a href="/hono/admin-guide/hono-client-configuration/">Hono Client Configuration</a>
+where the <code>${PREFIX}</code> is set to <code>HONO_TENANT</code> and the additional values for response caching apply.</p>
+
+<p>The adapter caches the responses for the <em>get</em> operation until they expire. This greatly reduces load on the Tenant service.</p>
+
+<h2 id="hono-messaging-connection-configuration">Hono Messaging Connection Configuration</h2>
+
+<p>The adapter requires a connection to the Hono Messaging component in order to forward <a href="/hono/api/telemetry-api/">telemetry</a> data and <a href="/hono/api/event-api/">events</a> received from devices to downstream consumers.</p>
+
+<p>The connection to Hono Messaging is configured according to <a href="/hono/admin-guide/hono-client-configuration/">Hono Client Configuration</a>
+where the <code>${PREFIX}</code> is set to <code>HONO_MESSAGING</code>. Since Hono Messaging does not allow caching of the responses, the cache properties
+can be ignored.</p>
+
+<h2 id="device-registration-service-connection-configuration">Device Registration Service Connection Configuration</h2>
+
+<p>The adapter requires a connection to an implementation of Hono&rsquo;s <a href="/hono/api/device-registration-api/">Device Registration API</a> in order to retrieve registration status assertions for connected devices.</p>
+
+<p>The connection to the Device Registration Service is configured according to <a href="/hono/admin-guide/hono-client-configuration/">Hono Client Configuration</a>
+where the <code>${PREFIX}</code> is set to <code>HONO_REGISTRATION</code>.</p>
+
+<p>The adapter caches responses for the <em>assert Device Registration</em> operation until the returned assertion tokens expire. This greatly reduces load on the Device Registration service.</p>
+
+<h2 id="credentials-service-connection-configuration">Credentials Service Connection Configuration</h2>
+
+<p>The adapter requires a connection to an implementation of Hono&rsquo;s <a href="/hono/api/credentials-api/">Credentials API</a> in order to retrieve credentials stored for devices that need to be authenticated.</p>
+
+<p>The connection to the Credentials Service is configured according to <a href="/hono/admin-guide/hono-client-configuration/">Hono Client Configuration</a>
+where the <code>${PREFIX}</code> is set to <code>HONO_CREDENTIALS</code>.</p>
+
+<p>Responses of the Credentials Service are currently not cached, so the cache properties can be ignored.</p>
+
+<h2 id="run-as-a-docker-swarm-service">Run as a Docker Swarm Service</h2>
+
+<p>The adapter can be run as a Docker container from the command line. The following commands create and start the adapter as a Docker Swarm service using the default keys  contained in the <code>demo-certs</code> module:</p>
+
+<pre><code class="language-sh">~/hono$ docker secret create trusted-certs.pem demo-certs/certs/trusted-certs.pem
+~/hono$ docker secret create kura-adapter-key.pem demo-certs/certs/kura-adapter-key.pem
+~/hono$ docker secret create kura-adapter-cert.pem demo-certs/certs/kura-adapter-cert.pem
+~/hono$ docker service create --detach --name hono-adapter-kura --network hono-net -p 1883:1883 -p 8883:8883 \
+&gt; --secret trusted-certs.pem \
+&gt; --secret kura-adapter-key.pem \
+&gt; --secret kura-adapter-cert.pem \
+&gt; -e 'HONO_MESSAGING_HOST=hono-service-messaging.hono' \
+&gt; -e 'HONO_MESSAGING_USERNAME=kura-adapter@HONO' \
+&gt; -e 'HONO_MESSAGING_PASSWORD=kura-secret' \
+&gt; -e 'HONO_MESSAGING_TRUST_STORE_PATH=/run/secrets/trusted-certs.pem' \
+&gt; -e 'HONO_TENANT_HOST=hono-service-device-registry.hono' \
+&gt; -e 'HONO_TENANT_USERNAME=kura-adapter@HONO' \
+&gt; -e 'HONO_TENANT_PASSWORD=kura-secret' \
+&gt; -e 'HONO_TENANT_TRUST_STORE_PATH=/run/secrets/trusted-certs.pem' \
+&gt; -e 'HONO_REGISTRATION_HOST=hono-service-device-registry.hono' \
+&gt; -e 'HONO_REGISTRATION_USERNAME=kura-adapter@HONO' \
+&gt; -e 'HONO_REGISTRATION_PASSWORD=kura-secret' \
+&gt; -e 'HONO_REGISTRATION_TRUST_STORE_PATH=/run/secrets/trusted-certs.pem' \
+&gt; -e 'HONO_CREDENTIALS_HOST=hono-service-device-registry.hono' \
+&gt; -e 'HONO_CREDENTIALS_USERNAME=kura-adapter@HONO' \
+&gt; -e 'HONO_CREDENTIALS_PASSWORD=kura-secret' \
+&gt; -e 'HONO_CREDENTIALS_TRUST_STORE_PATH=/run/secrets/trusted-certs.pem' \
+&gt; -e 'HONO_KURA_BIND_ADDRESS=0.0.0.0' \
+&gt; -e 'HONO_KURA_KEY_PATH=/run/secrets/kura-adapter-key.pem' \
+&gt; -e 'HONO_KURA_CERT_PATH=/run/secrets/kura-adapter-cert.pem' \
+&gt; -e 'HONO_KURA_INSECURE_PORT_ENABLED=true' \
+&gt; -e 'HONO_KURA_INSECURE_PORT_BIND_ADDRESS=0.0.0.0'
+&gt; eclipse/hono-adapter-kura:latest
+</code></pre>
+
+<div class="admonition note">
+<p class="admonition-title"></p>
+<p>There are several things noteworthy about the above command to start the service:</p>
+
+<ol>
+<li>The <em>secrets</em> need to be created once only, i.e. they only need to be removed and re-created if they are changed.</li>
+<li>The <em>&ndash;network</em> command line switch is used to specify the <em>user defined</em> Docker network that the Kura adapter container should attach to. It is important that the adapter container is attached to the same network that the Hono Messaging component is attached to so that the Kura adapter can use the Hono Messaging component&rsquo;s host name to connect to it via the Docker network. Please refer to the <a href="https://docs.docker.com/engine/userguide/networking/#/user-defined-networks">Docker Networking Guide</a> for details regarding how to create a <em>user defined</em> network in Docker.</li>
+<li>In cases where the Kura adapter container requires a lot of configuration via environment variables (provided by means of <em>-e</em> switches), it is more convenient to add all environment variable definitions to a separate <em>env file</em> and refer to it using Docker&rsquo;s <em>&ndash;env-file</em> command line switch when starting the container. This way the command line to start the container is much shorter and can be copied and edited more easily.</li>
+</ol>
+</p>
+</div>
+
+<h3 id="configuring-the-java-vm">Configuring the Java VM</h3>
+
+<p>The Kura adapter Docker image by default does not pass any specific configuration options to the Java VM. The VM can be configured using the standard <code>-X</code> options by means of setting the <code>_JAVA_OPTIONS</code> environment variable which is evaluated by the Java VM during start up.</p>
+
+<p>Using the example from above, the following environment variable definition needs to be added to limit the VM&rsquo;s heap size to 128MB:</p>
+
+<pre><code class="language-sh">...
+&gt; -e '_JAVA_OPTIONS=-Xmx128m' \
+&gt; eclipse/hono-adapter-kura:latest
+</code></pre>
+
+<h2 id="run-using-the-docker-swarm-deployment-script">Run using the Docker Swarm Deployment Script</h2>
+
+<p>In most cases it is much easier to start all of Hono&rsquo;s components in one shot using the Docker Swarm deployment script provided in the <code>example/target/deploy/docker</code> folder.</p>
+
+<h2 id="run-the-spring-boot-application">Run the Spring Boot Application</h2>
+
+<p>Sometimes it is helpful to run the adapter from its jar file, e.g. in order to attach a debugger more easily or to take advantage of code replacement.
+In order to do so, the adapter can be started using the <code>spring-boot:run</code> maven goal from the <code>adapters/kura</code> folder.
+The corresponding command to start up the adapter with the configuration used in the Docker example above looks like this:</p>
+
+<pre><code class="language-sh">~/hono/adapters/kura$ mvn spring-boot:run -Drun.arguments=\
+&gt; --hono.messaging.host=hono-service-messaging.hono,\
+&gt; --hono.messaging.username=kura-adapter@HONO,\
+&gt; --hono.messaging.password=kura-secret,\
+&gt; --hono.messaging.trustStorePath=target/certs/trusted-certs.pem,\
+&gt; --hono.tenant.host=hono-service-device-registry.hono,\
+&gt; --hono.tenant.username=kura-adapter@HONO,\
+&gt; --hono.tenant.password=kura-secret,\
+&gt; --hono.tenant.trustStorePath=target/certs/trusted-certs.pem,\
+&gt; --hono.registration.host=hono-service-device-registry.hono,\
+&gt; --hono.registration.username=kura-adapter@HONO,\
+&gt; --hono.registration.password=kura-secret,\
+&gt; --hono.registration.trustStorePath=target/certs/trusted-certs.pem,\
+&gt; --hono.credentials.host=hono-service-device-registry.hono,\
+&gt; --hono.credentials.username=kura-adapter@HONO,\
+&gt; --hono.credentials.password=kura-secret,\
+&gt; --hono.credentials.trustStorePath=target/certs/trusted-certs.pem,\
+&gt; --hono.kura.bindAddress=0.0.0.0,\
+&gt; --hono.kura.insecurePortEnabled=true,\
+&gt; --hono.kura.insecurePortBindAddress=0.0.0.0
+</code></pre>
+
+<div class="admonition note">
+<p class="admonition-title"></p>
+<p>In the example above the <em>&ndash;hono.messaging.host=hono-service-messaging.hono</em> command line option indicates that the Hono Messaging component is running on a host
+with name <em>hono-service-messaging.hono</em>. However, if the Hono Messaging component has been started as a Docker container then the <em>hono-service-messaging.hono</em> host name will most likely only be resolvable on the network that Docker has created for running the container on, i.e. when you run the Kura adapter
+from the Spring Boot application and want it to connect to a Hono Messaging instance run as a Docker container then you need to set the
+value of the <em>&ndash;hono.messaging.host</em> option to the IP address (or name) of the Docker host running the Hono Messaging container.
+The same holds true analogously for the <em>hono-service-device-registry.hono</em> address.</p>
+</div>
+
+      <aside class="copyright" role="note">
+  <div class="logo">
+    <a href="https://www.eclipse.org" target="_blank">
+      <img src="https://www.eclipse.org/hono/images/eclipse_foundation_logo.png" />
+    </a>
+  </div>
+  <p class="notice">
+    
+    &copy; 2018 The Eclipse Hono Project &ndash;
+    
+    Documentation built with
+    <a href="https://www.gohugo.io" target="_blank">Hugo</a>
+    using the
+    <a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+  </p>
+  <p class="quickLinks">
+    <a href="http://www.eclipse.org/legal/privacy.php" target="_blank">
+      &gt; Privacy Policy
+    </a>
+    <a href="http://www.eclipse.org/legal/termsofuse.php" target="_blank">
+      &gt; Terms of Use
+    </a>
+    <a href="http://www.eclipse.org/legal/copyright.php" target="_blank">
+      &gt; Copyright Agent
+    </a>
+    <a href="http://www.eclipse.org/legal" target="_blank">
+      &gt; Legal
+    </a>
+    <a href="https://eclipse.org/security" target="_blank">
+      &gt; Report a Vulnerability
+    </a>
+  </p>
+</aside>
+
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="https://www.eclipse.org/hono/admin-guide/mqtt-adapter-config/" title="MQTT Adapter Configuration">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              MQTT Adapter Configuration
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="https://www.eclipse.org/hono/admin-guide/hono-client-configuration/" title="Hono Client Configuration">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Hono Client Configuration
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = 'https:\/\/www.eclipse.org\/hono\/';
+      var repo_id  = 'eclipse\/hono';
+    
+    </script>
+
+    <script src="https://www.eclipse.org/hono/javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            if(!headers[i].id)
+                a.setAttribute("href", headers[i].parentNode.href);
+            else
+                a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "#";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+      
+      <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-5WLCZXC');
+      </script>
+    
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

@@ -1,0 +1,28 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.eclipse.hono</groupId>
+    <artifactId>hono-bom</artifactId>
+    <version>0.7-M2-SNAPSHOT</version>
+    <relativePath>../bom</relativePath>
+  </parent>
+  <artifactId>hono-demo-certs</artifactId>
+
+  <name>Hono Demo Certs</name>
+  <description>Hono demo certificates and keys for TLS support</description>
+  <url>https://www.eclipse.org/hono</url>
+
+  <build>
+    <resources>
+      <resource>
+        <directory>certs</directory>
+      </resource>
+    </resources>
+  </build>
+
+  <properties>
+    <maven.source.skip>true</maven.source.skip>
+    <maven.javadoc.skip>true</maven.javadoc.skip>
+  </properties>
+
+</project>

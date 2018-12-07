@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="en-us">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>OpenShift with source-to-image (S2I) - Eclipse Hono</title>
+    <meta name="generator" content="Hugo 0.42" />
+
+    
+    <meta name="description" content="A set of micro-services for connecting millions of devices.">
+    
+    <link rel="canonical" href="https://www.eclipse.org/hono/deployment/openshift_s2i/">
+    
+    <meta name="author" content="The Eclipse Hono Project">
+    
+
+    <meta property="og:url" content="https://www.eclipse.org/hono/deployment/openshift_s2i/">
+    <meta property="og:title" content="Eclipse Hono">
+    <meta property="og:image" content="https://www.eclipse.org/hono/images/logo-32x32px.png">
+    <meta name="apple-mobile-web-app-title" content="Eclipse Hono">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.eclipse.org/hono/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://www.eclipse.org/hono/images/favicon.ico">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('https://www.eclipse.org/hono/fonts/icon.eot');
+        src: url('https://www.eclipse.org/hono/fonts/icon.eot')
+               format('embedded-opentype'),
+             url('https://www.eclipse.org/hono/fonts/icon.woff')
+               format('woff'),
+             url('https://www.eclipse.org/hono/fonts/icon.ttf')
+               format('truetype'),
+             url('https://www.eclipse.org/hono/fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/application.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/temporary.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/palettes.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu&#43;Mono">
+    <style>
+      body, input {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/css/hono.css">
+    
+    <link rel="stylesheet" href="//www.eclipse.org/eclipse.org-common/themes/solstice/public/stylesheets/vendor/cookieconsent/cookieconsent.min.css">
+    
+    <script src="https://www.eclipse.org/hono/javascripts/modernizr.js"></script>
+    <script src="//www.eclipse.org/eclipse.org-common/themes/solstice/public/javascript/vendor/cookieconsent/default.min.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-orange palette-accent-teal">
+
+
+
+	
+	
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        OpenShift with source-to-image (S2I)
+      </div>
+    </div>
+
+    
+
+    
+    <div class="button button-github" role="button" aria-label="GitHub">
+      <a href="https://github.com/eclipse/hono" title="@eclipse/hono on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+    </div>
+    
+    
+        
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="https://www.eclipse.org/hono/" class="project">
+    <div class="banner">
+      
+        <div class="drawerlogo">
+          <img src="https://www.eclipse.org/hono/images/logo-32x32px.png">
+        </div>
+      
+      <div class="name">
+        <strong>Eclipse Hono&trade; </strong>
+        
+          <br>
+          eclipse/hono
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+        <ul class="repo">
+          <li class="repo-download">
+            <a href="https://www.eclipse.org/hono/download/" title="Download" data-action="download">
+              <i class="icon icon-download"></i> Download
+            </a>
+          </li>
+          <li class="repo-stars">
+            <a href="https://github.com/eclipse/hono/stargazers" target="_blank" title="Stargazers" data-action="star">
+              <i class="icon icon-star"></i> Stars
+              <span class="count">&ndash;</span>
+            </a>
+          </li>
+        </ul>
+        <hr>
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Getting started" href="/hono/getting-started/">
+	
+	Getting started
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Downloads" href="/hono/download/">
+	
+	Downloads
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Sandbox" href="/hono/sandbox/">
+	
+	Sandbox
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Concepts" href="/hono/concepts/">
+	
+	Concepts
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="User Guide" href="/hono/user-guide/">
+	
+	User Guide
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Admin Guide" href="/hono/admin-guide/">
+	
+	Admin Guide
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Developer Guide" href="/hono/dev-guide/">
+	
+	Developer Guide
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="API" href="/hono/api/">
+	
+	API
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Deployment" href="/hono/deployment/">
+	
+	Deployment
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Architecture" href="/hono/architecture/">
+	
+	Architecture
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Community" href="/hono/community/">
+	
+	Community
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="License" href="/hono/license/">
+	
+	License
+</a>
+
+
+
+  
+</li>
+
+
+        </ul>
+        
+
+        
+        <hr>
+        <span class="section">Build Status:</span>
+
+        <ul>
+          
+          <li>
+            <a href="https://ci.eclipse.org/hono/job/Hono-CI/" title="Eclipse Build Status" target="_blank">
+              <img src="https://ci.eclipse.org/hono/buildStatus/icon?job=Hono-CI">
+            </a>
+          </li>
+          
+
+          <li>
+            <a href="https://travis-ci.org/eclipse/hono" title="Travis Build Status" target="_blank">
+              <img src="https://travis-ci.org/eclipse/hono.svg?branch=master" />
+            </a>
+          </li>
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>OpenShift with source-to-image (S2I) </h1>
+
+			<p>This guide described how Eclipse Hono™ can be deployed on OpenShift with
+EnMasse using the source-to-image (S2I) way. Using this approach it is possible
+to customize and refresh the base images where Hono runs in. It also uses
+a more complex, multi-project setup and separates EnMasse and Grafana from
+the core Hono project.</p>
+
+<p></p>
+
+<div class="admonition warning">
+<p class="admonition-title">Use for demos only</p>
+<p><p>While this deployment model is closer to a production-ready deployment
+it still is missing some important aspects, so please do use this only as a
+base for your setup or as a demo setup. The following topics are currently
+not covered by this example deployment:</p>
+
+<ul>
+<li>Running EnMasse with full authentication enabled</li>
+<li>Integration between EnMasse and Hono authentication</li>
+<li>Configuring and supporting multi-tenancy in both platforms</li>
+<li>Use your own versions of the device registry and authorization service</li>
+</ul>
+
+<p>These are all subjects to current and future developments in this area. This
+document will be updated accordingly with the progress.</p>
+</p>
+</div>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<p>In order to work through this example deployment you will need the OpenShift
+client tools installed. Please align the version of the client tools with
+the version of your OpenShift cluster. This guide was tested with
+OpenShift 3.7.2. It should work with older or newer versions as well, but that
+is untested.</p>
+
+<div class="admonition warning">
+<p class="admonition-title">Mac OS X 10.13&#43;</p>
+<p><p>The <code>curl</code> binary on Mac OS X before 10.13 suffers from an issue with TLS SNI.
+Also see: <a href="https://github.com/curl/curl/issues/1533">https://github.com/curl/curl/issues/1533</a></p>
+
+<p>As the use of SNI is required for Kubernetes/OpenShift when it comes to routing
+requests to services, it is not possible to use the provided version of
+<code>curl</code> on Mac OS X before 10.13.</p>
+
+<p>You can install a working <code>curl</code> version using in those Mac OS X released with
+the following commands:</p>
+
+<pre><code>brew install curl --with-openssl
+</code></pre>
+
+<p>Or upgrade your existing installation using:</p>
+
+<pre><code>brew reinstall curl --with-openssl
+</code></pre>
+</p>
+</div>
+
+<h3 id="assumptions">Assumptions</h3>
+
+<p>This tutorial makes the following assumptions about your environment, if those
+assumptions are not true in your specific environment you will need to adapt
+the following instructions:</p>
+
+<ul>
+<li>The admin URL of your OpenShift cluster is: <code>https://my-cluster:8443</code></li>
+<li>The name of your OpenShift user is <code>developer</code></li>
+<li>All scripts and paths are relative to the folder
+<code>example/src/main/deploy/openshift_s2i</code></li>
+</ul>
+
+<h3 id="linux-like-environment">Linux like environment</h3>
+
+<p>The deployment guide assumes that you have a Linux like environment with things
+like <code>bash</code>, <code>curl</code>, <code>git</code>, … Mac OS X 10.13+ works as well, Windows with
+some kind of Unix tooling should also be possible.</p>
+
+<h3 id="openshift-origin-client-tools">OpenShift Origin client tools</h3>
+
+<p>The client tools can be downloaded from the
+<a href="https://github.com/openshift/origin/releases">OpenShift Origin</a> project
+repository. Simply download the archive, unpack it and drop it into a directory
+where it can be found by the local PATH lookup.</p>
+
+<h3 id="minishift">Minishift</h3>
+
+<p>This tutorial is targeted towards running Hono on a production-ready OpenShift
+cluster. However it still is possible and useful to run the same setup on
+a local test cluster with &ldquo;minishift&rdquo;.</p>
+
+<p>Minishift is a tool that helps you run OpenShift locally by running a
+single-node OpenShift cluster inside a VM. Follow
+<a href="https://docs.openshift.org/latest/minishift/getting-started/index.html">this guide</a>
+for installing and having Minishift up and running.</p>
+
+<p>The default resource limits for Minishift however are to small, so please
+ensure that you are running Minishift with the following settings:</p>
+
+<pre><code>minishift start --cpus 4 --memory 16GB --disk-size 40GB
+</code></pre>
+
+<div class="admonition note">
+<p class="admonition-title">Resource limits</p>
+<p>Once you created your Minishift cluster instance with <code>minishift start</code> the
+resource arguments (like <code>--cpus</code>) are ignored in future calls to
+<code>minishift start</code> as the virtual machine has already been created. You will
+need to destroy the instance using <code>minishift delete</code> before it will accept
+the new resource limits.</p>
+</div>
+
+<p>When using minishift you can find your cluster URL by executing the following
+command:</p>
+
+<pre><code>minishift console --url
+</code></pre>
+
+<h3 id="persistent-volumes">Persistent volumes</h3>
+
+<p>You will need three persistent volumes for this deployment. The default
+required volumes are:</p>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th align="right">Size</th>
+<th>Purpose</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>hono-pv</td>
+<td align="right">128 Mi</td>
+<td>Storing device registry information</td>
+</tr>
+
+<tr>
+<td>grafana-pv</td>
+<td align="right">1 Gi</td>
+<td>Grafana configuration database</td>
+</tr>
+
+<tr>
+<td>influxdb-pv</td>
+<td align="right">20 Gi</td>
+<td>Hono interal metrics storage</td>
+</tr>
+</tbody>
+</table>
+
+<p>In the folder <code>admin/storage</code> you will find a set of sub folders containing
+YAML files for setting up the persistent volumes (PVs). As there are multiple
+storage providers available you need to choose <strong>only one</strong> and must modify it
+to match your OpenShift setup (see the following subsections).</p>
+
+<p>It may also be possible that your cluster supports automatic provisioning of
+storage, in this case you don&rsquo;t need to create PVs explicitly.</p>
+
+<p>The PVs can be created by executing the following command with a user that
+has cluster wide privileges:</p>
+
+<pre><code>oc create -f admin/storage/&lt;type&gt;/grafana-pv.yml
+oc create -f admin/storage/&lt;type&gt;/hono-pv.yml
+oc create -f admin/storage/&lt;type&gt;/influxdb-pv.yml
+</code></pre>
+
+<h4 id="minishift-1">Minishift</h4>
+
+<p>When you are running minishift, then you have automatic provisioning for PVs
+available. There is no need to create any PVs manually.</p>
+
+<h4 id="local">Local</h4>
+
+<p>In the <code>admin/storage/local</code> folder you will find YAML files for setting up
+local storage volumes. Those volumes will be kept available when pods are
+restarted, but are only available on he local disk of a node. So pods can
+only run on this single node and not be migrated throughout a cluster.</p>
+
+<p>If you have a single node cluster anyway, it might still be an easy option.</p>
+
+<p>You will need to change the field <code>.spec.hostPath.path</code> to point to an
+existing directory which grants all access to &ldquo;other&rdquo; (<code>chmod a+rwx .</code>).</p>
+
+<p>The storage capacity will only be used for matching PVs with PVCs and is not
+being enforced with this storage type.</p>
+
+<h4 id="nfs">NFS</h4>
+
+<p>The folder <code>admin/storage/nfs</code> contains a set of YAML files for setting up
+NFS based PVs. For this to work you will need a running NFS server and set up
+proper exports. It is possible to re-use the NFS server of your OpenShift
+installation if you already have one.</p>
+
+<p>You will need to change the following fields:</p>
+
+<ul>
+<li><code>.spec.nfs.server</code> – Hostname of the NFS server</li>
+<li><code>.spec.nfs.path</code> – The name of the exported path</li>
+</ul>
+
+<div class="admonition warning">
+<p class="admonition-title">Don&#39;t use in production</p>
+<p>Applications running of top of NFS may have issues with things like file locking
+behavior, …. So it isn&rsquo;t recommended to use NFS without proper testing and
+ensuring that it works the way you expect it. If you accept the risk of
+corrupted data, it might still be a simple setup for testing a multi-node setup.</p>
+</div>
+
+<p>Also see: <a href="https://docs.openshift.org/latest/install_config/persistent_storage/persistent_storage_nfs.html">https://docs.openshift.org/latest/install_config/persistent_storage/persistent_storage_nfs.html</a></p>
+
+<h3 id="ability-to-create-new-projects">Ability to create new projects</h3>
+
+<p>The following guide requires three projects in the OpenShift cluster. It still
+is possible to modify the deployment to deploy to a single project, however this
+guide focuses on a setup having multiple projects.</p>
+
+<p>If you don&rsquo;t have permissions to create new projects yourself, then you will
+need to request three projects. The guide expects the projects names to be:</p>
+
+<ul>
+<li><code>enmasse</code> – Hosting the EnMasse components.</li>
+<li><code>hono</code> – For running Eclipse Hono.</li>
+<li><code>grafana</code> – For running an instance of Grafana. Primarily
+           for showing Hono dashboards.</li>
+</ul>
+
+<p>Those projects must be allowing to perform internal communication.</p>
+
+<p>If projects will be created for you, then you can ignore the
+calls to <code>oc new-project</code> in the following sections.</p>
+
+<h2 id="clone-the-hono-repository">Clone the Hono repository</h2>
+
+<p>In order to have access to some of the requires scripts and resource of this
+deployment guide, you will need to clone the Hono repository to your local
+machine. You can do this with the following command:</p>
+
+<pre><code>git clone https://github.com/eclipse/hono.git
+</code></pre>
+
+<p>Or if you want to check out a specific branch (e.g. <code>0.6.x</code>):</p>
+
+<pre><code>git clone -b 0.6.x https://github.com/eclipse/hono.git
+</code></pre>
+
+<div class="admonition note">
+<p class="admonition-title">Different branches</p>
+<p><p>This deployment description is based on the master branch of Hono. However this
+branch is also the current development and may be unstable at times.</p>
+
+<p>If you experience any problems, starting with release 0.6.0 of Hono, it is
+recommended to switch to the release branch (e.g. <code>0.6.x</code>) instead of using
+the default master branch. However this documentation is only published from
+the master branch, so there may be inconsistencies between the repository
+content and the documentation. In this case you can read through <code>index.md</code>
+file, checked out from the branch you cloned. The file is located in the
+directory <code>hono-site/content/deployment/openshift_s2i</code>.</p>
+</p>
+</div>
+
+<h2 id="setting-up-enmasse">Setting up EnMasse</h2>
+
+<p>Start by creating a new project using:</p>
+
+<pre><code>oc new-project enmasse --display-name='EnMasse Instance'
+</code></pre>
+
+<p>Then download and unpack EnMasse:</p>
+
+<pre><code>curl -LO https://github.com/EnMasseProject/enmasse/releases/download/0.20.0/enmasse-0.20.0.tgz
+tar xzf enmasse-0.20.0.tgz
+</code></pre>
+
+<div class="admonition note">
+<p class="admonition-title">Newer versions</p>
+<p>Newer versions of EnMasse might work as well, or might require some changes to
+the deployment guide. Unless you explicitly want to try out a different version
+it is recommended to stick to the version mentioned in this tutorial.</p>
+</div>
+
+<pre><code>./enmasse-0.20.0/deploy.sh -n enmasse
+</code></pre>
+
+<p>Wait for the admin console to completely start up. You can check this with
+the following command:</p>
+
+<pre><code>oc get deploy/api-server
+</code></pre>
+
+<p>Verify that the &ldquo;AVAILABLE&rdquo; column shows &ldquo;1&rdquo;:</p>
+
+<pre><code>NAME         DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+api-server   1         1         1            1           1m
+</code></pre>
+
+<p>Next you will need to configure EnMasse to provide the required resources:</p>
+
+<pre><code>curl -X POST --insecure -T addresses.json -H &quot;content-type: application/json&quot; https://$(oc -n enmasse get route restapi -o jsonpath='{.spec.host}')/apis/enmasse.io/v1alpha1/namespaces/enmasse/addressspaces/default/addresses
+</code></pre>
+
+<h2 id="setting-up-hono">Setting up Hono</h2>
+
+<p>Start by creating a new project using:</p>
+
+<pre><code>oc new-project hono --display-name='Eclipse Hono™'
+</code></pre>
+
+<p>Create the InfluxDB ConfigMap from the local file:</p>
+
+<pre><code>oc create configmap influxdb-config --from-file=&quot;../influxdb.conf&quot;
+</code></pre>
+
+<p>Then process and execute the main Hono template:</p>
+
+<pre><code>oc process -f hono-template.yml | oc create -f -
+</code></pre>
+
+<p>OpenShift templates allow to use <em>parameters</em> which can customize provided
+templates. If you want to specify template parameters from the command line
+use the following syntax:</p>
+
+<pre><code>oc process -f hono-template.yml \
+  -p &quot;ENMASSE_NAMESPACE=enmasse&quot; \
+  -p &quot;GIT_REPOSITORY=https://github.com/your/hono.git&quot; \
+  -p &quot;GIT_BRANCH=0.6.x&quot;| oc create -f -
+</code></pre>
+
+<div class="admonition note">
+<p class="admonition-title">Align branches</p>
+<p><p>By default the Hono template uses the <code>master</code> branch for deploying Hono. As
+this branch might be unstable this may not be what you are looking for, but it
+also is the default branch of the Hono Git repository where you checked out
+the deployment template.</p>
+
+<p>It is recommended that when you execute the guide from an alternate branch
+(e.g. <code>0.6.x</code>) that you also pass the same branch as <code>GIT_BRANCH</code> to the
+template.</p>
+</p>
+</div>
+
+<h2 id="setting-up-grafana">Setting up Grafana</h2>
+
+<p>Start by creating a new project using:</p>
+
+<pre><code>oc new-project grafana --display-name='Grafana Dashboard'
+</code></pre>
+
+<p>Then deploy the Grafana instance using:</p>
+
+<pre><code>oc process -f ../openshift/grafana-template.yml \
+  -p ADMIN_PASSWORD=admin | oc create -f -
+</code></pre>
+
+<p>After the Grafana instance is up and running, deploy the default resources:</p>
+
+<pre><code>../configure_grafana.sh &quot;$(oc get route grafana -o jsonpath='{.spec.host}')&quot; 80
+</code></pre>
+
+<h2 id="configuring-the-installation">Configuring the installation</h2>
+
+<p>There are a few ways to configure the deployment. The following sub-sections
+will give you an introduction.</p>
+
+<h3 id="configure-maximum-number-of-devices-per-tenant">Configure maximum number of devices per tenant</h3>
+
+<p>The default settings for the example Hono device registry limit the number of
+devices to 100 per tenant. If this is not enough for your setup you can change
+the setting by executing the following command, which will increate the number
+to 10.000 devices per tenant:</p>
+
+<pre><code>oc env dc/hono-service-device-registry HONO_REGISTRY_SVC_MAX_DEVICES_PER_TENANT=10000
+</code></pre>
+
+<h2 id="using-the-installation">Using the installation</h2>
+
+<p>All following examples make use of the running Hono instance. They pretty much
+follow the other examples. Please note that, compared to the more simple
+OpenShift deployment, in this case we need to take care of different project
+names when looking up route host names via <code>oc get</code>. You can use the command
+line argument <code>-n &lt;project&gt;</code> to specify the project name without changing the
+default selected project.</p>
+
+<p>All examples in the following sub-sections assume that you are located in the
+<code>examples</code> directory.</p>
+
+<h3 id="extract-certificates">Extract certificates</h3>
+
+<p>In order to connect the external consumer to EnMasse, we need to use a
+proper SSL certificate. We can extract one from the OpenShift using the
+following command:</p>
+
+<pre><code>oc extract secret/external-certs-messaging --to=target/config/hono-demo-certs-jar -n enmasse
+</code></pre>
+
+<p>This will create two files <code>tls.crt</code> and <code>tls.key</code> in the directory
+<code>target/keys</code>.</p>
+
+<h3 id="running-consumer">Running consumer</h3>
+
+<p>As described in the <a href="/hono/getting-started/">Getting Started</a>
+guide, data produced by devices is usually consumed by downstream applications
+which connect directly to the router network service. You can start the client
+from the <code>example</code> folder as follows:</p>
+
+<pre><code>mvn spring-boot:run -Drun.arguments=--hono.client.host=$(oc get -n enmasse route messaging --template='{{.spec.host}}'),--hono.client.port=443,--hono.client.trustStorePath=target/config/hono-demo-certs-jar/tls.crt
+</code></pre>
+
+<h3 id="register-device">Register device</h3>
+
+<p>In order to upload telemetry data to Hono, the device needs to be registered
+with the system. You can register the device using the <em>Device Registry</em> by
+running the following command (i.e. for a device with ID <code>4711</code>):</p>
+
+<pre><code>curl -X POST -i -H 'Content-Type: application/json' -d '{&quot;device-id&quot;: &quot;4711&quot;}' http://$(oc get -n hono route hono-service-device-registry-http --template='{{.spec.host}}')/registration/DEFAULT_TENANT
+</code></pre>
+
+<h3 id="uploading-telemetry-with-http">Uploading Telemetry with HTTP</h3>
+
+<p>After having the device registered, uploading telemetry is just a simple
+HTTP POST command to the <em>HTTP Adapter</em>:</p>
+
+<pre><code>curl -X POST -i -u sensor1@DEFAULT_TENANT:hono-secret -H 'Content-Type: application/json' --data-binary '{&quot;temp&quot;: 5}' http://$(oc get route hono-adapter-http-vertx --template='{{.spec.host}}')/telemetry
+</code></pre>
+
+      <aside class="copyright" role="note">
+  <div class="logo">
+    <a href="https://www.eclipse.org" target="_blank">
+      <img src="https://www.eclipse.org/hono/images/eclipse_foundation_logo.png" />
+    </a>
+  </div>
+  <p class="notice">
+    
+    &copy; 2018 The Eclipse Hono Project &ndash;
+    
+    Documentation built with
+    <a href="https://www.gohugo.io" target="_blank">Hugo</a>
+    using the
+    <a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+  </p>
+  <p class="quickLinks">
+    <a href="http://www.eclipse.org/legal/privacy.php" target="_blank">
+      &gt; Privacy Policy
+    </a>
+    <a href="http://www.eclipse.org/legal/termsofuse.php" target="_blank">
+      &gt; Terms of Use
+    </a>
+    <a href="http://www.eclipse.org/legal/copyright.php" target="_blank">
+      &gt; Copyright Agent
+    </a>
+    <a href="http://www.eclipse.org/legal" target="_blank">
+      &gt; Legal
+    </a>
+    <a href="https://eclipse.org/security" target="_blank">
+      &gt; Report a Vulnerability
+    </a>
+  </p>
+</aside>
+
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="https://www.eclipse.org/hono/deployment/openshift/" title="OpenShift with EnMasse">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              OpenShift with EnMasse
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="https://www.eclipse.org/hono/deployment/docker-swarm/" title="Docker Swarm">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Docker Swarm
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = 'https:\/\/www.eclipse.org\/hono\/';
+      var repo_id  = 'eclipse\/hono';
+    
+    </script>
+
+    <script src="https://www.eclipse.org/hono/javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            if(!headers[i].id)
+                a.setAttribute("href", headers[i].parentNode.href);
+            else
+                a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "#";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+      
+      <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-5WLCZXC');
+      </script>
+    
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

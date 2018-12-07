@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Api on Eclipse Hono</title>
+    <link>https://www.eclipse.org/hono/api/</link>
+    <description>Recent content in Api on Eclipse Hono</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://www.eclipse.org/hono/api/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Authentication API</title>
+      <link>https://www.eclipse.org/hono/api/authentication-api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/api/authentication-api/</guid>
+      <description>&lt;p&gt;The &lt;em&gt;Authentication API&lt;/em&gt; is used to retrieve a &lt;em&gt;token&lt;/em&gt; asserting a subject&amp;rsquo;s identity and granted authorities. Other service implementations use such a token to make authorization decisions on a client&amp;rsquo;s request to read or write from/to a resource or to invoke a certain operation.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Tenant API</title>
+      <link>https://www.eclipse.org/hono/api/tenant-api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/api/tenant-api/</guid>
+      <description>&lt;p&gt;The &lt;em&gt;Tenant API&lt;/em&gt; is used to make Hono aware of the tenants that are available in an installation.
+A tenant is a logical entity, which groups together a set of devices and consists of meta information which should be used by other Hono components.
+The tenant meta information is used for example to determine if a given tenant is allowed to use a certain protocol adapter or if devices are required to use authentication.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Device Registration API</title>
+      <link>https://www.eclipse.org/hono/api/device-registration-api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/api/device-registration-api/</guid>
+      <description>&lt;p&gt;The &lt;em&gt;Device Registration API&lt;/em&gt; is used to make Hono aware of devices that will connect to the service and send telemetry data.
+It can be used by &lt;em&gt;Protocol Adapters&lt;/em&gt; to register devices that are not directly connected to Hono using an AMQP 1.0 connection.
+&lt;em&gt;Solutions&lt;/em&gt; and other consumers may use the API to obtain information about a single device that is registered to Hono.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Telemetry API</title>
+      <link>https://www.eclipse.org/hono/api/telemetry-api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/api/telemetry-api/</guid>
+      <description>&lt;p&gt;The &lt;em&gt;Telemetry&lt;/em&gt; API is used by &lt;em&gt;Devices&lt;/em&gt; to send data downstream.
+&lt;em&gt;Business Applications&lt;/em&gt; and other consumers use the API to receive data published by devices belonging to a particular tenant.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Event API</title>
+      <link>https://www.eclipse.org/hono/api/event-api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/api/event-api/</guid>
+      <description>&lt;p&gt;The &lt;em&gt;Event&lt;/em&gt; API is used by &lt;em&gt;Devices&lt;/em&gt; to send event messages downstream.
+&lt;em&gt;Business Applications&lt;/em&gt; and other consumers use the API to receive messages published by devices belonging to a particular tenant.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Credentials API</title>
+      <link>https://www.eclipse.org/hono/api/credentials-api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/api/credentials-api/</guid>
+      <description>&lt;p&gt;The &lt;em&gt;Credentials API&lt;/em&gt; is used by &lt;em&gt;Protocol Adapters&lt;/em&gt; to retrieve credentials used to authenticate &lt;em&gt;Devices&lt;/em&gt; connecting to the adapter. In particular, the API supports the storage, look up and deletion of &lt;em&gt;shared secrets&lt;/em&gt; which are often used by IoT devices by means of &lt;em&gt;username/password&lt;/em&gt; based authentication schemes.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Command &amp; Control API</title>
+      <link>https://www.eclipse.org/hono/api/command-and-control-api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/api/command-and-control-api/</guid>
+      <description>&lt;p&gt;The &lt;em&gt;Command and Control&lt;/em&gt; API is used by &lt;em&gt;Business Applications&lt;/em&gt; to send commands to devices connected to Hono. Command messages can be used to
+execute operations on devices, e.g. updating a configuration property, installing a software component or activating an actuator.
+&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

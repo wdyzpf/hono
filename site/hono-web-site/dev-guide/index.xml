@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dev-guide on Eclipse Hono</title>
+    <link>https://www.eclipse.org/hono/dev-guide/</link>
+    <description>Recent content in Dev-guide on Eclipse Hono</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://www.eclipse.org/hono/dev-guide/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Consuming Messages from Java</title>
+      <link>https://www.eclipse.org/hono/dev-guide/java_client_consumer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/dev-guide/java_client_consumer/</guid>
+      <description>To illustrate how Eclipse Hono&amp;trade; can be integrated with Java code, a simple program is provided that consumes telemetry or event data from the default tenant from a device. It also includes support for sending a command to a device and receiving a response to it.
+It shall serve as a blueprint to integrate your existing java source code with Hono.
+The code is found in the example module in the package org.</description>
+    </item>
+    
+    <item>
+      <title>Sending Messages from Java</title>
+      <link>https://www.eclipse.org/hono/dev-guide/java_client_sender/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/dev-guide/java_client_sender/</guid>
+      <description>To illustrate how Eclipse Hono&amp;trade; can be integrated with Java code, a simple program is provided that sends telemetry or event data to the default tenant from a device. It shall serve as a blueprint to integrate your existing java source code with Hono.
+The code is found in the example module in the package org.eclipse.hono.vertx.example.
+The provided classes are kept as simple as possible (in the tradition of a classical &amp;ldquo;Hello World&amp;rdquo; implementation).</description>
+    </item>
+    
+    <item>
+      <title>Implement a Custom Hono HTTP Protocol Adapter</title>
+      <link>https://www.eclipse.org/hono/dev-guide/custom_http_adapter/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/dev-guide/custom_http_adapter/</guid>
+      <description>&lt;p&gt;Eclipse Hono&amp;trade; comes with a default &lt;em&gt;HTTP Adapter&lt;/em&gt; which can be used to interact with devices via HTTP.
+The default HTTP Adapter also serves as a blueprint for implementing a &lt;em&gt;custom&lt;/em&gt; HTTP protocol adapter.
+&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

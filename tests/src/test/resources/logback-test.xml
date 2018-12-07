@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+  <!-- 
+    This is the logging configuration that is used by the
+    locally executing integration test cases.
+
+    Any changes made here will be reflected on the next test
+    execution.
+   -->
+
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <!-- encoders are assigned the type
+         ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <root level="WARN">
+    <appender-ref ref="STDOUT" />
+  </root>
+
+  <logger name="org.eclipse.hono" level="INFO"/>
+  <logger name="org.eclipse.hono.client" level="INFO"/>
+  <logger name="org.eclipse.hono.client.impl" level="INFO"/>
+  <logger name="org.eclipse.hono.tests" level="INFO"/>
+  <logger name="org.eclipse.hono.tests.client" level="INFO"/>
+  <logger name="org.eclipse.hono.tests.http" level="INFO"/>
+  <logger name="org.eclipse.hono.tests.jms" level="INFO"/>
+
+  <logger name="org.apache.qpid.jms" level="INFO"/>
+  <!-- 
+    Set the following logger to level TRACE and add a "amqp.traceFrames=true" option to the connection URI
+    in order to trace AMQP frames.
+   -->
+  <logger name="org.apache.qpid.jms.provider.amqp.FRAMES" level="INFO"/>
+  <logger name="io.netty.resolver.dns" level="INFO"/>
+  <logger name="io.vertx.proton.impl" level="INFO"/>
+
+</configuration>

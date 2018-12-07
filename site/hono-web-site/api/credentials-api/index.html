@@ -1,0 +1,1475 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="en-us">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>Credentials API - Eclipse Hono</title>
+    <meta name="generator" content="Hugo 0.42" />
+
+    
+    <meta name="description" content="A set of micro-services for connecting millions of devices.">
+    
+    <link rel="canonical" href="https://www.eclipse.org/hono/api/credentials-api/">
+    
+    <meta name="author" content="The Eclipse Hono Project">
+    
+
+    <meta property="og:url" content="https://www.eclipse.org/hono/api/credentials-api/">
+    <meta property="og:title" content="Eclipse Hono">
+    <meta property="og:image" content="https://www.eclipse.org/hono/images/logo-32x32px.png">
+    <meta name="apple-mobile-web-app-title" content="Eclipse Hono">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.eclipse.org/hono/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://www.eclipse.org/hono/images/favicon.ico">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('https://www.eclipse.org/hono/fonts/icon.eot');
+        src: url('https://www.eclipse.org/hono/fonts/icon.eot')
+               format('embedded-opentype'),
+             url('https://www.eclipse.org/hono/fonts/icon.woff')
+               format('woff'),
+             url('https://www.eclipse.org/hono/fonts/icon.ttf')
+               format('truetype'),
+             url('https://www.eclipse.org/hono/fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/application.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/temporary.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/palettes.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu&#43;Mono">
+    <style>
+      body, input {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/css/hono.css">
+    
+    <link rel="stylesheet" href="//www.eclipse.org/eclipse.org-common/themes/solstice/public/stylesheets/vendor/cookieconsent/cookieconsent.min.css">
+    
+    <script src="https://www.eclipse.org/hono/javascripts/modernizr.js"></script>
+    <script src="//www.eclipse.org/eclipse.org-common/themes/solstice/public/javascript/vendor/cookieconsent/default.min.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-orange palette-accent-teal">
+
+
+
+	
+	
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        Credentials API
+      </div>
+    </div>
+
+    
+
+    
+    <div class="button button-github" role="button" aria-label="GitHub">
+      <a href="https://github.com/eclipse/hono" title="@eclipse/hono on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+    </div>
+    
+    
+        
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="https://www.eclipse.org/hono/" class="project">
+    <div class="banner">
+      
+        <div class="drawerlogo">
+          <img src="https://www.eclipse.org/hono/images/logo-32x32px.png">
+        </div>
+      
+      <div class="name">
+        <strong>Eclipse Hono&trade; </strong>
+        
+          <br>
+          eclipse/hono
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+        <ul class="repo">
+          <li class="repo-download">
+            <a href="https://www.eclipse.org/hono/download/" title="Download" data-action="download">
+              <i class="icon icon-download"></i> Download
+            </a>
+          </li>
+          <li class="repo-stars">
+            <a href="https://github.com/eclipse/hono/stargazers" target="_blank" title="Stargazers" data-action="star">
+              <i class="icon icon-star"></i> Stars
+              <span class="count">&ndash;</span>
+            </a>
+          </li>
+        </ul>
+        <hr>
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Getting started" href="/hono/getting-started/">
+	
+	Getting started
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Downloads" href="/hono/download/">
+	
+	Downloads
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Sandbox" href="/hono/sandbox/">
+	
+	Sandbox
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Concepts" href="/hono/concepts/">
+	
+	Concepts
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="User Guide" href="/hono/user-guide/">
+	
+	User Guide
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Admin Guide" href="/hono/admin-guide/">
+	
+	Admin Guide
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Developer Guide" href="/hono/dev-guide/">
+	
+	Developer Guide
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="API" href="/hono/api/">
+	
+	API
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Deployment" href="/hono/deployment/">
+	
+	Deployment
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Architecture" href="/hono/architecture/">
+	
+	Architecture
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Community" href="/hono/community/">
+	
+	Community
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="License" href="/hono/license/">
+	
+	License
+</a>
+
+
+
+  
+</li>
+
+
+        </ul>
+        
+
+        
+        <hr>
+        <span class="section">Build Status:</span>
+
+        <ul>
+          
+          <li>
+            <a href="https://ci.eclipse.org/hono/job/Hono-CI/" title="Eclipse Build Status" target="_blank">
+              <img src="https://ci.eclipse.org/hono/buildStatus/icon?job=Hono-CI">
+            </a>
+          </li>
+          
+
+          <li>
+            <a href="https://travis-ci.org/eclipse/hono" title="Travis Build Status" target="_blank">
+              <img src="https://travis-ci.org/eclipse/hono.svg?branch=master" />
+            </a>
+          </li>
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>Credentials API </h1>
+
+			<p>The <em>Credentials API</em> is used by <em>Protocol Adapters</em> to retrieve credentials used to authenticate <em>Devices</em> connecting to the adapter. In particular, the API supports the storage, look up and deletion of <em>shared secrets</em> which are often used by IoT devices by means of <em>username/password</em> based authentication schemes.
+</p>
+
+<p>Credentials are of a certain <em>type</em> which indicates which authentication mechanism the credentials can be used with. Each set of credentials also contains an <em>authentication identity</em> which is the identity claimed by the device during authentication. This authentication identity is usually different from the <em>device-id</em> the device has been registered with using Hono&rsquo;s <a href="/hono/api/device-registration-api/">Device Registration API</a>. Multiple sets of credentials (including arbitrary <em>authentication identities</em>) can be registered for each <em>device-id</em>.</p>
+
+<p>Note, however, that in real world applications the device credentials will probably be kept and managed by an existing <em>system of record</em>, using e.g. a database for persisting the credentials. The Credential API accounts for this fact by means of defining only the <a href="#get-credentials">Get Credentials</a> operation as <em>mandatory</em>, meaning that this operation is strictly required by a Hono instance for it to work properly. The remaining operations are defined as <em>optional</em> from Hono&rsquo;s perspective.</p>
+
+<p>The Credentials API is defined by means of AMQP 1.0 message exchanges, i.e. a client needs to connect to Hono using an AMQP 1.0 client in order to invoke operations of the API as described in the following sections.</p>
+
+<h2 id="preconditions">Preconditions</h2>
+
+<p>The preconditions for invoking any of the Credential API&rsquo;s operations are as follows:</p>
+
+<ol>
+<li>Client has established an AMQP connection to Hono.</li>
+<li>Client has established an AMQP link in role <em>sender</em> with Hono using target address <code>credentials/${tenant_id}</code>. This link is used by the client to send commands to Hono.</li>
+<li>Client has established an AMQP link in role <em>receiver</em> with Hono using source address <code>credentials/${tenant_id}/${reply-to}</code> where <em>reply-to</em> may be any arbitrary string chosen by the client. This link is used by the client to receive responses to the requests it has sent to Hono. This link&rsquo;s source address is also referred to as the <em>reply-to</em> address for the request messages.</li>
+</ol>
+
+<p>The flow of messages for creating the links is illustrated by the following sequence diagram (showing the AMQP performatives):</p>
+
+<p><img src="../connectToCredentials.png" alt="Credentials message flow preconditions" /></p>
+
+<h2 id="operations">Operations</h2>
+
+<p>The operations described in the following sections can be used by clients to manage credentials for authenticating devices connected to protocol adapters.</p>
+
+<p>All operations are scoped to the <em>tenant</em> specified by the <code>${tenant_id}</code> parameter during link establishment. It is therefore not possible to e.g. retrieve credentials for devices of <code>TENANT_B</code> if the link has been established for target address <code>credentials/TENANT_A</code>.</p>
+
+<h3 id="add-credentials">Add Credentials</h3>
+
+<p>Clients may use this command to initially <em>add</em> credentials for a device. The credentials to be added may be of arbitrary type. However, <a href="#standard-credential-types">Standard Credential Types</a> contains an overview of some common types that are used by Hono&rsquo;s protocol adapters and which may be useful to others as well.</p>
+
+<p>This operation is <em>optional</em>, implementors of this API may provide other means for adding credential information, e.g. a RESTful API or a configuration file.</p>
+
+<p><em>Optional check</em> : Implementors of this API may check first if the device has already been registered with Hono and respond with a non successful error code (see Response Message Format below) if the device was not found.
+This check is not mandatory and for some scenarios it might be desired to provide credentials for devices that are registered later (e.g. devices provisioned with pre-shared keys that are registered during their first time being connected to Hono).</p>
+
+<p><strong>Message Flow</strong></p>
+
+<p>The following sequence diagram illustrates the flow of messages involved in a <em>Client</em> adding credentials.</p>
+
+<p><img src="../addCredentials_Success.png" alt="Add Credentials message flow" /></p>
+
+<p><strong>Request Message Format</strong></p>
+
+<p>The following table provides an overview of the properties a client needs to set on an <em>add credentials</em> message in addition to the <a href="#standard-request-properties">Standard Request Properties</a>.</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="center">Mandatory</th>
+<th align="left">Location</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><em>subject</em></td>
+<td align="center">yes</td>
+<td align="left"><em>properties</em></td>
+<td align="left"><em>string</em></td>
+<td align="left">MUST contain the value <code>add</code>.</td>
+</tr>
+</tbody>
+</table>
+
+<p>The request message payload MUST contain credential information as defined in <a href="#credentials-format">Credentials Format</a>.</p>
+
+<p><strong>Response Message Format</strong></p>
+
+<p>A response to an <em>add credentials</em> request contains the <a href="#standard-response-properties">Standard Response Properties</a>.</p>
+
+<p>The response message&rsquo;s body is empty.</p>
+
+<p>The response message&rsquo;s <em>status</em> property may contain the following codes:</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Code</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><em>201</em></td>
+<td align="left">Created, the credentials have been added successfully.</td>
+</tr>
+
+<tr>
+<td align="left"><em>409</em></td>
+<td align="left">Conflict, there already exist credentials of the given <em>type</em> for the given <em>auth-id</em>.</td>
+</tr>
+
+<tr>
+<td align="left"><em>412</em></td>
+<td align="left">Precondition Failed, there is no device registered with the given <em>device-id</em> within the tenant. <strong>NB</strong> This status is only used when the implementation checks the registration of the device (see optional check in <a href="#add-credentials">Add Credentials description</a>).</td>
+</tr>
+</tbody>
+</table>
+
+<p>For status codes indicating an error (codes in the <code>400 - 499</code> range) the message body MAY contain a detailed description of the error that occurred.</p>
+
+<h3 id="get-credentials">Get Credentials</h3>
+
+<p>Protocol adapters use this command to <em>look up</em> credentials of a particular type for a device identity.</p>
+
+<p>This operation is <em>mandatory</em> to implement.</p>
+
+<p><strong>Message Flow</strong></p>
+
+<p>The following sequence diagram illustrates the flow of messages involved in a <em>Client</em> retrieving credentials.</p>
+
+<p><img src="../getCredentials_Success.png" alt="Get Credentials message flow" /></p>
+
+<p><strong>Request Message Format</strong></p>
+
+<p>The following table provides an overview of the properties a client needs to set on an <em>get credentials</em> message in addition to the <a href="#standard-request-properties">Standard Request Properties</a>.</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="center">Mandatory</th>
+<th align="left">Location</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><em>subject</em></td>
+<td align="center">yes</td>
+<td align="left"><em>properties</em></td>
+<td align="left"><em>string</em></td>
+<td align="left">MUST contain the value <code>get</code>.</td>
+</tr>
+</tbody>
+</table>
+
+<p>The body of the request MUST consist of a single <em>AMQP Value</em> section containing a UTF-8 encoded string representation of a single JSON object having the following members:</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="center">Mandatory</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><em>type</em></td>
+<td align="center"><em>yes</em></td>
+<td align="left"><em>string</em></td>
+<td align="left">The type of credentials to look up. Potential values include (but are not limited to) <code>psk</code>, <code>RawPublicKey</code>, <code>hashed-password</code> etc.</td>
+</tr>
+
+<tr>
+<td align="left"><em>auth-id</em></td>
+<td align="center"><em>yes</em></td>
+<td align="left"><em>string</em></td>
+<td align="left">The authentication identifier to look up credentials for.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Additionally, the body can contain arbitrary array of properties that service implementations can use to determine device identity.</p>
+
+<p>The following request payload may be used to look up the hashed password for a device with the authentication identifier <code>sensor1</code>:</p>
+
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;hashed-password&quot;,
+  &quot;auth-id&quot;: &quot;sensor1&quot;
+}
+</code></pre>
+
+<p><strong>Response Message Format</strong></p>
+
+<p>A response to a <em>get credentials</em> request contains the <a href="#standard-response-properties">Standard Response Properties</a>.</p>
+
+<p>The response message payload MUST contain credential information as defined in <a href="#credentials-format">Credentials Format</a> if the <em>status</em> is <code>200</code>.</p>
+
+<p>The response message&rsquo;s <em>status</em> property may contain the following codes:</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Code</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><em>200</em></td>
+<td align="left">OK, the payload contains the credentials for the authentication identifier.</td>
+</tr>
+
+<tr>
+<td align="left"><em>404</em></td>
+<td align="left">Not Found, there are no credentials registered matching the criteria.</td>
+</tr>
+</tbody>
+</table>
+
+<p>For status codes indicating an error (codes in the <code>400 - 499</code> range) the message body MAY contain a detailed description of the error that occurred.</p>
+
+<h3 id="update-credentials">Update Credentials</h3>
+
+<p>Clients use this command to <em>update</em> existing credentials registered for a device. All of the information that has been previously registered for the device gets <em>replaced</em> with the information contained in the request message.</p>
+
+<p>This operation is <em>optional</em>, implementors of this API may provide other means for updating credential information, e.g. a RESTful API or a configuration file.</p>
+
+<p><strong>Message Flow</strong></p>
+
+<p>The following sequence diagram illustrates the flow of messages involved in a <em>Client</em> updating existing credentials.</p>
+
+<p><img src="../updateCredentials_Success.png" alt="Update existing Credentials message flow" /></p>
+
+<p><strong>Request Message Format</strong></p>
+
+<p>The following table provides an overview of the properties a client needs to set on an <em>update credentials</em> message in addition to the <a href="#standard-request-properties">Standard Request Properties</a>.</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="center">Mandatory</th>
+<th align="left">Location</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><em>subject</em></td>
+<td align="center">yes</td>
+<td align="left"><em>properties</em></td>
+<td align="left"><em>string</em></td>
+<td align="left">MUST contain the value <code>update</code>.</td>
+</tr>
+</tbody>
+</table>
+
+<p>The request message payload MUST contain credential information as defined in <a href="#credentials-format">Credentials Format</a>.</p>
+
+<p><strong>Response Message Format</strong></p>
+
+<p>A response to an <em>update credentials</em> request contains the <a href="#standard-response-properties">Standard Response Properties</a>.</p>
+
+<p>The response message&rsquo;s body is empty.</p>
+
+<p>The response message&rsquo;s <em>status</em> property may contain the following codes:</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Code</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><em>204</em></td>
+<td align="left">No Content, the credentials have been updated successfully.</td>
+</tr>
+
+<tr>
+<td align="left"><em>404</em></td>
+<td align="left">Not Found, there are no credentials registered matching the criteria from the payload.</td>
+</tr>
+</tbody>
+</table>
+
+<p>For status codes indicating an error (codes in the <code>400 - 499</code> range) the message body MAY contain a detailed description of the error that occurred.</p>
+
+<h3 id="remove-credentials">Remove Credentials</h3>
+
+<p>Clients use this command to <em>remove</em> credentials registered for a device. Once the credentials are removed, the device may no longer be able to authenticate with protocol adapters using the authentication mechanism that the removed credentials corresponded to.</p>
+
+<p>This operation is <em>optional</em>, implementors of this API may provide other means for removing credential information, e.g. a RESTful API or a configuration file.</p>
+
+<p><strong>Message Flow</strong></p>
+
+<p>The following sequence diagram illustrates the flow of messages involved in a <em>Client</em> removing existing credentials.</p>
+
+<p><img src="../removeCredentials_Success.png" alt="Remove existing Credentials message flow" /></p>
+
+<p><strong>Request Message Format</strong></p>
+
+<p>The following table provides an overview of the properties a client needs to set on a <em>remove credentials</em> message in addition to the <a href="#standard-request-properties">Standard Request Properties</a>.</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="center">Mandatory</th>
+<th align="left">Location</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><em>subject</em></td>
+<td align="center">yes</td>
+<td align="left"><em>properties</em></td>
+<td align="left"><em>string</em></td>
+<td align="left">MUST contain the value <code>remove</code>.</td>
+</tr>
+</tbody>
+</table>
+
+<p>The body of the message MUST consist of a single <em>AMQP Value</em> section containing a UTF-8 encoded string representation of a single JSON object having the following properties:</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="center">Mandatory</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><em>device-id</em></td>
+<td align="center"><em>yes</em></td>
+<td align="left"><em>string</em></td>
+<td align="left">The ID of the device from which the credentials should be removed.</td>
+</tr>
+
+<tr>
+<td align="left"><em>type</em></td>
+<td align="center"><em>yes</em></td>
+<td align="left"><em>string</em></td>
+<td align="left">The type of credentials to remove. If set to <code>*</code> then all credentials of the device are removed (<em>auth-id</em> is ignored), otherwise only the credentials matching the <em>type</em> and <em>auth-id</em> are removed.</td>
+</tr>
+
+<tr>
+<td align="left"><em>auth-id</em></td>
+<td align="center"><em>no</em></td>
+<td align="left"><em>string</em></td>
+<td align="left">The authentication identifier of the credentials to remove. If omitted, then all credentials of the specified <em>type</em> are removed.</td>
+</tr>
+</tbody>
+</table>
+
+<p>The following JSON can be used to remove all <code>hashed-password</code> credentials of device <code>4711</code>:</p>
+
+<pre><code class="language-json">{
+  &quot;device-id&quot;: &quot;4711&quot;,
+  &quot;type&quot;: &quot;hashed-password&quot;
+}
+</code></pre>
+
+<p><strong>Response Message Format</strong></p>
+
+<p>A response to a <em>remove credentials</em> request contains the <a href="#standard-response-properties">Standard Response Properties</a>.</p>
+
+<p>The response message&rsquo;s body is empty.</p>
+
+<p>The response message&rsquo;s <em>status</em> property may contain the following codes:</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Code</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><em>204</em></td>
+<td align="left">No Content, the credentials have been removed successfully.</td>
+</tr>
+
+<tr>
+<td align="left"><em>404</em></td>
+<td align="left">Not Found, there are no credentials registered matching the criteria given in the request payload.</td>
+</tr>
+</tbody>
+</table>
+
+<p>For status codes indicating an error (codes in the <code>400 - 499</code> range) the message body MAY contain a detailed description of the error that occurred.</p>
+
+<h2 id="standard-message-properties">Standard Message Properties</h2>
+
+<p>Due to the nature of the request/response message pattern of the operations of the Credentials API, there are some standard properties shared by all of the request and response messages exchanged as part of the operations.</p>
+
+<h3 id="standard-request-properties">Standard Request Properties</h3>
+
+<p>The following table provides an overview of the properties shared by all request messages regardless of the particular operation being invoked.</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="center">Mandatory</th>
+<th align="left">Location</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><em>subject</em></td>
+<td align="center">yes</td>
+<td align="left"><em>properties</em></td>
+<td align="left"><em>string</em></td>
+<td align="left">MUST be set to the value defined by the particular operation being invoked.</td>
+</tr>
+
+<tr>
+<td align="left"><em>correlation-id</em></td>
+<td align="center">no</td>
+<td align="left"><em>properties</em></td>
+<td align="left">*message-id</td>
+<td align="left">MAY contain an ID used to correlate a response message to the original request. If set, it is used as the <em>correlation-id</em> property in the response, otherwise the value of the <em>message-id</em> property is used.</td>
+</tr>
+
+<tr>
+<td align="left"><em>message-id</em></td>
+<td align="center">yes</td>
+<td align="left"><em>properties</em></td>
+<td align="left"><em>string</em></td>
+<td align="left">MUST contain an identifier that uniquely identifies the message at the sender side.</td>
+</tr>
+
+<tr>
+<td align="left"><em>reply-to</em></td>
+<td align="center">yes</td>
+<td align="left"><em>properties</em></td>
+<td align="left"><em>string</em></td>
+<td align="left">MUST contain the source address that the client wants to received response messages from. This address MUST be the same as the source address used for establishing the client&rsquo;s receive link (see <a href="#Preconditions">Preconditions</a>).</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="standard-response-properties">Standard Response Properties</h3>
+
+<p>The following table provides an overview of the properties shared by all response messages regardless of the particular operation being invoked.</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="center">Mandatory</th>
+<th align="left">Location</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><em>correlation-id</em></td>
+<td align="center">yes</td>
+<td align="left"><em>properties</em></td>
+<td align="left"><em>message-id</em></td>
+<td align="left">Contains the <em>message-id</em> (or the <em>correlation-id</em>, if specified) of the request message that this message is the response to.</td>
+</tr>
+
+<tr>
+<td align="left"><em>device_id</em></td>
+<td align="center">yes</td>
+<td align="left"><em>application-properties</em></td>
+<td align="left"><em>string</em></td>
+<td align="left">Contains the ID of the device.</td>
+</tr>
+
+<tr>
+<td align="left"><em>tenant_id</em></td>
+<td align="center">yes</td>
+<td align="left"><em>application-properties</em></td>
+<td align="left"><em>string</em></td>
+<td align="left">Contains the ID of the tenant to which the device belongs.</td>
+</tr>
+
+<tr>
+<td align="left"><em>status</em></td>
+<td align="center">yes</td>
+<td align="left"><em>application-properties</em></td>
+<td align="left"><em>int</em></td>
+<td align="left">Contains the status code indicating the outcome of the operation. Concrete values and their semantics are defined for each particular operation.</td>
+</tr>
+
+<tr>
+<td align="left"><em>cache_control</em></td>
+<td align="center">no</td>
+<td align="left"><em>application-properties</em></td>
+<td align="left"><em>string</em></td>
+<td align="left">Contains an <a href="https://tools.ietf.org/html/rfc2616#section-14.9">RFC 2616</a> compliant <em>cache directive</em>. The directive contained in the property MUST be obeyed by clients that are caching responses.</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="delivery-states">Delivery States</h2>
+
+<p>Hono uses the following AMQP message delivery states when receiving request messages from clients:</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Delivery State</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><em>ACCEPTED</em></td>
+<td align="left">Indicates that Hono has successfully received and accepted the request for processing.</td>
+</tr>
+
+<tr>
+<td align="left"><em>REJECTED</em></td>
+<td align="left">Indicates that Hono has received the request but was not able to process it. The <em>error</em> field contains information regarding the reason why. Clients should not try to re-send the request using the same message properties in this case.</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="credentials-format">Credentials Format</h2>
+
+<p>Most of the operations of the Credentials API allow or require the inclusion of credential data in the payload of the
+request or response messages of the operation. Such payload is carried in the body of the corresponding AMQP
+messages as part of a single <em>AMQP Value</em> section.</p>
+
+<p>The credential data is carried in the payload as a UTF-8 encoded string representation of a single JSON object. It is an error to include payload that is not of this type.</p>
+
+<p>The table below provides an overview of the standard members defined for the JSON object:</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="center">Mandatory</th>
+<th align="left">Type</th>
+<th align="left">Default Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><em>device-id</em></td>
+<td align="center"><em>yes</em></td>
+<td align="left"><em>string</em></td>
+<td align="left"></td>
+<td align="left">The ID of the device to which the credentials belong.</td>
+</tr>
+
+<tr>
+<td align="left"><em>type</em></td>
+<td align="center"><em>yes</em></td>
+<td align="left"><em>string</em></td>
+<td align="left"></td>
+<td align="left">The credential type name. The value may be arbitrarily chosen by clients but SHOULD reflect the particular type of authentication mechanism the credentials are to be used with. Possible values include (but are not limited to) <code>psk</code>, <code>RawPublicKey</code>, <code>hashed-password</code> etc.</td>
+</tr>
+
+<tr>
+<td align="left"><em>auth-id</em></td>
+<td align="center"><em>yes</em></td>
+<td align="left"><em>string</em></td>
+<td align="left"></td>
+<td align="left">The identity that the device should be authenticated as.</td>
+</tr>
+
+<tr>
+<td align="left"><em>enabled</em></td>
+<td align="center"><em>no</em></td>
+<td align="left"><em>boolean</em></td>
+<td align="left"><em>true</em></td>
+<td align="left">If set to <em>false</em> the credentials are not supposed to be used to authenticate devices any longer. This may e.g. be used to disable a particular mechanism for authenticating the device. <strong>NB</strong> It is the responsibility of the protocol adapter to make use of this information.</td>
+</tr>
+
+<tr>
+<td align="left"><em>secrets</em></td>
+<td align="center"><em>yes</em></td>
+<td align="left"><em>array</em></td>
+<td align="left"></td>
+<td align="left">A list of secrets scoped to a particular time period. See <a href="#secrets-format">Secrets Format</a> for details. <strong>NB</strong> This array must contain at least one element - an empty array is considered an error.</td>
+</tr>
+</tbody>
+</table>
+
+<p>For each set of credentials the combination of <em>auth-id</em> and <em>type</em> MUST be unique within a tenant.</p>
+
+<p><strong>NB</strong> Care needs to be taken that the value for the <em>authentication identifer</em> is compliant with the authentication mechanism(s) it is supposed to be used with. For example, when using standard HTTP Basic authentication, the <em>username</em> part of the Basic Authorization header value (which corresponds to the <em>auth-id</em>) MUST not contain any <em>colon</em> (<code>:</code>) characters, because the colon character is used as the separator between username and password. Similar constraints may exist for other authentication mechanisms, so the <em>authentication identifier</em> needs to be chosen with the anticipated mechanism(s) being used in mind. Otherwise, devices may fail to authenticate with protocol adapters, even if the credentials provided by the device match the credentials registered for the device. In general, using only characters from the <code>[a-zA-Z0-9_-]</code> range for the authentication identifier should be compatible with most mechanisms.</p>
+
+<h3 id="secrets-format">Secrets Format</h3>
+
+<p>Each set of credentials may contain arbitrary <em>secrets</em> scoped to a particular <em>validity period</em> during which the secrets may be used for authenticating a device. The validity periods MAY overlap in order to support the process of changing a secret on a device that itself doesn&rsquo;t support the definition of multiple secrets for gapless authentication across adjacent validity periods.</p>
+
+<p>The table below contains the properties used to define the validity period of a single secret:</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="center">Mandatory</th>
+<th align="left">Type</th>
+<th align="left">Default Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><em>not-before</em></td>
+<td align="center"><em>no</em></td>
+<td align="left"><em>string</em></td>
+<td align="left"><code>null</code></td>
+<td align="left">The point in time from which on the secret may be used to authenticate devices. If not <em>null</em>, the value MUST be an <a href="https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations">ISO 8601 compliant <em>combined date and time representation in extended format</em></a>. <strong>NB</strong> It is up to the discretion of the protocol adapter to make use of this information.</td>
+</tr>
+
+<tr>
+<td align="left"><em>not-after</em></td>
+<td align="center"><em>no</em></td>
+<td align="left"><em>string</em></td>
+<td align="left"><code>null</code></td>
+<td align="left">The point in time until which the secret may be used to authenticate devices. If not <em>null</em>, the value MUST be an <a href="https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations">ISO 8601 compliant <em>combined date and time representation in extended format</em></a>. <strong>NB</strong> It is up to the discretion of the protocol adapter to make use of this information.</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="examples">Examples</h3>
+
+<p>Below is an example for a payload containing <a href="#hashed-password">a hashed password</a> for device <code>4711</code> with auth-id <code>sensor1</code> using SHA512 as the hashing function with a 4 byte salt (Base64 encoding of <code>0x32AEF017</code>). Note that the payload does not contain a <code>not-before</code> property, thus it may be used immediately up until X-mas eve 2017.</p>
+
+<pre><code class="language-json">{
+  &quot;device-id&quot;: &quot;4711&quot;,
+  &quot;type&quot;: &quot;hashed-password&quot;,
+  &quot;auth-id&quot;: &quot;sensor1&quot;,
+  &quot;enabled&quot;: true,
+  &quot;secrets&quot;: [{
+    &quot;not-after&quot;: &quot;2017-12-24T19:00:00+0100&quot;,
+    &quot;pwd-hash&quot;: &quot;AQIDBAUGBwg=&quot;,
+    &quot;salt&quot;: &quot;Mq7wFw==&quot;,
+    &quot;hash-function&quot;: &quot;sha-512&quot;
+  }]
+}
+</code></pre>
+
+<p>The next example contains two <a href="#pre-shared-key">pre-shared secrets</a> with overlapping validity periods for device <code>myDevice</code> with PSK identity <code>little-sensor2</code>.</p>
+
+<pre><code class="language-json">{
+  &quot;device-id&quot;: &quot;myDevice&quot;,
+  &quot;type&quot;: &quot;psk&quot;,
+  &quot;auth-id&quot;: &quot;little-sensor2&quot;,
+  &quot;enabled&quot;: true,
+  &quot;secrets&quot;: [{
+    &quot;not-after&quot;: &quot;2017-07-01T00:00:00+0100&quot;,
+    &quot;key&quot;: &quot;cGFzc3dvcmRfb2xk&quot;
+  },{
+    &quot;not-before&quot;: &quot;2017-06-29T00:00:00+0100&quot;,
+    &quot;key&quot;: &quot;cGFzc3dvcmRfbmV3&quot;
+  }]
+}
+</code></pre>
+
+<h2 id="credential-verification">Credential Verification</h2>
+
+<p>Protocol Adapters are responsible for authenticating devices when they connect. The Credentials API provides the <a href="#get-credentials">Get Credentials</a> operation to support Protocol Adapters in doing so as illustrated below:</p>
+
+<p>The following sequence diagram illustrates the flow of messages involved in a <em>Protocol Adapter</em> authenticating a device.
+This is shown for the <em>MQTT Protocol Adapter</em> as example how a device authenticates with a username and a hashed-password.
+The mechanism can be transfered to other protocols in a similar manner.</p>
+
+<p><img src="../protocolAdapterDeviceAuthentication_Success.png" alt="Protocol Adapter authenticating Devices message flow" /></p>
+
+<p>Retrieved credentials have to be verified by the <em>Protocol Adapter</em>:</p>
+
+<ul>
+<li>credentials that have their <code>enabled</code> property set to <code>false</code> MUST NOT be used for authenticating a device</li>
+
+<li><p>the adapter MUST only use <code>secrets</code> for authentication which have</p>
+
+<ul>
+<li>their <code>not-before</code> property set to either <code>null</code> or the current or a past point in time <strong>and</strong></li>
+<li>their <code>not-after</code> property set to either <code>null</code> or the current or a future point in time.</li>
+</ul></li>
+</ul>
+
+<h2 id="standard-credential-types">Standard Credential Types</h2>
+
+<p>The following sections define some standard credential types and their properties. Applications are encouraged to make use of these types. However, the types are not enforced anywhere in Hono and clients may of course add application specific properties to the credential types.</p>
+
+<h3 id="common-properties">Common Properties</h3>
+
+<p>All credential types used with Hono MUST contain <code>device-id</code>, <code>type</code>, <code>auth-id</code>, <code>enabled</code> and <code>secrets</code> properties as defined in <a href="#credentials-format">Credentials Format</a>.</p>
+
+<h3 id="hashed-password">Hashed Password</h3>
+
+<p>A credential type for storing a (hashed) password for a device.</p>
+
+<p>Example:</p>
+
+<pre><code class="language-json">{
+  &quot;device-id&quot;: &quot;4711&quot;,
+  &quot;type&quot;: &quot;hashed-password&quot;,
+  &quot;auth-id&quot;: &quot;sensor1&quot;,
+  &quot;secrets&quot;: [{
+    &quot;pwd-hash&quot;: &quot;AQIDBAUGBwg=&quot;,
+    &quot;salt&quot;: &quot;Mq7wFw==&quot;,
+    &quot;hash-function&quot;: &quot;sha-512&quot;
+  }]
+}
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="center">Mandatory</th>
+<th align="left">Type</th>
+<th align="left">Default</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><em>type</em></td>
+<td align="center"><em>yes</em></td>
+<td align="left"><em>string</em></td>
+<td align="left"></td>
+<td align="left">The credential type name, always <code>hashed-password</code>.</td>
+</tr>
+
+<tr>
+<td align="left"><em>auth-id</em></td>
+<td align="center"><em>yes</em></td>
+<td align="left"><em>string</em></td>
+<td align="left"></td>
+<td align="left">The identity that the device should be authenticated as.</td>
+</tr>
+
+<tr>
+<td align="left"><em>pwd-hash</em></td>
+<td align="center"><em>yes</em></td>
+<td align="left"><em>string</em></td>
+<td align="left"></td>
+<td align="left">The Base64 encoded bytes representing the hashed password. The password hash MUST be computed by applying the hash function to the byte array consisting of the salt bytes (if a salt is used) and the UTF-8 encoding of the clear text password.</td>
+</tr>
+
+<tr>
+<td align="left"><em>salt</em></td>
+<td align="center"><em>no</em></td>
+<td align="left"><em>string</em></td>
+<td align="left"></td>
+<td align="left">The Base64 encoded bytes used as <em>salt</em> for the password hash. If not set then the password hash has been created without salt.</td>
+</tr>
+
+<tr>
+<td align="left"><em>hash-function</em></td>
+<td align="center"><em>no</em></td>
+<td align="left"><em>string</em></td>
+<td align="left"><code>sha-256</code></td>
+<td align="left">The name of the hash function used to create the password hash. Examples include <code>sha-256</code>, <code>sha-512</code> etc.</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>NB</strong> It is strongly recommended to use salted password hashes only. Furthermore, the salt should be unique per user and password, so no lookup table or rainbow table attacks can be used to crack the salt-hashed password.
+Whenever a password is updated for a user, the salt should change as well.</p>
+
+<p><strong>NB</strong> The example above does not contain any of the <code>not-before</code>, <code>not-after</code> and <code>enabled</code> properties, thus the credentials can be used at any time according to the rules defined in <a href="#credential-verification">Credential Verification</a>.</p>
+
+<h3 id="pre-shared-key">Pre-Shared Key</h3>
+
+<p>A credential type for storing a <em>Pre-shared Key</em> as used in TLS handshakes.</p>
+
+<p>Example:</p>
+
+<pre><code class="language-json">{
+  &quot;device-id&quot;: &quot;4711&quot;,
+  &quot;type&quot;: &quot;psk&quot;,
+  &quot;auth-id&quot;: &quot;little-sensor2&quot;,
+  &quot;secrets&quot;: [{
+    &quot;key&quot;: &quot;AQIDBAUGBwg=&quot;
+  }]
+}
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="center">Mandatory</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><em>type</em></td>
+<td align="center"><em>yes</em></td>
+<td align="left"><em>string</em></td>
+<td align="left">The credential type name, always <code>psk</code>.</td>
+</tr>
+
+<tr>
+<td align="left"><em>auth-id</em></td>
+<td align="center"><em>yes</em></td>
+<td align="left"><em>string</em></td>
+<td align="left">The PSK identity.</td>
+</tr>
+
+<tr>
+<td align="left"><em>key</em></td>
+<td align="center"><em>yes</em></td>
+<td align="left"><em>string</em></td>
+<td align="left">The Base64 encoded bytes representing the shared (secret) key.</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>NB</strong> The example above does not contain any of the <code>not-before</code>, <code>not-after</code> and <code>enabled</code> properties, thus the credentials can be used at any time according to the rules defined in <a href="#credential-verification">Credential Verification</a>.</p>
+
+<h3 id="x-509-certificate">X.509 Certificate</h3>
+
+<p>A credential type for storing the <a href="https://www.ietf.org/rfc/rfc2253.txt">RFC 2253</a> formatted <em>subject DN</em> of a client certificate that is used to authenticate the device as part of a TLS handshake.</p>
+
+<p>Example:</p>
+
+<pre><code class="language-json">{
+  &quot;device-id&quot;: &quot;4711&quot;,
+  &quot;type&quot;: &quot;x509-cert&quot;,
+  &quot;auth-id&quot;: &quot;CN=device-1,O=ACME Corporation&quot;,
+  &quot;secrets&quot;: [{}]
+}
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="center">Mandatory</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><em>type</em></td>
+<td align="center"><em>yes</em></td>
+<td align="left"><em>string</em></td>
+<td align="left">The credential type name, always <code>x509-cert</code>.</td>
+</tr>
+
+<tr>
+<td align="left"><em>auth-id</em></td>
+<td align="center"><em>yes</em></td>
+<td align="left"><em>string</em></td>
+<td align="left">The subject DN of the client certificate in the format defined by <a href="https://www.ietf.org/rfc/rfc2253.txt">RFC 2253</a>.</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>NB</strong> The example above does not contain any of the <code>not-before</code>, <code>not-after</code> and <code>enabled</code> properties. The <code>not-before</code> and <code>not-after</code> properties should be omitted if the validity period is the same as the period indicated by the client certificate&rsquo;s corresponding properties. It is still necessary to provide a (empty) JSON object in the <em>secrets</em> array, though.</p>
+
+      <aside class="copyright" role="note">
+  <div class="logo">
+    <a href="https://www.eclipse.org" target="_blank">
+      <img src="https://www.eclipse.org/hono/images/eclipse_foundation_logo.png" />
+    </a>
+  </div>
+  <p class="notice">
+    
+    &copy; 2018 The Eclipse Hono Project &ndash;
+    
+    Documentation built with
+    <a href="https://www.gohugo.io" target="_blank">Hugo</a>
+    using the
+    <a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+  </p>
+  <p class="quickLinks">
+    <a href="http://www.eclipse.org/legal/privacy.php" target="_blank">
+      &gt; Privacy Policy
+    </a>
+    <a href="http://www.eclipse.org/legal/termsofuse.php" target="_blank">
+      &gt; Terms of Use
+    </a>
+    <a href="http://www.eclipse.org/legal/copyright.php" target="_blank">
+      &gt; Copyright Agent
+    </a>
+    <a href="http://www.eclipse.org/legal" target="_blank">
+      &gt; Legal
+    </a>
+    <a href="https://eclipse.org/security" target="_blank">
+      &gt; Report a Vulnerability
+    </a>
+  </p>
+</aside>
+
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="https://www.eclipse.org/hono/api/event-api/" title="Event API">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              Event API
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="https://www.eclipse.org/hono/api/command-and-control-api/" title="Command &amp; Control API">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Command &amp; Control API
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = 'https:\/\/www.eclipse.org\/hono\/';
+      var repo_id  = 'eclipse\/hono';
+    
+    </script>
+
+    <script src="https://www.eclipse.org/hono/javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            if(!headers[i].id)
+                a.setAttribute("href", headers[i].parentNode.href);
+            else
+                a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "#";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+      
+      <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-5WLCZXC');
+      </script>
+    
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

@@ -1,0 +1,41 @@
+hono:
+  app:
+    maxInstances: 1
+  auth:
+    host: ${hono.auth.host}
+    port: 5671
+    keyPath: /run/secrets/device-registry-key.pem
+    certPath: /run/secrets/device-registry-cert.pem
+    trustStorePath: /run/secrets/trusted-certs.pem
+    name: 'Hono Device Registry'
+    validation:
+      certPath: /run/secrets/auth-server-cert.pem
+  registry:
+    amqp:
+      bindAddress: 0.0.0.0
+      keyPath: /run/secrets/hono.eclipse.org-key.pem
+      certPath: /run/secrets/hono.eclipse.org-cert.pem
+      insecurePortBindAddress: 0.0.0.0
+      insecurePortEnabled: true
+    rest:
+      bindAddress: 0.0.0.0
+      keyPath: /run/secrets/hono.eclipse.org-key.pem
+      certPath: /run/secrets/hono.eclipse.org-cert.pem
+      insecurePortBindAddress: 0.0.0.0
+      insecurePortEnabled: true
+    svc:
+      filename: /var/lib/hono/device-registry/device-identities.json
+      saveToFile: true
+      modificationEnabled: false
+      signing:
+        sharedSecret: ${hono.regAssertion.sharedSecret}
+  credentials:
+    svc:
+      filename: /var/lib/hono/device-registry/credentials.json
+      saveToFile: true
+      modificationEnabled: false
+  tenant:
+    svc:
+      filename: /var/lib/hono/device-registry/tenants.json
+      saveToFile: true
+      modificationEnabled: false

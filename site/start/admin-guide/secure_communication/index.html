@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="en-us">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>Secure Communication - Eclipse Hono</title>
+    <meta name="generator" content="Hugo 0.42" />
+
+    
+    <meta name="description" content="A set of micro-services for connecting millions of devices.">
+    
+    <link rel="canonical" href="https://www.eclipse.org/hono/admin-guide/secure_communication/">
+    
+    <meta name="author" content="The Eclipse Hono Project">
+    
+
+    <meta property="og:url" content="https://www.eclipse.org/hono/admin-guide/secure_communication/">
+    <meta property="og:title" content="Eclipse Hono">
+    <meta property="og:image" content="https://www.eclipse.org/hono/images/logo-32x32px.png">
+    <meta name="apple-mobile-web-app-title" content="Eclipse Hono">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.eclipse.org/hono/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://www.eclipse.org/hono/images/favicon.ico">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('https://www.eclipse.org/hono/fonts/icon.eot');
+        src: url('https://www.eclipse.org/hono/fonts/icon.eot')
+               format('embedded-opentype'),
+             url('https://www.eclipse.org/hono/fonts/icon.woff')
+               format('woff'),
+             url('https://www.eclipse.org/hono/fonts/icon.ttf')
+               format('truetype'),
+             url('https://www.eclipse.org/hono/fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/application.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/temporary.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/palettes.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu&#43;Mono">
+    <style>
+      body, input {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/css/hono.css">
+    
+    <link rel="stylesheet" href="//www.eclipse.org/eclipse.org-common/themes/solstice/public/stylesheets/vendor/cookieconsent/cookieconsent.min.css">
+    
+    <script src="https://www.eclipse.org/hono/javascripts/modernizr.js"></script>
+    <script src="//www.eclipse.org/eclipse.org-common/themes/solstice/public/javascript/vendor/cookieconsent/default.min.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-orange palette-accent-teal">
+
+
+
+	
+	
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        Secure Communication
+      </div>
+    </div>
+
+    
+
+    
+    <div class="button button-github" role="button" aria-label="GitHub">
+      <a href="https://github.com/eclipse/hono" title="@eclipse/hono on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+    </div>
+    
+    
+        
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="https://www.eclipse.org/hono/" class="project">
+    <div class="banner">
+      
+        <div class="drawerlogo">
+          <img src="https://www.eclipse.org/hono/images/logo-32x32px.png">
+        </div>
+      
+      <div class="name">
+        <strong>Eclipse Hono&trade; </strong>
+        
+          <br>
+          eclipse/hono
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+        <ul class="repo">
+          <li class="repo-download">
+            <a href="https://www.eclipse.org/hono/download/" title="Download" data-action="download">
+              <i class="icon icon-download"></i> Download
+            </a>
+          </li>
+          <li class="repo-stars">
+            <a href="https://github.com/eclipse/hono/stargazers" target="_blank" title="Stargazers" data-action="star">
+              <i class="icon icon-star"></i> Stars
+              <span class="count">&ndash;</span>
+            </a>
+          </li>
+        </ul>
+        <hr>
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Getting started" href="/hono/getting-started/">
+	
+	Getting started
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Downloads" href="/hono/download/">
+	
+	Downloads
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Sandbox" href="/hono/sandbox/">
+	
+	Sandbox
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Concepts" href="/hono/concepts/">
+	
+	Concepts
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="User Guide" href="/hono/user-guide/">
+	
+	User Guide
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Admin Guide" href="/hono/admin-guide/">
+	
+	Admin Guide
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Developer Guide" href="/hono/dev-guide/">
+	
+	Developer Guide
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="API" href="/hono/api/">
+	
+	API
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Deployment" href="/hono/deployment/">
+	
+	Deployment
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Architecture" href="/hono/architecture/">
+	
+	Architecture
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Community" href="/hono/community/">
+	
+	Community
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="License" href="/hono/license/">
+	
+	License
+</a>
+
+
+
+  
+</li>
+
+
+        </ul>
+        
+
+        
+        <hr>
+        <span class="section">Build Status:</span>
+
+        <ul>
+          
+          <li>
+            <a href="https://ci.eclipse.org/hono/job/Hono-CI/" title="Eclipse Build Status" target="_blank">
+              <img src="https://ci.eclipse.org/hono/buildStatus/icon?job=Hono-CI">
+            </a>
+          </li>
+          
+
+          <li>
+            <a href="https://travis-ci.org/eclipse/hono" title="Travis Build Status" target="_blank">
+              <img src="https://travis-ci.org/eclipse/hono.svg?branch=master" />
+            </a>
+          </li>
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>Secure Communication </h1>
+
+			<p>The individual components of an Eclipse Hono&trade; installation, e.g. the protocol adapters, <em>Hono Messaging</em>, <em>Hono Auth</em> etc., and the clients attaching to Hono in order to send and receive data all communicate with each other using AMQP 1.0 over TCP. The Hono components and the clients will usually not be located on the same local network but will probably communicate over public networking infrastructure. For most use cases it is therefore desirable, if not necessary, to provide for confidentiality of the data being transferred between these components. This section describes how Hono supports confidentiality by means of <em>Transport Layer Security</em> (TLS) and how to configure it.
+</p>
+
+<h1 id="enabling-tls">Enabling TLS</h1>
+
+<p>All of Hono&rsquo;s components can be configured to use TLS for establishing an encrypted communication channel with peers. When a client initiates a connection with a server, the TLS handshake protocol is used to negotiate parameters of a secure channel to be used for exchanging data. The most important of those parameters is a secret (symmetric) encryption key that is only known to the client and the server and which is used to transparently encrypt all data being sent over the connection as long as the connection exists. With each new connection, a new secret key is negotiated.</p>
+
+<p>Using TLS in this way requires configuring the server component with a cryptographic <em>private/public key</em> pair and a <em>certificate</em> which <em>binds</em> an <em>identity claim</em> to the public key. It is out of scope of this document to describe the full process of creating such a key pair and acquiring a corresponding certificate. The <code>demo-certs</code> module already contains a set of keys and certificates to be used for evaluation and demonstration purposes. Throughout the rest of this section we will use these keys and certificates . Please refer to the <code>demo-certs/README.md</code> file for details regarding how to create your own keys and certificates.</p>
+
+<p>Within a Hono installation the following communication channels can be secured with TLS:</p>
+
+<ol>
+<li>Applications connecting to <em>Dispatch Router</em> - Client applications consuming e.g. Telemetry data from Hono connect to the Dispatch Router component. This connection can be secured by configuring the client and the Dispatch Router for TLS.</li>
+<li><em>Hono Messaging</em> connecting to <em>Dispatch Router</em> - Hono Messaging connects to the Dispatch Router in order to forward telemetry data and commands hence and forth between downstream components (client applications) and devices. This (internal) connection can be secured by configuring the Dispatch Router and Hono Messaging for TLS.</li>
+<li><em>Hono Messaging</em> connecting to <em>Auth Server</em> - Hono Messaging connects to the Auth Server in order to verify client credentials and determine the client&rsquo;s authorities. This (internal) connection can (should) be secured by configuring the Auth Server and Hono Messaging for TLS.</li>
+<li><em>Device Registry</em> connecting to <em>Auth Server</em> - The Device Registry connects to the Auth Server in order to verify client credentials and determine the client&rsquo;s authorities. This (internal) connection can (should) be secured by configuring the Auth Server and Device Registry for TLS.</li>
+<li><em>Protocol Adapter</em> to <em>Device Registry</em> - A protocol adapter connects to the Device Registry in order to retrieve assertions regarding the registration status of devices. This (internal) connection can be secured by configuring the protocol adapter and the Device Registry for TLS.</li>
+<li><em>Protocol Adapter</em> to <em>Hono server</em> - A protocol adapter connects to Hono to e.g. forward telemetry data received from devices to downstream consumers. This (internal) connection can be secured by configuring the protocol adapter and Hono server for TLS.</li>
+<li><em>Devices</em> connecting to a <em>Protocol Adapter</em> - Devices use TLS to both authenticate the protocol adapter and to establish an encrypted channel that provides integrity and privacy when transmitting data. Note that the specifics of if and how TLS can be used with a particular protocol adapter is specific to the transport protocol the adapter uses for communicating with the devices.</li>
+</ol>
+
+<h2 id="auth-server">Auth Server</h2>
+
+<p>The Auth Server supports the use of TLS for connections to clients. Please refer to the <a href="/hono/admin-guide/auth-server-config/">Auth Server admin guide</a> for details regarding the required configuration steps.</p>
+
+<p>The <code>demo-certs/certs</code> folder includes the following demo keys and certificates to be used with the Auth Server for that purpose.</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">File</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><code>auth-server-key.pem</code></td>
+<td align="left">The example private key for creating signatures.</td>
+</tr>
+
+<tr>
+<td align="left"><code>auth-server-cert.pem</code></td>
+<td align="left">The example certificate asserting the server&rsquo;s identity.</td>
+</tr>
+
+<tr>
+<td align="left"><code>trusted-certs.pem</code></td>
+<td align="left">Trusted CA certificates to use for verifying signatures.</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="dispatch-router">Dispatch Router</h2>
+
+<p>The Dispatch Router reads its configuration from a file on startup (the default location is <code>/etc/qpid-dispatch/qdrouterd.conf</code>). Please refer to the <a href="https://qpid.apache.org/components/dispatch-router/index.html">Dispatch Router documentation</a> for details regarding the configuration of TLS/SSL.</p>
+
+<p>The <code>demo-certs/certs</code> folder includes the following demo keys and certificates to be used with the Dispatch Router for that purpose:</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">File</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><code>qdrouter-key.pem</code></td>
+<td align="left">The example private key for creating signatures.</td>
+</tr>
+
+<tr>
+<td align="left"><code>qdrouter-cert.pem</code></td>
+<td align="left">The example certificate asserting the server&rsquo;s identity.</td>
+</tr>
+
+<tr>
+<td align="left"><code>trusted-certs.pem</code></td>
+<td align="left">Trusted CA certificates to use for verifying signatures.</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="hono-messaging">Hono Messaging</h2>
+
+<p>Hono Messaging supports the use of TLS for connections to protocol adapters, the Dispatch Router and the Auth Server.
+Please refer to the <a href="/hono/admin-guide/hono-messaging-config/">Hono Messaging admin guide</a> for details regarding the required configuration steps.</p>
+
+<p>The <code>demo-certs/certs</code> folder contains the following demo keys and certificates to be used with Hono Messaging for that purpose.</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">File</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><code>auth-server-cert.pem</code></td>
+<td align="left">The certificate of the Auth Server, used to verify the signatures of tokens issued by the Auth Server.</td>
+</tr>
+
+<tr>
+<td align="left"><code>hono-server-key.pem</code></td>
+<td align="left">The example private key for creating signatures.</td>
+</tr>
+
+<tr>
+<td align="left"><code>hono-server-cert.pem</code></td>
+<td align="left">The example certificate asserting the server&rsquo;s identity.</td>
+</tr>
+
+<tr>
+<td align="left"><code>trusted-certs.pem</code></td>
+<td align="left">Trusted CA certificates to use for verifying signatures.</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="device-registry">Device Registry</h2>
+
+<p>The Device Registry supports the use of TLS for connections to protocol adapters and the Auth Server.
+Please refer to the <a href="/hono/admin-guide/device-registry-config/">Device Registry admin guide</a> for details regarding the required configuration steps.</p>
+
+<p>The <code>demo-certs/certs</code> folder contains the following demo keys and certificates to be used with the Device Registry for that purpose.</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">File</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><code>auth-server-cert.pem</code></td>
+<td align="left">The certificate of the Auth Server, used to verify the signatures of tokens issued by the Auth Server.</td>
+</tr>
+
+<tr>
+<td align="left"><code>device-registry-key.pem</code></td>
+<td align="left">The example private key for creating signatures.</td>
+</tr>
+
+<tr>
+<td align="left"><code>device-registry-cert.pem</code></td>
+<td align="left">The example certificate asserting the server&rsquo;s identity.</td>
+</tr>
+
+<tr>
+<td align="left"><code>trusted-certs.pem</code></td>
+<td align="left">Trusted CA certificates to use for verifying signatures.</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="http-adapter">HTTP Adapter</h2>
+
+<p>The HTTP adapter supports the use of TLS for its connections to the Tenant service, the Device Registration service, the Credentials service and the Hono Messaging component. The adapter also supports the use of TLS for connections with devices. For this purpose, the adapter can be configured with a server certificate and private key.
+Please refer to the <a href="/hono/admin-guide/http-adapter-config/">HTTP adapter admin guide</a> for details regarding the required configuration steps.</p>
+
+<p>The <code>demo-certs/certs</code> folder contains the following demo keys and certificates to be used with the HTTP adapter for that purpose.</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">File</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><code>http-adapter-key.pem</code></td>
+<td align="left">The example private key for creating signatures.</td>
+</tr>
+
+<tr>
+<td align="left"><code>http-adapter-cert.pem</code></td>
+<td align="left">The example certificate asserting the adapter&rsquo;s identity.</td>
+</tr>
+
+<tr>
+<td align="left"><code>trusted-certs.pem</code></td>
+<td align="left">Trusted CA certificates to use for verifying signatures.</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="mqtt-adapter">MQTT Adapter</h2>
+
+<p>The MQTT adapter supports the use of TLS for its connections to the Tenant service, the Device Registration service, the Credentials service and the Hono Messaging component. The adapter also supports the use of TLS for connections with devices. For this purpose, the adapter can be configured with a server certificate and private key.
+Please refer to the <a href="/hono/admin-guide/mqtt-adapter-config/">MQTT adapter admin guide</a> for details regarding the required configuration steps.</p>
+
+<p>The <code>demo-certs/certs</code> folder contains the following demo keys and certificates to be used with the MQTT adapter for that purpose.</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">File</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><code>mqtt-adapter-key.pem</code></td>
+<td align="left">The example private key for creating signatures.</td>
+</tr>
+
+<tr>
+<td align="left"><code>mqtt-adapter-cert.pem</code></td>
+<td align="left">The example certificate asserting the adapter&rsquo;s identity.</td>
+</tr>
+
+<tr>
+<td align="left"><code>trusted-certs.pem</code></td>
+<td align="left">Trusted CA certificates to use for verifying signatures.</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="kura-adapter">Kura Adapter</h2>
+
+<p>The Kura adapter supports the use of TLS for its connections to the Tenant service, the Device Registration service, the Credentials service and the Hono Messaging component. The adapter also supports the use of TLS for connections with devices. For this purpose, the adapter can be configured with a server certificate and private key.
+Please refer to the <a href="/hono/admin-guide/kura-adapter-config/">Kura adapter admin guide</a> for details regarding the required configuration steps.</p>
+
+<p>The <code>demo-certs/certs</code> folder contains the following demo keys and certificates to be used with the Kura adapter for that purpose.</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">File</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><code>kura-adapter-key.pem</code></td>
+<td align="left">The example private key for creating signatures.</td>
+</tr>
+
+<tr>
+<td align="left"><code>kura-adapter-cert.pem</code></td>
+<td align="left">The example certificate asserting the adapter&rsquo;s identity.</td>
+</tr>
+
+<tr>
+<td align="left"><code>trusted-certs.pem</code></td>
+<td align="left">Trusted CA certificates to use for verifying signatures.</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="client-application">Client Application</h2>
+
+<p>When the connection between an application client and Hono (i.e. the Dispatch Router) is supposed to be secured by TLS (which is a good idea), then the client application needs to be configured to trust the CA that signed the Dispatch Router&rsquo;s certificate chain. When the application uses the <code>org.eclipse.hono.client.HonoClientImpl</code> class from the <code>client</code> module, then this can be done by means of configuring the <code>org.eclipse.hono.connection.ConnectionFactoryImpl</code> with a trust store containing the CA&rsquo;s certificate. Please refer to the <a href="/hono/admin-guide/hono-client-configuration/">Hono Client configuration guide</a> for details regarding the configuration properties that need to be set.</p>
+
+<p>The <code>demo-certs/certs</code> folder contains the following demo keys to be used with client applications for that purpose.</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">File</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><code>trusted-certs.pem</code></td>
+<td align="left">Trusted CA certificates to use for verifying signatures.</td>
+</tr>
+</tbody>
+</table>
+
+<h1 id="using-openssl">Using OpenSSL</h1>
+
+<p>Hono&rsquo;s individual services are implemented in Java and therefore, by default, use the SSL/TLS engine that comes with the Java Virtual Machine that the services are running on. In case of the Docker images provided by Hono this is the SSL engine of OpenJDK. While the standard SSL engine has the advantage of being a part of the JVM itself and thus being available on every operating system that the JVM is running on without further installation, it provides only limited performance and throughput when compared to native TLS implementations like <a href="https://www.openssl.org/">OpenSSL</a>.</p>
+
+<p>In order to address this problem, the Netty networking library that is used in Hono&rsquo;s components can be configured to employ the OpenSSL instead of the JVM&rsquo;s SSL engine by means of Netty&rsquo;s <a href="http://netty.io/wiki/forked-tomcat-native.html">Forked Tomcat Native</a> (tcnative) module.</p>
+
+<p>The tcnative module comes in several flavors, corresponding to the way that the OpenSSL library has been linked in. The statically linked versions include a specific version of OpenSSL (or <a href="https://boringssl.googlesource.com/">BoringSSL</a> for that matter) and is therefore most easy to use on supported platforms, regardless of whether another version of OpenSSL is already installed or not. In contrast, the dynamically linked variants depend on a particular version of OpenSSL being already installed on the operating system. Both approaches have their pros and cons and Hono therefore does not include tcnative in its Docker images by default, i.e. Hono&rsquo;s services will use the JVM&rsquo;s default SSL engine by default.</p>
+
+<h2 id="configuring-containers">Configuring Containers</h2>
+
+<p>When starting up any of Hono&rsquo;s Docker images as a container, the JVM will look for additional jar files to include in its classpath in the container&rsquo;s <code>/opt/hono/extensions</code> folder. Thus, using a specific variant of tcnative is just a matter of configuring the container to mount a volume or binding a host folder at that location and putting the desired variant of tcnative into the corresponding volume or host folder.r
+Assuming that the Auth Server should be run with the statically linked, BoringSSL based tcnative variant, the following steps are necessary:</p>
+
+<ol>
+<li><a href="http://netty.io/wiki/forked-tomcat-native.html#how-to-download-netty-tcnative-boringssl-static">Download tcnative</a> matching the platform architecture (<em>linux-x86_64</em>).</li>
+<li>Put the jar file to a folder on the Docker host, e.g. <code>/tmp/tcnative</code>.</li>
+
+<li><p>Start the Auth Server Docker image mounting the host folder:</p>
+
+<pre><code class="language-sh">$&gt; docker run --name hono-auth-server --mount type=bind,src=/tmp/tcnative,dst=/opt/hono/extensions,ro ... eclipse/hono-service-auth
+</code></pre></li>
+</ol>
+
+<p>Note that the command given above does not contain the environment variables and secrets that are usually required to configure the service properly.</p>
+
+<p>When the Auth Server starts up, it will look for a working variant of tcnative on its classpath and (if found) use it for establishing TLS connections. The service&rsquo;s log file will indicate whether the JVM&rsquo;s default SSL engine or OpenSSL is used.</p>
+
+<p>Using a Docker <em>volume</em> instead of a <em>bind mount</em> works the same way but requires the use of <code>volume</code> as the <em>type</em> of the <code>--mount</code> parameter. Please refer to the <a href="https://docs.docker.com/edge/engine/reference/commandline/service_create/#add-bind-mounts-volumes-or-memory-filesystems">Docker reference documentation</a> for details.</p>
+
+      <aside class="copyright" role="note">
+  <div class="logo">
+    <a href="https://www.eclipse.org" target="_blank">
+      <img src="https://www.eclipse.org/hono/images/eclipse_foundation_logo.png" />
+    </a>
+  </div>
+  <p class="notice">
+    
+    &copy; 2018 The Eclipse Hono Project &ndash;
+    
+    Documentation built with
+    <a href="https://www.gohugo.io" target="_blank">Hugo</a>
+    using the
+    <a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+  </p>
+  <p class="quickLinks">
+    <a href="http://www.eclipse.org/legal/privacy.php" target="_blank">
+      &gt; Privacy Policy
+    </a>
+    <a href="http://www.eclipse.org/legal/termsofuse.php" target="_blank">
+      &gt; Terms of Use
+    </a>
+    <a href="http://www.eclipse.org/legal/copyright.php" target="_blank">
+      &gt; Copyright Agent
+    </a>
+    <a href="http://www.eclipse.org/legal" target="_blank">
+      &gt; Legal
+    </a>
+    <a href="https://eclipse.org/security" target="_blank">
+      &gt; Report a Vulnerability
+    </a>
+  </p>
+</aside>
+
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="https://www.eclipse.org/hono/admin-guide/amqp-network-config/" title="AMQP 1.0 Messaging Network Configuration">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              AMQP 1.0 Messaging Network Configuration
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="https://www.eclipse.org/hono/dev-guide/java_client_consumer/" title="Consuming Messages from Java">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Consuming Messages from Java
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = 'https:\/\/www.eclipse.org\/hono\/';
+      var repo_id  = 'eclipse\/hono';
+    
+    </script>
+
+    <script src="https://www.eclipse.org/hono/javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            if(!headers[i].id)
+                a.setAttribute("href", headers[i].parentNode.href);
+            else
+                a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "#";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+      
+      <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-5WLCZXC');
+      </script>
+    
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

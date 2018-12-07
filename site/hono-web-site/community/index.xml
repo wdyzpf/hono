@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Community on Eclipse Hono</title>
+    <link>https://www.eclipse.org/hono/community/</link>
+    <description>Recent content in Community on Eclipse Hono</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://www.eclipse.org/hono/community/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Contributing</title>
+      <link>https://www.eclipse.org/hono/community/contributing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/community/contributing/</guid>
+      <description>&lt;p&gt;Thank you for considering to contribute to Eclipse Hono&amp;trade;. We really appreciate the time and effort you want to
+spend helping to improve things around here. And help we can use :-)
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Presentations</title>
+      <link>https://www.eclipse.org/hono/community/presentations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/community/presentations/</guid>
+      <description>&lt;p&gt;On this page you can find links to arbitrary material covering Eclipse Hono which has been presented at events, conferences
+and meet-ups or are available online.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Get in Touch</title>
+      <link>https://www.eclipse.org/hono/community/get-in-touch/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/community/get-in-touch/</guid>
+      <description>&lt;p&gt;Wanna tell us what you think about Eclipse Hono&amp;trade;? What we can improve? Which feature is missing? Or just discuss architectural issues?
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Road Map</title>
+      <link>https://www.eclipse.org/hono/community/road-map/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/community/road-map/</guid>
+      <description>&lt;p&gt;We are trying our best to anticipate the needs and requirements of users based on the feedback we get from users. From this information we maintain a &lt;a href=&#34;https://projects.eclipse.org/projects/iot.hono/governance&#34;&gt;Road Map&lt;/a&gt; for the next several releases.
+&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="en-us">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>Getting started - Eclipse Hono</title>
+    <meta name="generator" content="Hugo 0.42" />
+
+    
+    <meta name="description" content="A set of micro-services for connecting millions of devices.">
+    
+    <link rel="canonical" href="https://www.eclipse.org/hono/getting-started/">
+    
+    <meta name="author" content="The Eclipse Hono Project">
+    
+
+    <meta property="og:url" content="https://www.eclipse.org/hono/getting-started/">
+    <meta property="og:title" content="Eclipse Hono">
+    <meta property="og:image" content="https://www.eclipse.org/hono/images/logo-32x32px.png">
+    <meta name="apple-mobile-web-app-title" content="Eclipse Hono">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.eclipse.org/hono/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://www.eclipse.org/hono/images/favicon.ico">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('https://www.eclipse.org/hono/fonts/icon.eot');
+        src: url('https://www.eclipse.org/hono/fonts/icon.eot')
+               format('embedded-opentype'),
+             url('https://www.eclipse.org/hono/fonts/icon.woff')
+               format('woff'),
+             url('https://www.eclipse.org/hono/fonts/icon.ttf')
+               format('truetype'),
+             url('https://www.eclipse.org/hono/fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/application.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/temporary.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/palettes.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu&#43;Mono">
+    <style>
+      body, input {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/css/hono.css">
+    
+    <link rel="stylesheet" href="//www.eclipse.org/eclipse.org-common/themes/solstice/public/stylesheets/vendor/cookieconsent/cookieconsent.min.css">
+    
+    <script src="https://www.eclipse.org/hono/javascripts/modernizr.js"></script>
+    <script src="//www.eclipse.org/eclipse.org-common/themes/solstice/public/javascript/vendor/cookieconsent/default.min.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-orange palette-accent-teal">
+
+
+
+	
+	
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        Getting started
+      </div>
+    </div>
+
+    
+
+    
+    <div class="button button-github" role="button" aria-label="GitHub">
+      <a href="https://github.com/eclipse/hono" title="@eclipse/hono on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+    </div>
+    
+    
+        
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="https://www.eclipse.org/hono/" class="project">
+    <div class="banner">
+      
+        <div class="drawerlogo">
+          <img src="https://www.eclipse.org/hono/images/logo-32x32px.png">
+        </div>
+      
+      <div class="name">
+        <strong>Eclipse Hono&trade; </strong>
+        
+          <br>
+          eclipse/hono
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+        <ul class="repo">
+          <li class="repo-download">
+            <a href="https://www.eclipse.org/hono/download/" title="Download" data-action="download">
+              <i class="icon icon-download"></i> Download
+            </a>
+          </li>
+          <li class="repo-stars">
+            <a href="https://github.com/eclipse/hono/stargazers" target="_blank" title="Stargazers" data-action="star">
+              <i class="icon icon-star"></i> Stars
+              <span class="count">&ndash;</span>
+            </a>
+          </li>
+        </ul>
+        <hr>
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a class="current" title="Getting started" href="/hono/getting-started/">
+	
+	Getting started
+</a>
+
+
+<ul id="scrollspy">
+</ul>
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Downloads" href="/hono/download/">
+	
+	Downloads
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Sandbox" href="/hono/sandbox/">
+	
+	Sandbox
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Concepts" href="/hono/concepts/">
+	
+	Concepts
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="User Guide" href="/hono/user-guide/">
+	
+	User Guide
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Admin Guide" href="/hono/admin-guide/">
+	
+	Admin Guide
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Developer Guide" href="/hono/dev-guide/">
+	
+	Developer Guide
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="API" href="/hono/api/">
+	
+	API
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Deployment" href="/hono/deployment/">
+	
+	Deployment
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Architecture" href="/hono/architecture/">
+	
+	Architecture
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Community" href="/hono/community/">
+	
+	Community
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="License" href="/hono/license/">
+	
+	License
+</a>
+
+
+
+  
+</li>
+
+
+        </ul>
+        
+
+        
+        <hr>
+        <span class="section">Build Status:</span>
+
+        <ul>
+          
+          <li>
+            <a href="https://ci.eclipse.org/hono/job/Hono-CI/" title="Eclipse Build Status" target="_blank">
+              <img src="https://ci.eclipse.org/hono/buildStatus/icon?job=Hono-CI">
+            </a>
+          </li>
+          
+
+          <li>
+            <a href="https://travis-ci.org/eclipse/hono" title="Travis Build Status" target="_blank">
+              <img src="https://travis-ci.org/eclipse/hono.svg?branch=master" />
+            </a>
+          </li>
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>Getting started </h1>
+
+			
+
+<p>Eclipse Hono&trade; consists of a set of micro services provided as Docker images. You can either build the Docker images yourself from the source code or you can run Hono by means of the pre-built Docker images available from our <a href="https://hub.docker.com/u/eclipse/">Docker Hub repositories</a>.</p>
+
+<p>This guide will walk you through building the images and example code from source, starting a Hono instance on your local computer and interacting with Hono via its HTTP adapter.</p>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<p>In order to build and run the images you need access to a <a href="http://www.docker.com">Docker</a> daemon running either locally on your computer or another host you have access to. Please follow the instructions on the <a href="http://www.docker.com">Docker web site</a> to install <em>Docker Engine</em> on your platform.</p>
+
+<p>As noted above, Hono consists of multiple service components that together comprise a Hono instance. The remainder of this guide employs Docker&rsquo;s <em>Swarm Mode</em> for configuring, running and managing all Hono components as a whole.
+In order to enable <em>Swarm Mode</em> on your <em>Docker Engine</em> run the following command</p>
+
+<pre><code>$ docker swarm init
+</code></pre>
+
+<p>Please refer to the <a href="https://docs.docker.com/engine/swarm/swarm-mode/">Docker Swarm Mode documentation</a> for details.</p>
+
+<div class="admonition warning">
+<p class="admonition-title"></p>
+<p>You will need at least Docker Engine version 1.13.1 in order to run the example in this guide. By the time of writing, the latest released version of Docker was 18.05.0.</p>
+</div>
+
+<h3 id="compiling">Compiling</h3>
+
+<p>If you do not already have a working Maven installation on your system, please follow the <a href="https://maven.apache.org/">installation instructions on the Maven home page</a>.</p>
+
+<p>Then run the following from the project&rsquo;s root folder</p>
+
+<pre><code>~/hono$ mvn clean install -Ddocker.host=tcp://${host}:${port} -Pbuild-docker-image
+</code></pre>
+
+<p>with <code>${host}</code> and <code>${port}</code> reflecting the name/IP address and port of the host where Docker is running on. This will build all libraries, Docker images and example code. If you are running on Linux and Docker is installed locally or you have set the <code>DOCKER_HOST</code> environment variable, you can omit the <code>-Ddocker.host</code> property definition.</p>
+
+<p>If you plan to build the Docker images more frequently, e.g. because you want to extend or improve the Hono code, then you should define the <code>docker.host</code> property in your Maven <code>settings.xml</code> file containing the very same value as you would use on the command line as indicated above. This way you can simply do a <code>mvn clean install</code> later on and the Docker images will be built automatically as well because the <code>build-docker-image</code> profile is activated automatically if the Maven property <code>docker.host</code> is set.</p>
+
+<div class="admonition note">
+<p class="admonition-title"></p>
+<p>The first build might take several minutes because Docker will need to download all the base images that Hono is relying on. However, most of these will be cached by Docker so that subsequent builds will be running much faster.</p>
+</div>
+
+<h2 id="starting-hono">Starting Hono</h2>
+
+<p>As part of the build process, a set of scripts for deploying and undeploying Hono to/from a Docker Swarm is generated in the <code>example/target/deploy/docker</code> folder.
+To deploy and start Hono simply run the following from the <code>example/target/deploy/docker</code> directory</p>
+
+<pre><code class="language-sh">~/hono/example/target/deploy/docker$ chmod +x swarm_*.sh
+~/hono/example/target/deploy/docker$ ./swarm_deploy.sh
+</code></pre>
+
+<p>The first command makes the generated scripts executable. This needs to be done once after each build.
+The second command creates and starts up Docker Swarm <em>services</em> for all components that together comprise a Hono instance, in particular the following services are started:</p>
+
+
+<figure>
+    
+        <img src="../Hono_instance.svg" />
+    
+    
+    <figcaption>
+        <h4>Hono Instance Containers</h4>
+        
+    </figcaption>
+    
+</figure>
+
+
+<ul>
+<li>Hono Instance
+
+<ul>
+<li>An <em>HTTP Adapter</em> instance that exposes Hono&rsquo;s Telemetry and Event APIs as URI resources.</li>
+<li>A <em>MQTT Adapter</em> instance that exposes Hono&rsquo;s Telemetry and Event APIs as an MQTT topic hierarchy.</li>
+<li>A <em>Device Registry</em> instance that manages registration information and issues device registration assertions to protocol adapters.</li>
+<li>An <em>Auth Server</em> instance that authenticates Hono components and issues tokens asserting identity and authorities.</li>
+</ul></li>
+<li>AMQP Network
+
+<ul>
+<li>An <em>Apache Qpid Dispatch Router</em> instance that downstream applications connect to in order to consume telemetry data and events from devices.</li>
+<li>An <em>Apache ActiveMQ Artemis</em> instance serving as the persistence store for events.</li>
+</ul></li>
+<li>Monitoring Infrastructure
+
+<ul>
+<li>An <em>InfluxDB</em> instance for storing metrics data from the Hono Messaging component.</li>
+<li>A <em>Grafana</em> instance providing a dash board visualizing the collected metrics data.</li>
+</ul></li>
+</ul>
+
+<p>You can list all services by executing</p>
+
+<pre><code class="language-sh">~/hono/example/target/deploy/docker$ docker service ls
+</code></pre>
+
+<p>You may notice that the list also includes two additional services called <code>hono-adapter-kura</code> and <code>hono-service-messaging</code> which are not represented in the diagram above. Together, they serve as a an example of how Hono can be extended with <em>custom</em> protocol adapters in order to add support for interacting with devices using a custom communication protocol that is not supported by Hono&rsquo;s standard protocol adapters out of the box. The following diagram shows how such a custom protocol adapter is integrated with Hono:</p>
+
+
+<figure>
+    
+        <img src="../Hono_instance_custom_adapter.svg" />
+    
+    
+    <figcaption>
+        <h4>Custom Protocol Adapter</h4>
+        
+    </figcaption>
+    
+</figure>
+
+
+<ul>
+<li>The <em>Kura Adapter</em> exposes Hono&rsquo;s Telemetry and Event APIs as an Eclipse Kura&trade; compatible MQTT topic hierarchy.</li>
+<li><em>Hono Messaging</em> is a service for validating a device&rsquo;s registration status. Custom protocol adapters must connect to this service in order to forward the data published by devices to downstream consumers. Note that Hono&rsquo;s standard protocol adapters connect to the AMQP Network directly (i.e. without going through Hono Messaging) because they can be trusted to validate a device&rsquo;s registration status themselves before sending data downstream.</li>
+</ul>
+
+<h2 id="starting-a-consumer">Starting a Consumer</h2>
+
+<p>The telemetry data produced by devices is usually consumed by downstream applications that use it to implement their corresponding business functionality.
+In this example we will use a simple command line client that logs all telemetry messages to the console.
+You can start the client from the <code>example</code> folder as follows:</p>
+
+<pre><code class="language-sh">~/hono/example$ mvn spring-boot:run -Drun.arguments=--hono.client.host=localhost,--hono.client.username=consumer@HONO,--hono.client.password=verysecret
+</code></pre>
+
+<p>Event messages are very similar to telemetry ones, except that they use <code>AT LEAST ONCE</code> quality of service. You can receive and log event messages uploaded to Hono using the same client.</p>
+
+<p>In order to do so, run the client from the <code>example</code> folder as follows:</p>
+
+<pre><code class="language-sh">mvn spring-boot:run -Drun.arguments=--hono.client.host=localhost,--hono.client.username=consumer@HONO,--hono.client.password=verysecret -Drun.profiles=receiver,ssl,event
+</code></pre>
+
+<div class="admonition warning">
+<p class="admonition-title"></p>
+<p>Replace <em>localhost</em> with the name or IP address of the host that Docker is running on.</p>
+</div>
+
+<h2 id="publishing-data">Publishing Data</h2>
+
+<p>Now that the Hono instance is up and running you can use Hono&rsquo;s protocol adapters to upload some telemetry data and watch it being forwarded to the downstream consumer.</p>
+
+<p>The following sections will use the HTTP adapter to publish the telemetry data because it is very easy to access using a standard HTTP client like <code>curl</code> or <a href="https://httpie.org/"><code>HTTPie</code></a> from the command line.</p>
+
+<p>Please refer to the <a href="/hono/user-guide/http-adapter/">HTTP Adapter</a> documentation for additional information on how to access Hono&rsquo;s functionality via HTTP.</p>
+
+<div class="admonition warning">
+<p class="admonition-title"></p>
+<p>The following sections assume that the HTTP adapter Docker container has been started on the local machine. However, if you started the HTTP adapter on another host or VM then make sure to replace <em>localhost</em> with the name or IP address of that (Docker) host.</p>
+</div>
+
+<h3 id="registering-a-device">Registering a Device</h3>
+
+<p>The first thing to do is registering a device identity with Hono. Hono uses this information to authorize access to the device&rsquo;s telemetry data and functionality.</p>
+
+<p>The following command registers a device with ID <code>4711</code> with the Device Registry.</p>
+
+<pre><code class="language-sh">$ curl -X POST -i -H 'Content-Type: application/json' -d '{&quot;device-id&quot;: &quot;4711&quot;}' http://localhost:28080/registration/DEFAULT_TENANT
+</code></pre>
+
+<p>or (using HTTPie):</p>
+
+<pre><code class="language-sh">$ http POST http://localhost:28080/registration/DEFAULT_TENANT device-id=4711
+</code></pre>
+
+<p>The result will contain a <code>Location</code> header containing the resource path created for the device. In this example it will look like this:</p>
+
+<pre><code>HTTP/1.1 201 Created
+Location: /registration/DEFAULT_TENANT/4711
+Content-Length: 0
+</code></pre>
+
+<p>You can then retrieve registration data for the device using</p>
+
+<pre><code class="language-sh">$ curl -i http://localhost:28080/registration/DEFAULT_TENANT/4711
+</code></pre>
+
+<p>or (using HTTPie):</p>
+
+<pre><code class="language-sh">$ http http://localhost:28080/registration/DEFAULT_TENANT/4711
+</code></pre>
+
+<p>which will result in something like this:</p>
+
+<pre><code class="language-json">HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Content-Length: 35
+
+{
+  &quot;data&quot; : {
+      &quot;enabled&quot;: true
+  },
+  &quot;device-id&quot; : &quot;4711&quot;
+}
+</code></pre>
+
+<h3 id="uploading-telemetry-data-using-the-http-adapter">Uploading Telemetry Data using the HTTP Adapter</h3>
+
+<pre><code class="language-sh">$ curl -X POST -i -u sensor1@DEFAULT_TENANT:hono-secret -H 'Content-Type: application/json' \
+&gt; --data-binary '{&quot;temp&quot;: 5}' http://localhost:8080/telemetry
+</code></pre>
+
+<p>or (using HTTPie):</p>
+
+<pre><code class="language-sh">$ http --auth sensor1@DEFAULT_TENANT:hono-secret POST http://localhost:8080/telemetry temp:=5
+</code></pre>
+
+<p>The username and password used above for device <code>4711</code> are part of the example configuration that comes with Hono. See <a href="/hono/concepts/device-identity/">Device Identity</a> for an explanation of how devices are identified in Hono and how device identity is related to authentication.</p>
+
+<p>When you first invoke any of the two commands above after you have started up your Hono instance, you may get the following response:</p>
+
+<pre><code>HTTP/1.1 503 Service Unavailable
+Content-Length: 47
+Content-Type: text/plain
+
+resource limit exceeded, please try again later
+</code></pre>
+
+<p>This is because the first request to publish data for a tenant (<code>DEFAULT_TENANT</code> in the example) is used as the trigger to establish a tenant specific link with the Hono Messaging component to forward the data over. However, the HTTP adapter may not receive credits from Hono Messaging quickly enough for the request to be served successfully.
+You can simply ignore this response and re-submit the command. You should then get a response like this:</p>
+
+<pre><code>HTTP/1.1 202 Accepted
+Content-Length: 0
+</code></pre>
+
+<p>If you have started the consumer as described above, you should now see the telemetry message being logged to the console. You can publish more data simply by issuing additional requests.</p>
+
+<p>If you haven&rsquo;t started a consumer you will continue to get <code>503 Resource Unavailable</code> responses because Hono does not accept any telemetry data from devices if there aren&rsquo;t any consumers connected that are interested in the data. Telemetry data is <em>never</em> persisted within Hono, thus it doesn&rsquo;t make any sense to accept and process telemetry data if there is no consumer to deliver it to.</p>
+
+<p>The HTTP Adapter also supports publishing telemetry messages using QoS level <code>AT_LEAST_ONCE</code>. For information on how that works and additional examples for interacting with Hono via HTTP, please refer to the <a href="/hono/user-guide/http-adapter/">HTTP Adapter documentation</a> .</p>
+
+<h3 id="uploading-event-data-using-the-http-adapter">Uploading Event Data using the HTTP Adapter</h3>
+
+<p>In a similar way you can upload event data, using curl</p>
+
+<pre><code class="language-sh">$ curl -X POST -i -u sensor1@DEFAULT_TENANT:hono-secret -H 'Content-Type: application/json' \
+&gt; --data-binary '{&quot;alarm&quot;: &quot;fire&quot;}' http://localhost:8080/event
+</code></pre>
+
+<p>or (using HTTPie):</p>
+
+<pre><code class="language-sh">$ http --auth sensor1@DEFAULT_TENANT:hono-secret POST http://localhost:8080/event alarm=fire
+</code></pre>
+
+<h2 id="adding-tenants">Adding Tenants</h2>
+
+<p>In the above examples, we have always used the <code>DEFAULT_TENANT</code>, which is pre-configured in the example setup.</p>
+
+<p>You can add more tenants to Hono by using the <a href="/hono/user-guide/device-registry/#managing-tenants">Tenant related HTTP endpoints</a> of the Device Registry. Each tenant you create can have its own configuration, e.g. which protocol adapters are enabled.</p>
+
+<h2 id="stopping-hono">Stopping Hono</h2>
+
+<p>The Hono instance&rsquo;s services can be stopped and removed using the following command:</p>
+
+<pre><code class="language-sh">~/hono/example/target/deploy/docker$ ./swarm_undeploy.sh
+</code></pre>
+
+<p>Please refer to the <a href="https://docs.docker.com/engine/swarm/services/">Docker Swarm documentation</a> for details regarding the management of individual services.</p>
+
+<h2 id="restarting">Restarting</h2>
+
+<p>In order to start up the instance again:</p>
+
+<pre><code class="language-sh">~/hono/example/target/deploy/docker$ ./swarm_deploy.sh
+</code></pre>
+
+<h2 id="viewing-metrics">Viewing Metrics</h2>
+
+<p>Open the <a href="http://localhost:3000/dashboard/db/hono?orgId=1">Grafana dashboard</a> in a browser using <code>admin/admin</code> as login credentials.</p>
+
+<div class="admonition warning">
+<p class="admonition-title"></p>
+<p>If you do not run Docker on localhost, replace <em>localhost</em> in the link with the correct name or IP address of the Docker host that the Grafana container is running on.</p>
+</div>
+
+<h2 id="using-command-control">Using Command &amp; Control</h2>
+
+<p>Since Hono 0.6 the first implementation of Command &amp; Control is available. Please refer to the <a href="/hono/user-guide/command-and-control/">Command &amp; Control user guide</a> for a walk-through example.</p>
+
+
+      <aside class="copyright" role="note">
+  <div class="logo">
+    <a href="https://www.eclipse.org" target="_blank">
+      <img src="https://www.eclipse.org/hono/images/eclipse_foundation_logo.png" />
+    </a>
+  </div>
+  <p class="notice">
+    
+    &copy; 2018 The Eclipse Hono Project &ndash;
+    
+    Documentation built with
+    <a href="https://www.gohugo.io" target="_blank">Hugo</a>
+    using the
+    <a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+  </p>
+  <p class="quickLinks">
+    <a href="http://www.eclipse.org/legal/privacy.php" target="_blank">
+      &gt; Privacy Policy
+    </a>
+    <a href="http://www.eclipse.org/legal/termsofuse.php" target="_blank">
+      &gt; Terms of Use
+    </a>
+    <a href="http://www.eclipse.org/legal/copyright.php" target="_blank">
+      &gt; Copyright Agent
+    </a>
+    <a href="http://www.eclipse.org/legal" target="_blank">
+      &gt; Legal
+    </a>
+    <a href="https://eclipse.org/security" target="_blank">
+      &gt; Report a Vulnerability
+    </a>
+  </p>
+</aside>
+
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="https://www.eclipse.org/hono/download/" title="Downloads">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Downloads
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = 'https:\/\/www.eclipse.org\/hono\/';
+      var repo_id  = 'eclipse\/hono';
+    
+    </script>
+
+    <script src="https://www.eclipse.org/hono/javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            if(!headers[i].id)
+                a.setAttribute("href", headers[i].parentNode.href);
+            else
+                a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "#";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+      
+      <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-5WLCZXC');
+      </script>
+    
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

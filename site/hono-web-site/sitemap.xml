@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/getting-started/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/download/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/sandbox/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/concepts/device-identity/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/concepts/tenancy/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/concepts/device-notifications/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/concepts/command-and-control/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/concepts/connection-events/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/user-guide/device-registry/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/user-guide/http-adapter/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/user-guide/mqtt-adapter/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/user-guide/kura-adapter/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/user-guide/command-and-control/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/user-guide/jmeter_load_tests/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/admin-guide/auth-server-config/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/admin-guide/hono-messaging-config/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/admin-guide/device-registry-config/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/admin-guide/http-adapter-config/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/admin-guide/mqtt-adapter-config/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/admin-guide/kura-adapter-config/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/admin-guide/hono-client-configuration/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/admin-guide/amqp-network-config/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/admin-guide/secure_communication/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/dev-guide/java_client_consumer/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/dev-guide/java_client_sender/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/dev-guide/custom_http_adapter/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/api/authentication-api/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/api/tenant-api/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/api/device-registration-api/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/api/telemetry-api/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/api/event-api/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/api/credentials-api/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/api/command-and-control-api/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/deployment/kubernetes/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/deployment/openshift/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/deployment/openshift_s2i/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/deployment/docker-swarm/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/deployment/resource-limitation/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/architecture/component-view/component-view/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/architecture/auth/auth/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/community/contributing/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/community/presentations/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/community/get-in-touch/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/community/road-map/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/license/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/admin-guide/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/api/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/architecture/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/community/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/concepts/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/deployment/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/dev-guide/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/release-notes/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/hono/user-guide/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

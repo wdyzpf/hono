@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="en-us">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>Limiting Resource Usage - Eclipse Hono</title>
+    <meta name="generator" content="Hugo 0.42" />
+
+    
+    <meta name="description" content="A set of micro-services for connecting millions of devices.">
+    
+    <link rel="canonical" href="https://www.eclipse.org/hono/deployment/resource-limitation/">
+    
+    <meta name="author" content="The Eclipse Hono Project">
+    
+
+    <meta property="og:url" content="https://www.eclipse.org/hono/deployment/resource-limitation/">
+    <meta property="og:title" content="Eclipse Hono">
+    <meta property="og:image" content="https://www.eclipse.org/hono/images/logo-32x32px.png">
+    <meta name="apple-mobile-web-app-title" content="Eclipse Hono">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.eclipse.org/hono/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://www.eclipse.org/hono/images/favicon.ico">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('https://www.eclipse.org/hono/fonts/icon.eot');
+        src: url('https://www.eclipse.org/hono/fonts/icon.eot')
+               format('embedded-opentype'),
+             url('https://www.eclipse.org/hono/fonts/icon.woff')
+               format('woff'),
+             url('https://www.eclipse.org/hono/fonts/icon.ttf')
+               format('truetype'),
+             url('https://www.eclipse.org/hono/fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/application.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/temporary.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/palettes.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu&#43;Mono">
+    <style>
+      body, input {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/css/hono.css">
+    
+    <link rel="stylesheet" href="//www.eclipse.org/eclipse.org-common/themes/solstice/public/stylesheets/vendor/cookieconsent/cookieconsent.min.css">
+    
+    <script src="https://www.eclipse.org/hono/javascripts/modernizr.js"></script>
+    <script src="//www.eclipse.org/eclipse.org-common/themes/solstice/public/javascript/vendor/cookieconsent/default.min.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-orange palette-accent-teal">
+
+
+
+	
+	
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        Limiting Resource Usage
+      </div>
+    </div>
+
+    
+
+    
+    <div class="button button-github" role="button" aria-label="GitHub">
+      <a href="https://github.com/eclipse/hono" title="@eclipse/hono on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+    </div>
+    
+    
+        
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="https://www.eclipse.org/hono/" class="project">
+    <div class="banner">
+      
+        <div class="drawerlogo">
+          <img src="https://www.eclipse.org/hono/images/logo-32x32px.png">
+        </div>
+      
+      <div class="name">
+        <strong>Eclipse Hono&trade; </strong>
+        
+          <br>
+          eclipse/hono
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+        <ul class="repo">
+          <li class="repo-download">
+            <a href="https://www.eclipse.org/hono/download/" title="Download" data-action="download">
+              <i class="icon icon-download"></i> Download
+            </a>
+          </li>
+          <li class="repo-stars">
+            <a href="https://github.com/eclipse/hono/stargazers" target="_blank" title="Stargazers" data-action="star">
+              <i class="icon icon-star"></i> Stars
+              <span class="count">&ndash;</span>
+            </a>
+          </li>
+        </ul>
+        <hr>
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Getting started" href="/hono/getting-started/">
+	
+	Getting started
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Downloads" href="/hono/download/">
+	
+	Downloads
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Sandbox" href="/hono/sandbox/">
+	
+	Sandbox
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Concepts" href="/hono/concepts/">
+	
+	Concepts
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="User Guide" href="/hono/user-guide/">
+	
+	User Guide
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Admin Guide" href="/hono/admin-guide/">
+	
+	Admin Guide
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Developer Guide" href="/hono/dev-guide/">
+	
+	Developer Guide
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="API" href="/hono/api/">
+	
+	API
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Deployment" href="/hono/deployment/">
+	
+	Deployment
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Architecture" href="/hono/architecture/">
+	
+	Architecture
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Community" href="/hono/community/">
+	
+	Community
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="License" href="/hono/license/">
+	
+	License
+</a>
+
+
+
+  
+</li>
+
+
+        </ul>
+        
+
+        
+        <hr>
+        <span class="section">Build Status:</span>
+
+        <ul>
+          
+          <li>
+            <a href="https://ci.eclipse.org/hono/job/Hono-CI/" title="Eclipse Build Status" target="_blank">
+              <img src="https://ci.eclipse.org/hono/buildStatus/icon?job=Hono-CI">
+            </a>
+          </li>
+          
+
+          <li>
+            <a href="https://travis-ci.org/eclipse/hono" title="Travis Build Status" target="_blank">
+              <img src="https://travis-ci.org/eclipse/hono.svg?branch=master" />
+            </a>
+          </li>
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>Limiting Resource Usage </h1>
+
+			<p>Deploying Eclipse Hono&trade; to a container orchestration platform is easy thanks to the provided Docker images. This page provides some guidance for configuring the resource consumption of these containers in order to make sure that they get enough memory and CPU to run properly, but to also make sure that individual containers do not use up all the resources causing other containers to starve.
+</p>
+
+<p>Docker itself provides means to limit a container&rsquo;s consumption of memory and CPU resources by means of command line options that can be set when starting up a container. Both Kubernetes and OpenShift leverage this mechanism when defining resource limits of a <em>pod</em>. Please refer to the corresponding documentation of Docker, Kubernetes and OpenShift for details regarding the particular syntax to be used.</p>
+
+<h2 id="java-s-view-of-the-world">Java&rsquo;s View of the World</h2>
+
+<p>Hono&rsquo;s service components are implemented in Java. When the corresponding Docker container for such a service is started, the only process being run inside the container is therefore a Java virtual machine (JVM). On startup, the JVM tries to determine the amount of memory and the number of CPU cores that it can use to execute workloads. By default the JVM queries the operating system for the corresponding parameters and adjusts its runtime parameters accordingly, e.g. it will by default limit the size of its heap memory to a quarter of the total memory available in order to leave enough memory for other processes running on the same system.</p>
+
+<p>This is a reasonable approach when running on <em>bare metal</em> or a VM where other processes are expected to be running on the same machine, thus competing for the same computing resources. However, containers are usually configured to run a single process only so that it makes more sense to dedicate almost all of the available resources to running that process, leaving the (small) rest for the operating system itself.</p>
+
+<p>As described above, a Docker container can easily be configured with a limit for memory and CPU resources that it may use during runtime. These limits are set and enforced using Linux <em>CGroups</em>. When a Java VM is run inside of such a Docker container which has been configured with a memory limit, then the result of the JVM&rsquo;s attempt to determine the available resources during startup will not reflect the memory limit imposed on the container. That is because the JVM by default does not consider the CGroup limit but instead queries the operating system for the overall amount of memory available. The same is true for the way that the JVM determines the number of available CPU cores.</p>
+
+<h2 id="limiting-a-container-s-memory-consumption">Limiting a Container&rsquo;s Memory Consumption</h2>
+
+<p>Recent versions of OpenJDK have introduced the experimental <code>-XX:+UseCGroupMemoryLimitForHeap</code> option to make the JVM consider CGroup limits when determining the amount of available memory. Using this option it is possible to explicitly configure a JVM&rsquo;s memory consumption within the boundaries of the container&rsquo;s (limited) resources.</p>
+
+<p>All of the Docker images provided by Hono make use of this JVM option by default, ensuring that the JVM considers any memory limits configured for the container when setting its maximum heap size during startup. However, the default algorithm will still only allocate a quarter of the (limited) amount of memory, thus leaving a lot of memory available to the container unused.</p>
+
+<p>The following JVM options can be used in order to change this behavior:</p>
+
+<ul>
+<li><code>-XX:MaxRAMFraction</code> can be used to set the fraction of total memory that may be allocated for the heap. The default value is 4 (meaning that up to a quarter of the memory will be allocated), so in order to increase the amount of memory, the value can be set to 2 (using up to 50% of the memory) or 1 (using up to 100% of the memory). Setting the option to 1 is strongly discouraged because it would leave no memory left for the JVM&rsquo;s other memory areas nor any additional processes run by the operating system.</li>
+<li><code>-Xmx</code> can be used to explicitly set the maximum amount of memory used for the heap. As a rule of thumb, setting this value to 60-70% of the container&rsquo;s (limited) amount of memory should usually work. Based on the application&rsquo;s memory usage characteristics, increasing the value to 80 or even 90% might also work.</li>
+</ul>
+
+<h3 id="docker-swarm">Docker Swarm</h3>
+
+<p>As stated above, the Docker images provided by Hono already make use of the <code>-XX:+UseCGroupMemoryLimitForHeap</code> option by default. Additional options can be passed to the JVM during startup by means of setting the <code>_JAVA_OPTIONS</code> environment variable on the container. The following example from the Docker Swarm deployment script illustrates this mechanism:</p>
+
+<pre><code class="language-sh">$ docker service create --name hono-adapter-http-vertx -p 8080:8080 \
+  --secret http-adapter.credentials \
+  --secret hono-adapter-http-vertx-config.yml \
+  --limit-memory 256m \
+  --env _JAVA_OPTIONS=-Xmx180m \
+  --env SPRING_CONFIG_LOCATION=file:///run/secrets/hono-adapter-http-vertx-config.yml \
+  --env SPRING_PROFILES_ACTIVE=dev \
+  --env LOGGING_CONFIG=classpath:logback-spring.xml \
+  eclipse/hono-adapter-http-vertx:0.6
+</code></pre>
+
+<p>The fourth line sets a hard limit of 256 MB of total memory that the container may use. The fifth line then configures the JVM to use up to 180 MB for its heap, which corresponds to about 70% of the 256 MB total memory.</p>
+
+<h3 id="kubernetes">Kubernetes</h3>
+
+<p>In Kubernetes (and OpenShift) the resource limits for a <em>pod</em>, and thus the container(s) that are part of the pod, can be configured in the corresponding <em>PodSpec</em>. The following example from the HTTP adapter&rsquo;s Kubernetes <em>Deployment</em> resource descriptor illustrates the mechanism:</p>
+
+<pre><code class="language-json">apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: hono-adapter-http-vertx
+spec:
+  template:
+    metadata:
+      labels:
+        app: hono-adapter-http-vertx
+        version: &quot;${project.version}&quot;
+        group: ${project.groupId}
+    spec:
+      containers:
+      - image: eclipse/hono-adapter-http-vertx:${project.version}
+        name: eclipse-hono-adapter-http-vertx
+        resources:
+          limits:
+            memory: &quot;256Mi&quot;
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        env:
+        - name: SPRING_CONFIG_LOCATION
+          value: file:///etc/hono/
+        - name: SPRING_PROFILES_ACTIVE
+          value: dev
+        - name: LOGGING_CONFIG
+          value: classpath:logback-spring.xml
+        - name: _JAVA_OPTIONS
+          value: -Xmx180m
+        volumeMounts:
+        - mountPath: /etc/hono
+          name: conf
+          readOnly: true
+      volumes:
+      - name: conf
+        secret:
+          secretName: hono-adapter-http-vertx-conf
+</code></pre>
+
+<p>The <code>resources</code> property defines the overall limit of 256 MB of memory that the pod may use. The <code>_JAVA_OPTIONS</code> environment variable is again used to configure the JVM to use up to 180 MB for its heap.</p>
+
+      <aside class="copyright" role="note">
+  <div class="logo">
+    <a href="https://www.eclipse.org" target="_blank">
+      <img src="https://www.eclipse.org/hono/images/eclipse_foundation_logo.png" />
+    </a>
+  </div>
+  <p class="notice">
+    
+    &copy; 2018 The Eclipse Hono Project &ndash;
+    
+    Documentation built with
+    <a href="https://www.gohugo.io" target="_blank">Hugo</a>
+    using the
+    <a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+  </p>
+  <p class="quickLinks">
+    <a href="http://www.eclipse.org/legal/privacy.php" target="_blank">
+      &gt; Privacy Policy
+    </a>
+    <a href="http://www.eclipse.org/legal/termsofuse.php" target="_blank">
+      &gt; Terms of Use
+    </a>
+    <a href="http://www.eclipse.org/legal/copyright.php" target="_blank">
+      &gt; Copyright Agent
+    </a>
+    <a href="http://www.eclipse.org/legal" target="_blank">
+      &gt; Legal
+    </a>
+    <a href="https://eclipse.org/security" target="_blank">
+      &gt; Report a Vulnerability
+    </a>
+  </p>
+</aside>
+
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="https://www.eclipse.org/hono/deployment/docker-swarm/" title="Docker Swarm">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              Docker Swarm
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="https://www.eclipse.org/hono/architecture/component-view/component-view/" title="Component View">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Component View
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = 'https:\/\/www.eclipse.org\/hono\/';
+      var repo_id  = 'eclipse\/hono';
+    
+    </script>
+
+    <script src="https://www.eclipse.org/hono/javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            if(!headers[i].id)
+                a.setAttribute("href", headers[i].parentNode.href);
+            else
+                a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "#";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+      
+      <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-5WLCZXC');
+      </script>
+    
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

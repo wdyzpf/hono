@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Eclipse Hono</title>
+    <link>https://www.eclipse.org/hono/</link>
+    <description>Recent content on Eclipse Hono</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://www.eclipse.org/hono/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Getting started</title>
+      <link>https://www.eclipse.org/hono/getting-started/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/getting-started/</guid>
+      <description>Eclipse Hono&amp;trade; consists of a set of micro services provided as Docker images. You can either build the Docker images yourself from the source code or you can run Hono by means of the pre-built Docker images available from our Docker Hub repositories.
+This guide will walk you through building the images and example code from source, starting a Hono instance on your local computer and interacting with Hono via its HTTP adapter.</description>
+    </item>
+    
+    <item>
+      <title>Downloads</title>
+      <link>https://www.eclipse.org/hono/download/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/download/</guid>
+      <description>Binaries The preferred way of deploying Eclipse Hono&amp;trade; is by means of using the pre-built Docker images provided on Docker Hub.
+The most convenient way to both pull the images and start corresponding containers is by means of running the deployment script contained in the release archive.
+ Eclipse Hono 0.6 Archive  After downloading the archive, extract it to a local folder, change into that folder and run the following from the command line (assuming that your local Docker client is configured to connect to a Docker Swarm manager):</description>
+    </item>
+    
+    <item>
+      <title>Sandbox</title>
+      <link>https://www.eclipse.org/hono/sandbox/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/sandbox/</guid>
+      <description>We are providing a publicly accessible Eclipse Hono&amp;trade; sandbox environment at hono.eclipse.org. The main purpose of the system is to provide an environment for experimenting with devices and how to connect them to Hono without the need for setting up a local instance.
+The sandbox hosts a Hono instance consisting of the same components as described in the Getting started Guide. All services are exposed via the same ports as used in the guide.</description>
+    </item>
+    
+    <item>
+      <title>Device Identity</title>
+      <link>https://www.eclipse.org/hono/concepts/device-identity/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/concepts/device-identity/</guid>
+      <description>&lt;p&gt;This page describes how devices are represented and identified throughout Hono and its API&amp;rsquo;s.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Multi-Tenancy</title>
+      <link>https://www.eclipse.org/hono/concepts/tenancy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/concepts/tenancy/</guid>
+      <description>Hono is designed to structure the set of all internally managed data and data streams into strictly isolated subsets. This includes the registration data and credentials of devices, internal users that are used for authentication, and the Business Applications that are part of such subsets as well.
+This way of strict isolation is generally known as multi-tenancy, where a tenant is the term for such a subset. Such an isolation is essential for enabling a scalable distributed architecture to handle independent subsets as if each subset had its own installation (which would be much harder to maintain and would not benefit from runtime cost sharing).</description>
+    </item>
+    
+    <item>
+      <title>Device notifications</title>
+      <link>https://www.eclipse.org/hono/concepts/device-notifications/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/concepts/device-notifications/</guid>
+      <description>&lt;p&gt;&lt;em&gt;Business applications&lt;/em&gt; can be informed by Hono about specific states of a device. This concept - refered to as
+ &lt;strong&gt;Device notifications&lt;/strong&gt; - is described in detail here.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Command &amp; Control</title>
+      <link>https://www.eclipse.org/hono/concepts/command-and-control/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/concepts/command-and-control/</guid>
+      <description>&lt;p&gt;Since Hono 0.6 &lt;em&gt;Business applications&lt;/em&gt; can send commands to devices following the &lt;a href=&#34;https://www.eclipse.org/hono/hono/api/command-and-control-api/&#34;&gt;Command &amp;amp; Control API&lt;/a&gt;. This concept describes how to use this API to send commands to devices connected to Hono via the Adapters. These direct commands follow a request-response pattern and expect an immediate confirmation of their result.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Connection Events</title>
+      <link>https://www.eclipse.org/hono/concepts/connection-events/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/concepts/connection-events/</guid>
+      <description>Hono internally allows protocol adapters to emit connection events. Indicating if a connection was established between a device and the protocol adapter.
+This functionality is intended for connection oriented protocols (like MQTT and AMQP) and it works on a &amp;ldquo;best effort&amp;rdquo; basis to create such events. It depends on each protocol adapter implementation if it emits such events or not.
+Since 0.6.0
+This feature has been added in Hono 0.6. Previous versions do not support nor implement connection events.</description>
+    </item>
+    
+    <item>
+      <title>Device Registry</title>
+      <link>https://www.eclipse.org/hono/user-guide/device-registry/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/user-guide/device-registry/</guid>
+      <description>&lt;p&gt;The Device Registry component is an example implementation of the following Hono APIs:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.eclipse.org/hono/hono/api/tenant-api/&#34;&gt;Tenant API&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.eclipse.org/hono/hono/api/device-registration-api/&#34;&gt;Device Registration API&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.eclipse.org/hono/hono/api/credentials-api/&#34;&gt;Credentials API&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>HTTP Adapter</title>
+      <link>https://www.eclipse.org/hono/user-guide/http-adapter/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/user-guide/http-adapter/</guid>
+      <description>&lt;p&gt;The HTTP protocol adapter exposes an HTTP based API for Eclipse Hono&amp;trade;&amp;rsquo;s Telemetry and Event endpoints.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>MQTT Adapter</title>
+      <link>https://www.eclipse.org/hono/user-guide/mqtt-adapter/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/user-guide/mqtt-adapter/</guid>
+      <description>&lt;p&gt;The MQTT protocol adapter exposes an MQTT topic hierarchy for publishing messages and events to Eclipse Hono&amp;trade;&amp;rsquo;s Telemetry and Event endpoints.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Kura Adapter</title>
+      <link>https://www.eclipse.org/hono/user-guide/kura-adapter/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/user-guide/kura-adapter/</guid>
+      <description>&lt;p&gt;The Kura protocol adapter exposes an MQTT topic hierarchy allowing Eclipse Kura&amp;trade; based gateways to publish &lt;em&gt;control&lt;/em&gt; and &lt;em&gt;data&lt;/em&gt; messages to Eclipse Hono&amp;trade;&amp;rsquo;s Telemetry and Event endpoints.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Command and Control</title>
+      <link>https://www.eclipse.org/hono/user-guide/command-and-control/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/user-guide/command-and-control/</guid>
+      <description>&lt;p&gt;In Hono 0.6 the first implementation of Command and Control is available that enables applications to send a command
+upstream to a device.&lt;/p&gt;
+
+&lt;p&gt;In the following it is shown how a command is sent to a device by using Hono&amp;rsquo;s example application.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Load Tests with JMeter</title>
+      <link>https://www.eclipse.org/hono/user-guide/jmeter_load_tests/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/user-guide/jmeter_load_tests/</guid>
+      <description>&lt;p&gt;Eclipse Hono&amp;trade; comes with an &lt;a href=&#34;https://jmeter.apache.org&#34;&gt;Apache JMeter&lt;/a&gt; plugin which provides &lt;em&gt;samplers&lt;/em&gt; that can be used to send and receive telemetry/event data from JMeter test plans.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Auth Server Configuration</title>
+      <link>https://www.eclipse.org/hono/admin-guide/auth-server-config/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/admin-guide/auth-server-config/</guid>
+      <description>&lt;p&gt;The Auth Server component exposes a service endpoint implementing Eclipse Hono&amp;trade;&amp;rsquo;s &lt;a href=&#34;https://www.eclipse.org/hono/hono/api/authentication-api/&#34;&gt;Authentication&lt;/a&gt; API. Other services use this component for authenticating clients and retrieving a token asserting the client&amp;rsquo;s identity and corresponding authorities.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Hono Messaging Configuration</title>
+      <link>https://www.eclipse.org/hono/admin-guide/hono-messaging-config/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/admin-guide/hono-messaging-config/</guid>
+      <description>&lt;p&gt;The Hono Messaging component exposes service endpoints implementing the &lt;em&gt;south bound&lt;/em&gt; part of Eclipse Hono&amp;trade;&amp;rsquo;s &lt;a href=&#34;https://www.eclipse.org/hono/hono/api/telemetry-api/&#34;&gt;Telemetry&lt;/a&gt; and &lt;a href=&#34;https://www.eclipse.org/hono/hono/api/event-api/&#34;&gt;Event&lt;/a&gt; APIs.
+The south bound API is used by protocol adapters to upload telemetry data and events to be forwarded to downstream consumers.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Device Registry Configuration</title>
+      <link>https://www.eclipse.org/hono/admin-guide/device-registry-config/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/admin-guide/device-registry-config/</guid>
+      <description>&lt;p&gt;The Device Registry component provides an examplatory implementation of Eclipse Hono&amp;trade;&amp;rsquo;s &lt;a href=&#34;https://www.eclipse.org/hono/hono/api/device-registration-api/&#34;&gt;Device Registration&lt;/a&gt; and &lt;a href=&#34;https://www.eclipse.org/hono/hono/api/credentials-api/&#34;&gt;Credentials&lt;/a&gt; APIs.
+Since Hono version 0.6 it also provides an examplatory implementation of the &lt;a href=&#34;https://www.eclipse.org/hono/hono/api/tenant-api/&#34;&gt;Tenant&lt;/a&gt; API.&lt;/p&gt;
+
+&lt;p&gt;Protocol adapters use these APIs to assert a device&amp;rsquo;s registration status, e.g. if it is enabled and if it is registered with a particular tenant, and to authenticate a device before accepting any data for processing from it.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>HTTP Adapter Configuration</title>
+      <link>https://www.eclipse.org/hono/admin-guide/http-adapter-config/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/admin-guide/http-adapter-config/</guid>
+      <description>&lt;p&gt;The HTTP protocol adapter exposes a HTTP based API for Eclipse Hono&amp;trade;&amp;rsquo;s Telemetry and Event endpoints.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>MQTT Adapter Configuration</title>
+      <link>https://www.eclipse.org/hono/admin-guide/mqtt-adapter-config/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/admin-guide/mqtt-adapter-config/</guid>
+      <description>&lt;p&gt;The MQTT protocol adapter exposes an MQTT topic hierarchy for publishing messages and events to Eclipse Hono&amp;trade;&amp;rsquo;s Telemetry and Event endpoints.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Kura Adapter Configuration</title>
+      <link>https://www.eclipse.org/hono/admin-guide/kura-adapter-config/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/admin-guide/kura-adapter-config/</guid>
+      <description>&lt;p&gt;The Kura protocol adapter exposes an MQTT topic hierarchy allowing Eclipse Kura&amp;trade; based gateways to publish &lt;em&gt;control&lt;/em&gt; and &lt;em&gt;data&lt;/em&gt; messages to Eclipse Hono&amp;trade;&amp;rsquo;s Telemetry and Event endpoints.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Hono Client Configuration</title>
+      <link>https://www.eclipse.org/hono/admin-guide/hono-client-configuration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/admin-guide/hono-client-configuration/</guid>
+      <description>&lt;p&gt;The Hono Client factory can be used to create specific clients for accessing services implementing one or more of Hono&amp;rsquo;s APIs.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>AMQP 1.0 Messaging Network Configuration</title>
+      <link>https://www.eclipse.org/hono/admin-guide/amqp-network-config/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/admin-guide/amqp-network-config/</guid>
+      <description>&lt;p&gt;The &lt;em&gt;Dispatch Router&lt;/em&gt;, together with the &lt;em&gt;Apache Artemis&lt;/em&gt; message broker, serves as the default &lt;em&gt;AMQP 1.0 Messaging Network&lt;/em&gt; that is used in Hono&amp;rsquo;s example deployment as described in the &lt;a href=&#34;https://www.eclipse.org/hono/hono/getting-started/&#34;&gt;Getting Started Guide&lt;/a&gt;.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Secure Communication</title>
+      <link>https://www.eclipse.org/hono/admin-guide/secure_communication/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/admin-guide/secure_communication/</guid>
+      <description>&lt;p&gt;The individual components of an Eclipse Hono&amp;trade; installation, e.g. the protocol adapters, &lt;em&gt;Hono Messaging&lt;/em&gt;, &lt;em&gt;Hono Auth&lt;/em&gt; etc., and the clients attaching to Hono in order to send and receive data all communicate with each other using AMQP 1.0 over TCP. The Hono components and the clients will usually not be located on the same local network but will probably communicate over public networking infrastructure. For most use cases it is therefore desirable, if not necessary, to provide for confidentiality of the data being transferred between these components. This section describes how Hono supports confidentiality by means of &lt;em&gt;Transport Layer Security&lt;/em&gt; (TLS) and how to configure it.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Consuming Messages from Java</title>
+      <link>https://www.eclipse.org/hono/dev-guide/java_client_consumer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/dev-guide/java_client_consumer/</guid>
+      <description>To illustrate how Eclipse Hono&amp;trade; can be integrated with Java code, a simple program is provided that consumes telemetry or event data from the default tenant from a device. It also includes support for sending a command to a device and receiving a response to it.
+It shall serve as a blueprint to integrate your existing java source code with Hono.
+The code is found in the example module in the package org.</description>
+    </item>
+    
+    <item>
+      <title>Sending Messages from Java</title>
+      <link>https://www.eclipse.org/hono/dev-guide/java_client_sender/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/dev-guide/java_client_sender/</guid>
+      <description>To illustrate how Eclipse Hono&amp;trade; can be integrated with Java code, a simple program is provided that sends telemetry or event data to the default tenant from a device. It shall serve as a blueprint to integrate your existing java source code with Hono.
+The code is found in the example module in the package org.eclipse.hono.vertx.example.
+The provided classes are kept as simple as possible (in the tradition of a classical &amp;ldquo;Hello World&amp;rdquo; implementation).</description>
+    </item>
+    
+    <item>
+      <title>Implement a Custom Hono HTTP Protocol Adapter</title>
+      <link>https://www.eclipse.org/hono/dev-guide/custom_http_adapter/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/dev-guide/custom_http_adapter/</guid>
+      <description>&lt;p&gt;Eclipse Hono&amp;trade; comes with a default &lt;em&gt;HTTP Adapter&lt;/em&gt; which can be used to interact with devices via HTTP.
+The default HTTP Adapter also serves as a blueprint for implementing a &lt;em&gt;custom&lt;/em&gt; HTTP protocol adapter.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Authentication API</title>
+      <link>https://www.eclipse.org/hono/api/authentication-api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/api/authentication-api/</guid>
+      <description>&lt;p&gt;The &lt;em&gt;Authentication API&lt;/em&gt; is used to retrieve a &lt;em&gt;token&lt;/em&gt; asserting a subject&amp;rsquo;s identity and granted authorities. Other service implementations use such a token to make authorization decisions on a client&amp;rsquo;s request to read or write from/to a resource or to invoke a certain operation.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Tenant API</title>
+      <link>https://www.eclipse.org/hono/api/tenant-api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/api/tenant-api/</guid>
+      <description>&lt;p&gt;The &lt;em&gt;Tenant API&lt;/em&gt; is used to make Hono aware of the tenants that are available in an installation.
+A tenant is a logical entity, which groups together a set of devices and consists of meta information which should be used by other Hono components.
+The tenant meta information is used for example to determine if a given tenant is allowed to use a certain protocol adapter or if devices are required to use authentication.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Device Registration API</title>
+      <link>https://www.eclipse.org/hono/api/device-registration-api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/api/device-registration-api/</guid>
+      <description>&lt;p&gt;The &lt;em&gt;Device Registration API&lt;/em&gt; is used to make Hono aware of devices that will connect to the service and send telemetry data.
+It can be used by &lt;em&gt;Protocol Adapters&lt;/em&gt; to register devices that are not directly connected to Hono using an AMQP 1.0 connection.
+&lt;em&gt;Solutions&lt;/em&gt; and other consumers may use the API to obtain information about a single device that is registered to Hono.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Telemetry API</title>
+      <link>https://www.eclipse.org/hono/api/telemetry-api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/api/telemetry-api/</guid>
+      <description>&lt;p&gt;The &lt;em&gt;Telemetry&lt;/em&gt; API is used by &lt;em&gt;Devices&lt;/em&gt; to send data downstream.
+&lt;em&gt;Business Applications&lt;/em&gt; and other consumers use the API to receive data published by devices belonging to a particular tenant.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Event API</title>
+      <link>https://www.eclipse.org/hono/api/event-api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/api/event-api/</guid>
+      <description>&lt;p&gt;The &lt;em&gt;Event&lt;/em&gt; API is used by &lt;em&gt;Devices&lt;/em&gt; to send event messages downstream.
+&lt;em&gt;Business Applications&lt;/em&gt; and other consumers use the API to receive messages published by devices belonging to a particular tenant.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Credentials API</title>
+      <link>https://www.eclipse.org/hono/api/credentials-api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/api/credentials-api/</guid>
+      <description>&lt;p&gt;The &lt;em&gt;Credentials API&lt;/em&gt; is used by &lt;em&gt;Protocol Adapters&lt;/em&gt; to retrieve credentials used to authenticate &lt;em&gt;Devices&lt;/em&gt; connecting to the adapter. In particular, the API supports the storage, look up and deletion of &lt;em&gt;shared secrets&lt;/em&gt; which are often used by IoT devices by means of &lt;em&gt;username/password&lt;/em&gt; based authentication schemes.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Command &amp; Control API</title>
+      <link>https://www.eclipse.org/hono/api/command-and-control-api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/api/command-and-control-api/</guid>
+      <description>&lt;p&gt;The &lt;em&gt;Command and Control&lt;/em&gt; API is used by &lt;em&gt;Business Applications&lt;/em&gt; to send commands to devices connected to Hono. Command messages can be used to
+execute operations on devices, e.g. updating a configuration property, installing a software component or activating an actuator.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Kubernetes</title>
+      <link>https://www.eclipse.org/hono/deployment/kubernetes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/deployment/kubernetes/</guid>
+      <description>&lt;p&gt;All the Eclipse Hono&amp;trade; components can be deployed on Kubernetes, thanks to the resources YAML files that are provided through the repository.
+These files describe such components in terms of &lt;em&gt;deployments&lt;/em&gt; and &lt;em&gt;services&lt;/em&gt; in order to have the right pods running in the Kubernetes cluster so that they are able
+to communicate with each other.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>OpenShift with EnMasse</title>
+      <link>https://www.eclipse.org/hono/deployment/openshift/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/deployment/openshift/</guid>
+      <description>&lt;p&gt;This guide describes how to deploy Eclipse Hono™ using EnMasse as messaging
+backend on a single-master/single-node local OpenShift installation using
+&amp;ldquo;minishift&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>OpenShift with source-to-image (S2I)</title>
+      <link>https://www.eclipse.org/hono/deployment/openshift_s2i/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/deployment/openshift_s2i/</guid>
+      <description>&lt;p&gt;This guide described how Eclipse Hono™ can be deployed on OpenShift with
+EnMasse using the source-to-image (S2I) way. Using this approach it is possible
+to customize and refresh the base images where Hono runs in. It also uses
+a more complex, multi-project setup and separates EnMasse and Grafana from
+the core Hono project.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Docker Swarm</title>
+      <link>https://www.eclipse.org/hono/deployment/docker-swarm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/deployment/docker-swarm/</guid>
+      <description>&lt;p&gt;Eclipse Hono&amp;trade; components are distributed by means of Docker images which can be deployed to arbitrary environments where Docker is available. This section provides step-by-step instructions for deploying Hono to a cluster of Docker Engine nodes running in &lt;em&gt;Swarm mode&lt;/em&gt;.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Limiting Resource Usage</title>
+      <link>https://www.eclipse.org/hono/deployment/resource-limitation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/deployment/resource-limitation/</guid>
+      <description>&lt;p&gt;Deploying Eclipse Hono&amp;trade; to a container orchestration platform is easy thanks to the provided Docker images. This page provides some guidance for configuring the resource consumption of these containers in order to make sure that they get enough memory and CPU to run properly, but to also make sure that individual containers do not use up all the resources causing other containers to starve.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Component View</title>
+      <link>https://www.eclipse.org/hono/architecture/component-view/component-view/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/architecture/component-view/component-view/</guid>
+      <description>&lt;p&gt;This page describes the high level components constituting an Eclipse Hono&amp;trade; instance and their relations to each other.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Authentication/Authorization</title>
+      <link>https://www.eclipse.org/hono/architecture/auth/auth/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/architecture/auth/auth/</guid>
+      <description>&lt;p&gt;This page describes how authentication and authorization of devices, consumers (back end applications) and system components works in Hono.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Contributing</title>
+      <link>https://www.eclipse.org/hono/community/contributing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/community/contributing/</guid>
+      <description>&lt;p&gt;Thank you for considering to contribute to Eclipse Hono&amp;trade;. We really appreciate the time and effort you want to
+spend helping to improve things around here. And help we can use :-)
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Presentations</title>
+      <link>https://www.eclipse.org/hono/community/presentations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/community/presentations/</guid>
+      <description>&lt;p&gt;On this page you can find links to arbitrary material covering Eclipse Hono which has been presented at events, conferences
+and meet-ups or are available online.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Get in Touch</title>
+      <link>https://www.eclipse.org/hono/community/get-in-touch/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/community/get-in-touch/</guid>
+      <description>&lt;p&gt;Wanna tell us what you think about Eclipse Hono&amp;trade;? What we can improve? Which feature is missing? Or just discuss architectural issues?
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Road Map</title>
+      <link>https://www.eclipse.org/hono/community/road-map/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/community/road-map/</guid>
+      <description>&lt;p&gt;We are trying our best to anticipate the needs and requirements of users based on the feedback we get from users. From this information we maintain a &lt;a href=&#34;https://projects.eclipse.org/projects/iot.hono/governance&#34;&gt;Road Map&lt;/a&gt; for the next several releases.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>License</title>
+      <link>https://www.eclipse.org/hono/license/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/license/</guid>
+      <description>Eclipse Public License - v 1.0 THE ACCOMPANYING PROGRAM IS PROVIDED UNDER THE TERMS OF THIS ECLIPSE PUBLIC LICENSE (&amp;quot;AGREEMENT&amp;quot;). ANY USE, REPRODUCTION OR DISTRIBUTION OF THE PROGRAM CONSTITUTES RECIPIENT&#39;S ACCEPTANCE OF THIS AGREEMENT.
+1. DEFINITIONS
+&amp;quot;Contribution&amp;quot; means:
+a) in the case of the initial Contributor, the initial code and documentation distributed under this Agreement, and
+b) in the case of each subsequent Contributor:
+i) changes to the Program, and</description>
+    </item>
+    
+    <item>
+      <title>Release Notes</title>
+      <link>https://www.eclipse.org/hono/release-notes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/release-notes/</guid>
+      <description>0.7-M2 (not released yet) New Features  The Auth Server can now be used to authenticate clients connecting to the Apache Qpid Dispatch Router which is used in the example deployment. For this purpose the Auth Server is configured as a remote auth server implementing Dispatch Router&amp;rsquo;s Auth Service Plugin mechanism. Using this mechanism it is now possible to manage all identities and authorities using the Auth Server&amp;rsquo;s configuration file.</description>
+    </item>
+    
+  </channel>
+</rss>

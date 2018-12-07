@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="en-us">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>Device Registry - Eclipse Hono</title>
+    <meta name="generator" content="Hugo 0.42" />
+
+    
+    <meta name="description" content="A set of micro-services for connecting millions of devices.">
+    
+    <link rel="canonical" href="https://www.eclipse.org/hono/user-guide/device-registry/">
+    
+    <meta name="author" content="The Eclipse Hono Project">
+    
+
+    <meta property="og:url" content="https://www.eclipse.org/hono/user-guide/device-registry/">
+    <meta property="og:title" content="Eclipse Hono">
+    <meta property="og:image" content="https://www.eclipse.org/hono/images/logo-32x32px.png">
+    <meta name="apple-mobile-web-app-title" content="Eclipse Hono">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.eclipse.org/hono/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://www.eclipse.org/hono/images/favicon.ico">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('https://www.eclipse.org/hono/fonts/icon.eot');
+        src: url('https://www.eclipse.org/hono/fonts/icon.eot')
+               format('embedded-opentype'),
+             url('https://www.eclipse.org/hono/fonts/icon.woff')
+               format('woff'),
+             url('https://www.eclipse.org/hono/fonts/icon.ttf')
+               format('truetype'),
+             url('https://www.eclipse.org/hono/fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/application.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/temporary.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/palettes.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu&#43;Mono">
+    <style>
+      body, input {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/css/hono.css">
+    
+    <link rel="stylesheet" href="//www.eclipse.org/eclipse.org-common/themes/solstice/public/stylesheets/vendor/cookieconsent/cookieconsent.min.css">
+    
+    <script src="https://www.eclipse.org/hono/javascripts/modernizr.js"></script>
+    <script src="//www.eclipse.org/eclipse.org-common/themes/solstice/public/javascript/vendor/cookieconsent/default.min.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-orange palette-accent-teal">
+
+
+
+	
+	
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        Device Registry
+      </div>
+    </div>
+
+    
+
+    
+    <div class="button button-github" role="button" aria-label="GitHub">
+      <a href="https://github.com/eclipse/hono" title="@eclipse/hono on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+    </div>
+    
+    
+        
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="https://www.eclipse.org/hono/" class="project">
+    <div class="banner">
+      
+        <div class="drawerlogo">
+          <img src="https://www.eclipse.org/hono/images/logo-32x32px.png">
+        </div>
+      
+      <div class="name">
+        <strong>Eclipse Hono&trade; </strong>
+        
+          <br>
+          eclipse/hono
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+        <ul class="repo">
+          <li class="repo-download">
+            <a href="https://www.eclipse.org/hono/download/" title="Download" data-action="download">
+              <i class="icon icon-download"></i> Download
+            </a>
+          </li>
+          <li class="repo-stars">
+            <a href="https://github.com/eclipse/hono/stargazers" target="_blank" title="Stargazers" data-action="star">
+              <i class="icon icon-star"></i> Stars
+              <span class="count">&ndash;</span>
+            </a>
+          </li>
+        </ul>
+        <hr>
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Getting started" href="/hono/getting-started/">
+	
+	Getting started
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Downloads" href="/hono/download/">
+	
+	Downloads
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Sandbox" href="/hono/sandbox/">
+	
+	Sandbox
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Concepts" href="/hono/concepts/">
+	
+	Concepts
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="User Guide" href="/hono/user-guide/">
+	
+	User Guide
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Admin Guide" href="/hono/admin-guide/">
+	
+	Admin Guide
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Developer Guide" href="/hono/dev-guide/">
+	
+	Developer Guide
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="API" href="/hono/api/">
+	
+	API
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Deployment" href="/hono/deployment/">
+	
+	Deployment
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Architecture" href="/hono/architecture/">
+	
+	Architecture
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Community" href="/hono/community/">
+	
+	Community
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="License" href="/hono/license/">
+	
+	License
+</a>
+
+
+
+  
+</li>
+
+
+        </ul>
+        
+
+        
+        <hr>
+        <span class="section">Build Status:</span>
+
+        <ul>
+          
+          <li>
+            <a href="https://ci.eclipse.org/hono/job/Hono-CI/" title="Eclipse Build Status" target="_blank">
+              <img src="https://ci.eclipse.org/hono/buildStatus/icon?job=Hono-CI">
+            </a>
+          </li>
+          
+
+          <li>
+            <a href="https://travis-ci.org/eclipse/hono" title="Travis Build Status" target="_blank">
+              <img src="https://travis-ci.org/eclipse/hono.svg?branch=master" />
+            </a>
+          </li>
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>Device Registry </h1>
+
+			<p>The Device Registry component is an example implementation of the following Hono APIs:</p>
+
+<ul>
+<li><a href="/hono/api/tenant-api/">Tenant API</a></li>
+<li><a href="/hono/api/device-registration-api/">Device Registration API</a></li>
+<li><a href="/hono/api/credentials-api/">Credentials API</a></li>
+</ul>
+
+<p>
+It implements AMQP 1.0 API endpoints and provides JSON based file persistence for data.</p>
+
+<p>In addition to the AMQP 1.0 based API endpoints, the Device Registry also exposes HTTP resources for managing the contents of the registry.</p>
+
+<div class="admonition warning">
+<p class="admonition-title"></p>
+<p><p>The Device Registry is not intended to be used in production environments. In particular, access to the HTTP resources described below is not restricted to authorized clients only.</p>
+
+<p>The resources have been designed to provide convenient access to the registry&rsquo;s content using command line tools like <em>curl</em> or <em>HTTPie</em>.</p>
+</p>
+</div>
+
+<p>Please note that the HTTP resources exposed by the Device Registry are <strong>not</strong> part of the <em>official</em> definition of the Device Registration, Credentials and Tenant APIs.</p>
+
+<h2 id="managing-tenants">Managing Tenants</h2>
+
+<p>(since Hono 0.6)</p>
+
+<p>The following sections describe the resources representing the operations of the Tenant API and how they can be used to manage tenants.
+Please refer to the <a href="/hono/api/tenant-api/">Tenant API</a> for the specific elements that are explained in detail there.</p>
+
+<h3 id="add-a-tenant">Add a Tenant</h3>
+
+<ul>
+<li>URI: <code>/tenant</code></li>
+<li>Method: <code>POST</code></li>
+<li>Request Headers:
+
+<ul>
+<li>(required) <code>Content-Type</code>: <code>application/json</code> (no other type supported)</li>
+</ul></li>
+<li>Request Body:
+
+<ul>
+<li>(required) A JSON object as specified by <a href="/hono/api/tenant-api/#request-payload">Request Payload</a> of the Tenant API. The object also needs to contain the tenant&rsquo;s identifier in the <code>tenant-id</code> property.</li>
+</ul></li>
+<li>Status Codes:
+
+<ul>
+<li>201 (Created): Tenant has been added successfully under the resource indicated by <code>Location</code> header.</li>
+<li>400 (Bad Request): The tenant has not been created because the request was malformed, e .g. because the payload was malformed. The response body may contain hints regarding the cause of the problem.</li>
+<li>409 (Conflict): A tenant with the given <code>tenant-id</code> already exists. The request has not been processed.</li>
+</ul></li>
+<li>Response Headers:
+
+<ul>
+<li><code>Location</code>: The URI under which the newly created resource can be accessed.</li>
+</ul></li>
+</ul>
+
+<p><strong>Example</strong></p>
+
+<p>The following commands add some tenants with different adapter configurations:</p>
+
+<p>Add a tenant that has all adapters set to enabled:</p>
+
+<pre><code>$ curl -i -X POST -H 'Content-Type: application/json' --data-binary '{
+    &quot;tenant-id&quot;: &quot;tenantAllAdapters&quot;
+  }' http://localhost:28080/tenant
+
+HTTP/1.1 201 Created
+Location:  /tenant/tenantAllAdapters
+Content-Length: 0
+</code></pre>
+
+<p>Add a tenant that can only use the MQTT adapter:</p>
+
+<pre><code>$ curl -i -X POST -H 'Content-Type: application/json' --data-binary '{
+    &quot;tenant-id&quot;: &quot;tenantMqttAdapter&quot;,
+    &quot;adapters&quot; : [ {
+        &quot;type&quot; : &quot;hono-mqtt&quot;,
+        &quot;enabled&quot; : true
+        } ]
+  }' http://localhost:28080/tenant
+
+HTTP/1.1 201 Created
+Location:  /tenant/tenantMqttAdapter
+Content-Length: 0
+</code></pre>
+
+<h3 id="get-configuration-details-of-a-tenant">Get configuration details of a Tenant</h3>
+
+<ul>
+<li>URI: <code>/tenant/${tenantId}</code></li>
+<li>Method: <code>GET</code></li>
+<li>Status Codes:
+
+<ul>
+<li>200 (OK): A tenant with the given identifier has been found. The response body contains the tenant data as specified by <a href="/hono/api/tenant-api/#response-payload">Response Payload</a> of the Tenant API.</li>
+<li>404 (Not Found): No tenant with the given identifier is registered.</li>
+</ul></li>
+</ul>
+
+<p><strong>Example</strong></p>
+
+<p>The following command retrieves the details for the tenant <code>tenantMqttAdapter</code>:</p>
+
+<pre><code>$ curl -i http://localhost:28080/tenant/tenantMqttAdapter
+
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Content-Length: 172
+
+{
+     &quot;tenant-id&quot; : &quot;tenantMqttAdapter&quot;,
+     &quot;enabled&quot; : true,
+     &quot;adapters&quot; : [ {
+         &quot;type&quot; : &quot;hono-mqtt&quot;,
+         &quot;enabled&quot; : true
+     } ]
+}
+</code></pre>
+
+<h3 id="update-tenant">Update Tenant</h3>
+
+<ul>
+<li>URI: <code>/tenant/${tenantId}</code></li>
+<li>Method: <code>PUT</code></li>
+<li>Request Headers:
+
+<ul>
+<li>(required) <code>Content-Type</code>: <code>application/json</code> (no other type supported)</li>
+</ul></li>
+<li>Request Body:
+
+<ul>
+<li>(required) A JSON object as specified by <a href="/hono/api/tenant-api/#request-payload">Request Payload</a> of the Tenant API.</li>
+</ul></li>
+<li>Status Codes:
+
+<ul>
+<li>204 (No Content): The tenant has been updated successfully.</li>
+<li>400 (Bad Request): The tenant has not been updated because the request was malformed, e .g. because the payload was malformed. The response body may contain hints regarding the cause of the problem.</li>
+<li>404 (Not Found): The request could not be processed because no tenant with the given identifier exists.</li>
+</ul></li>
+</ul>
+
+<p>This resource can be used to change the configuration of a particular tenant.</p>
+
+<p><strong>Example</strong></p>
+
+<p>The following command disables the MQTT adapter for devices that belong to the tenant <code>tenantMqttAdapter</code>:</p>
+
+<pre><code>$ curl -i -X PUT -H 'Content-Type: application/json' --data-binary '{
+      &quot;adapters&quot; : [ {
+          &quot;type&quot; : &quot;hono-mqtt&quot;,
+          &quot;enabled&quot; : true
+          } ]
+  }' http://localhost:28080/tenant/tenantMqttAdapter
+
+HTTP/1.1 204 No Content
+Content-Length: 0
+</code></pre>
+
+<h3 id="delete-tenant">Delete Tenant</h3>
+
+<ul>
+<li>URI: <code>/tenant/${tenantId}</code></li>
+<li>Method: <code>DELETE</code></li>
+<li>Status Codes:
+
+<ul>
+<li>204 (No Content): The tenant with the given identifier has been deleted.</li>
+<li>404 (Not Found): The request could not be processed because no tenant with the given identifier exists.</li>
+</ul></li>
+</ul>
+
+<p><strong>Example</strong></p>
+
+<pre><code>$ curl -i -X DELETE http://localhost:28080/tenant/tenantMqttAdapter
+
+HTTP/1.1 204 No Content
+Content-Length: 0
+</code></pre>
+
+<h2 id="managing-device-registration-information">Managing Device Registration Information</h2>
+
+<p>The following sections describe the resources representing the operations of the <a href="/hono/api/device-registration-api/">Device Registration API</a> and how they can be used to manage device registration information.</p>
+
+<h3 id="register-device">Register Device</h3>
+
+<ul>
+<li>URI: <code>/registration/${tenantId}</code></li>
+<li>Method: <code>POST</code></li>
+<li>Headers:
+
+<ul>
+<li>(required) <code>Content-Type</code>: <code>application/json</code></li>
+</ul></li>
+<li>Request Body:
+
+<ul>
+<li>(required) A JSON object as specified by <a href="/hono/api/device-registration-api/#request-payload">Request Payload</a> of the Device Registration API. The object also needs to contain the device&rsquo;s identifier in the <code>device-id</code> property.</li>
+</ul></li>
+<li>Status Codes:
+
+<ul>
+<li>201 (Created): Device has been registered successfully under resource indicated by <code>Location</code> header.</li>
+<li>400 (Bad Request): Device has not been registered because the request was malformed, e .g. a required header is missing (the body may contain hints regarding the problem).</li>
+<li>409 (Conflict): There already exists a device with the given ID. The request has not been processed.</li>
+</ul></li>
+</ul>
+
+<p><strong>Example</strong></p>
+
+<p>The following command registers a device with ID <code>4711</code></p>
+
+<pre><code>$ curl -i -X POST -H 'Content-Type: application/json' --data-binary '{
+    &quot;device-id&quot;: &quot;4711&quot;,
+    &quot;ep&quot;: &quot;IMEI4711&quot;
+}' http://localhost:28080/registration/DEFAULT_TENANT
+</code></pre>
+
+<p>The response will contain a <code>Location</code> header containing the resource path created for the device. In this example it will look
+like this:</p>
+
+<pre><code>HTTP/1.1 201 Created
+Location: /registration/DEFAULT_TENANT/4711
+Content-Length: 0
+</code></pre>
+
+<h3 id="read-registration">Read Registration</h3>
+
+<ul>
+<li>URI: <code>/registration/${tenantId}/${deviceId}</code></li>
+<li>Method: <code>GET</code></li>
+<li>Status Codes:
+
+<ul>
+<li>200 (OK): A device with the given identifier has been found. The response body contains the registration information as specified by <a href="/hono/api/device-registration-api/#response-payload">Response Payload</a> of the Device Registration API.</li>
+<li>404 (Not Found): No device with the given identifier is registered for the given tenant.</li>
+</ul></li>
+</ul>
+
+<p><strong>Example</strong></p>
+
+<p>The following command retrieves registration data for device <code>4711</code>:</p>
+
+<pre><code>$ curl -i http://localhost:28080/registration/DEFAULT_TENANT/4711
+
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Content-Length: 35
+
+{
+  &quot;data&quot; : {
+     &quot;enabled&quot;: true,
+     &quot;ep&quot;: &quot;IMEI4711&quot;
+  },
+  &quot;device-id&quot; : &quot;4711&quot;
+}
+</code></pre>
+
+<h3 id="update-registration">Update Registration</h3>
+
+<ul>
+<li>URI: <code>/registration/${tenantId}/${deviceId}</code></li>
+<li>Method: <code>PUT</code></li>
+<li>Headers:
+
+<ul>
+<li>(required) <code>Content-Type</code>: <code>application/json</code></li>
+</ul></li>
+<li>Parameters (encoded as a JSON object in the request body):</li>
+<li>Request Body:
+
+<ul>
+<li>(required) A JSON object as specified by <a href="/hono/api/device-registration-api/#request-payload">Request Payload</a> of the Device Registration API. All existing registration information will be replaced by the data provided in the object.</li>
+</ul></li>
+<li>Status Codes:
+
+<ul>
+<li>204 (No Content): Device registration data has been updated.</li>
+<li>400 (Bad Request): Device registration has not been updated because the request was malformed, e .g. a required header is missing (the body may contain hints regarding the problem).</li>
+<li>404 (Not Found): No device with the given identifier is registered for the given tenant.</li>
+</ul></li>
+</ul>
+
+<p><strong>Example</strong></p>
+
+<pre><code>$ curl -i -X PUT -H 'Content-Type: application/json' --data-binary '{
+    &quot;ep&quot;: &quot;IMEI4711&quot;,
+    &quot;psk-id&quot;: &quot;psk4711&quot;
+}' http://localhost:28080/registration/DEFAULT_TENANT/4711
+
+HTTP/1.1 204 No Content
+Content-Length: 0
+</code></pre>
+
+<h3 id="delete-registration">Delete Registration</h3>
+
+<ul>
+<li>URI: <code>/registration/${tenantId}/${deviceId}</code></li>
+<li>Method: <code>DELETE</code></li>
+<li>Status Codes:
+
+<ul>
+<li>204 (No Content): Device registration has been deleted.</li>
+<li>404 (Not Found): No device with the given identifier is registered for the given tenant.</li>
+</ul></li>
+</ul>
+
+<p><strong>Example</strong></p>
+
+<pre><code>$ curl -i -X DELETE http://localhost:28080/registration/DEFAULT_TENANT/4711
+
+HTTP/1.1 204 No Content
+Content-Length: 0
+</code></pre>
+
+<h2 id="managing-credentials">Managing Credentials</h2>
+
+<p>The following sections describe the resources representing the operations of the Credentials API and how they can be used to manage credentials for devices.
+Please refer to the <a href="/hono/api/credentials-api/">Credentials API</a> for the specific elements that are explained in detail there.</p>
+
+<h3 id="add-credentials-for-a-device">Add Credentials for a Device</h3>
+
+<ul>
+<li>URI: <code>/credentials/${tenantId}</code></li>
+<li>Method: <code>POST</code></li>
+<li>Request Headers:
+
+<ul>
+<li>(required) <code>Content-Type</code>: <code>application/json</code> (no other type supported)</li>
+</ul></li>
+<li>Request Body:
+
+<ul>
+<li>(required) A JSON object as specified by <a href="/hono/api/credentials-api/#credentials-format">Credentials Format</a> of the Credentials API.</li>
+</ul></li>
+<li>Status Codes:
+
+<ul>
+<li>201 (Created): Credentials have been added successfully under the resource indicated by <code>Location</code> header.</li>
+<li>400 (Bad Request): The credentials have not been added because the request was malformed, e .g. because the payload did not contain required values. The response body may contain hints regarding the cause of the problem.</li>
+<li>409 (Conflict): Credentials of the given type for the given <em>auth-id</em> already exist for the tenant. The request has not been processed.</li>
+</ul></li>
+<li>Response Headers:
+
+<ul>
+<li><code>Location</code>: The URI under which the newly created resource can be accessed.</li>
+</ul></li>
+</ul>
+
+<p><strong>Example</strong></p>
+
+<p>The following commands add some <code>hashed-password</code> credentials for device <code>4720</code> using authentication identifier <code>sensor20</code>:</p>
+
+<pre><code>$ PWD_HASH=$(echo -n &quot;mylittlesecret&quot; | openssl dgst -binary -sha512 | base64 -w 0)
+$ curl -i -X POST -H 'Content-Type: application/json' --data-binary '{
+    &quot;device-id&quot;: &quot;4720&quot;,
+    &quot;type&quot;: &quot;hashed-password&quot;,
+    &quot;auth-id&quot;: &quot;sensor20&quot;,
+    &quot;secrets&quot;: [{
+        &quot;hash-function&quot; : &quot;sha-512&quot;,
+        &quot;pwd-hash&quot;: &quot;'$PWD_HASH'&quot;
+    }]
+  }' http://localhost:28080/credentials/DEFAULT_TENANT
+
+HTTP/1.1 201 Created
+Location: /credentials/DEFAULT_TENANT/sensor20/hashed-password
+Content-Length: 0
+</code></pre>
+
+<p>Multiple credentials of different type can be registered for the same authentication identifier.
+The following commands add <code>psk</code> credentials for the same device <code>4720</code> using authentication identifier <code>sensor20</code>:</p>
+
+<pre><code>$ SHARED_KEY=$(echo -n &quot;TheSharedKey&quot; | base64 -w 0)
+$ curl -i -X POST -H 'Content-Type: application/json' --data-binary '{
+   &quot;device-id&quot;: &quot;4720&quot;,
+   &quot;type&quot;: &quot;psk&quot;,
+   &quot;auth-id&quot;: &quot;sensor20&quot;,
+   &quot;secrets&quot;: [{
+     &quot;key&quot; : &quot;'$SHARED_KEY'&quot;
+     }]
+  }' http://localhost:28080/credentials/DEFAULT_TENANT
+
+HTTP/1.1 201 Created
+Location: /credentials/DEFAULT_TENANT/sensor20/psk
+Content-Length: 0
+</code></pre>
+
+<h3 id="get-credentials-by-authentication-identifier-and-type">Get Credentials by Authentication Identifier and Type</h3>
+
+<ul>
+<li>URI: <code>/credentials/${tenantId}/${authId}/${type}</code></li>
+<li>Method: <code>GET</code></li>
+<li>Status Codes:
+
+<ul>
+<li>200 (OK): Credentials for the given parameters have been found. The response body will contain credentials as specified by <a href="/hono/api/credentials-api/#credentials-format">Credentials Format</a> of the Credentials API.</li>
+<li>404 (Not Found): No credentials for the given parameters are registered for the given tenant.</li>
+</ul></li>
+</ul>
+
+<p>The <a href="/hono/api/credentials-api/#get-credentials">Get Credentials</a> operation of Credentials API defines that arbitrary array of properties can be passed to help identify the device.
+It&rsquo;s not specified if and how these properties can be used by the implementation. The Device Registry will try to match the
+properties against the properties defined in the credentials record. It will return the credentials only if all the properties in the request are successfully matched.</p>
+
+<p><strong>Example</strong></p>
+
+<p>The following command retrieves credentials data of type <code>hashed-password</code> for the authentication identifier <code>sensor20</code>:</p>
+
+<pre><code>$ curl -i http://localhost:28080/credentials/DEFAULT_TENANT/sensor20/hashed-password
+
+HTTP/1.1 200 OK
+Content-Length: 268
+Content-Type: application/json; charset=utf-8
+
+{
+    &quot;auth-id&quot;: &quot;sensor20&quot;,
+    &quot;device-id&quot;: &quot;4720&quot;,
+    &quot;enabled&quot;: true,
+    &quot;secrets&quot;: [
+        {
+            &quot;hash-function&quot;: &quot;sha-512&quot;,
+            &quot;pwd-hash&quot;: &quot;tnxz0zDFs+pJGdCVSuoPE4TnamXsfIjBEOb0rg3e9WFD9KfbCkoRuwVZKgRWInfqp87kCLsoV/HEwdJwgw793Q==&quot;
+        }
+    ],
+    &quot;type&quot;: &quot;hashed-password&quot;
+}
+</code></pre>
+
+<h3 id="get-all-credentials-for-a-device">Get all Credentials for a Device</h3>
+
+<ul>
+<li>URI: <code>/credentials/${tenantId}/${deviceId}</code></li>
+<li>Method: <code>GET</code></li>
+<li>Status Codes:
+
+<ul>
+<li>200 (OK): Credentials for the device have been found, body contains the credentials.
+The body differs from the body for a specific type since it may contain an arbitrary number of credentials. It contains a property <code>total</code> indicating the total number of credentials returned. The credentials are contained in property <code>credentials</code>.</li>
+<li>404 (Not Found): No credentials for the device are registered.</li>
+</ul></li>
+</ul>
+
+<p><strong>Example</strong></p>
+
+<p>The following command retrieves credentials for device <code>4720</code>:</p>
+
+<pre><code>$ curl -i http://localhost:28080/credentials/DEFAULT_TENANT/4720
+
+HTTP/1.1 200 OK
+Content-Length: 491
+Content-Type: application/json; charset=utf-8
+
+{
+    &quot;credentials&quot;: [
+        {
+            &quot;auth-id&quot;: &quot;sensor20&quot;,
+            &quot;device-id&quot;: &quot;4720&quot;,
+            &quot;enabled&quot;: true,
+            &quot;secrets&quot;: [
+                {
+                    &quot;hash-function&quot;: &quot;sha-512&quot;,
+                    &quot;pwd-hash&quot;: &quot;tnxz0zDFs+pJGdCVSuoPE4TnamXsfIjBEOb0rg3e9WFD9KfbCkoRuwVZKgRWInfqp87kCLsoV/HEwdJwgw793Q==&quot;
+                }
+            ],
+            &quot;type&quot;: &quot;hashed-password&quot;
+        },
+        {
+            &quot;auth-id&quot;: &quot;sensor20&quot;,
+            &quot;device-id&quot;: &quot;4720&quot;,
+            &quot;enabled&quot;: true,
+            &quot;secrets&quot;: [
+                {
+                    &quot;key&quot;: &quot;VGhlU2hhcmVkS2V5&quot;
+                }
+            ],
+            &quot;type&quot;: &quot;psk&quot;
+        }
+    ],
+    &quot;total&quot;: 2
+}
+</code></pre>
+
+<h3 id="update-credentials">Update Credentials</h3>
+
+<ul>
+<li>URI: <code>/credentials/${tenantId}/${authId}/${type}</code></li>
+<li>Method: <code>PUT</code></li>
+<li>Request Headers:
+
+<ul>
+<li>(required) <code>Content-Type</code>: <code>application/json</code> (no other type supported)</li>
+</ul></li>
+<li>Request Body:
+
+<ul>
+<li>(required) A JSON object as specified by <a href="/hono/api/credentials-api/#credentials-format">Credentials Format</a> of the Credentials API.</li>
+</ul></li>
+<li>Status Codes:
+
+<ul>
+<li>204 (No Content): The credentials have been updated successfully.</li>
+<li>400 (Bad Request): The credentials have not been updated because the request was malformed, e .g. because the payload did not contain required values or the type and auth-id in the payload do not match the path parameters. The response body may contain hints regarding the cause of the problem.</li>
+<li>404 (Not Found): The request could not be processed because there exist no credentials of the given type and authentication identifier.</li>
+</ul></li>
+</ul>
+
+<p>This resource can be used to change values of a particular set of credentials. However, it cannot be used to change the type or authentication identifier of the credentials.</p>
+
+<p><strong>Example</strong></p>
+
+<p>The following command adds an expiration date to the <code>hashed-password</code> credentials for authentication identifier <code>sensor20</code>:</p>
+
+<pre><code>$ PWD_HASH=$(echo -n &quot;mylittlesecret&quot; | openssl dgst -binary -sha512 | base64 -w 0)
+$ curl -i -X PUT -H 'Content-Type: application/json' --data-binary '{
+    &quot;device-id&quot;: &quot;4720&quot;,
+    &quot;type&quot;: &quot;hashed-password&quot;,
+    &quot;auth-id&quot;: &quot;sensor20&quot;,
+    &quot;secrets&quot;: [{
+        &quot;hash-function&quot; : &quot;sha-512&quot;,
+        &quot;pwd-hash&quot;: &quot;'$PWD_HASH'&quot;,
+        &quot;not-after&quot;: &quot;2018-01-01T00:00:00+01:00&quot;
+    }]
+}' http://localhost:28080/credentials/DEFAULT_TENANT/sensor20/hashed-password
+
+HTTP/1.1 204 No Content
+Content-Length: 0
+</code></pre>
+
+<h3 id="delete-credentials-by-type-and-authentication-identifier">Delete Credentials by Type and Authentication Identifier</h3>
+
+<ul>
+<li>URI: <code>/credentials/${tenantId}/${authId}/${type}</code></li>
+<li>Method: <code>DELETE</code></li>
+<li>Status Codes:
+
+<ul>
+<li>204 (No Content): The Credentials with the given identifier and type have been deleted.</li>
+<li>404 (Not Found): No credentials matching the criteria have been found.</li>
+</ul></li>
+</ul>
+
+<p><strong>Example</strong></p>
+
+<pre><code>$ curl -i -X DELETE http://localhost:28080/credentials/DEFAULT_TENANT/sensor20/hashed-password
+
+HTTP/1.1 204 No Content
+Content-Length: 0
+</code></pre>
+
+<h3 id="delete-all-credentials-of-a-device">Delete all Credentials of a Device</h3>
+
+<ul>
+<li>URI: <code>/credentials/${tenantId}/${deviceId}</code></li>
+<li>Method: <code>DELETE</code></li>
+<li>Status Codes:
+
+<ul>
+<li>204 (No Content): All Credentials for the device have been deleted. There is no payload in the response.</li>
+<li>404 (Not Found): No credentials have been found for the device and the given tenant.</li>
+</ul></li>
+</ul>
+
+<p>Removes all credentials registered for a particular device.</p>
+
+<p><strong>Example</strong></p>
+
+<pre><code>$ curl -i -X DELETE http://localhost:28080/credentials/DEFAULT_TENANT/4720
+
+HTTP/1.1 204 No Content
+Content-Length: 0
+</code></pre>
+
+      <aside class="copyright" role="note">
+  <div class="logo">
+    <a href="https://www.eclipse.org" target="_blank">
+      <img src="https://www.eclipse.org/hono/images/eclipse_foundation_logo.png" />
+    </a>
+  </div>
+  <p class="notice">
+    
+    &copy; 2018 The Eclipse Hono Project &ndash;
+    
+    Documentation built with
+    <a href="https://www.gohugo.io" target="_blank">Hugo</a>
+    using the
+    <a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+  </p>
+  <p class="quickLinks">
+    <a href="http://www.eclipse.org/legal/privacy.php" target="_blank">
+      &gt; Privacy Policy
+    </a>
+    <a href="http://www.eclipse.org/legal/termsofuse.php" target="_blank">
+      &gt; Terms of Use
+    </a>
+    <a href="http://www.eclipse.org/legal/copyright.php" target="_blank">
+      &gt; Copyright Agent
+    </a>
+    <a href="http://www.eclipse.org/legal" target="_blank">
+      &gt; Legal
+    </a>
+    <a href="https://eclipse.org/security" target="_blank">
+      &gt; Report a Vulnerability
+    </a>
+  </p>
+</aside>
+
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="https://www.eclipse.org/hono/concepts/connection-events/" title="Connection Events">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              Connection Events
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="https://www.eclipse.org/hono/user-guide/http-adapter/" title="HTTP Adapter">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              HTTP Adapter
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = 'https:\/\/www.eclipse.org\/hono\/';
+      var repo_id  = 'eclipse\/hono';
+    
+    </script>
+
+    <script src="https://www.eclipse.org/hono/javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            if(!headers[i].id)
+                a.setAttribute("href", headers[i].parentNode.href);
+            else
+                a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "#";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+      
+      <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-5WLCZXC');
+      </script>
+    
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

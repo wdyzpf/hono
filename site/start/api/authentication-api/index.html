@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="en-us">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>Authentication API - Eclipse Hono</title>
+    <meta name="generator" content="Hugo 0.42" />
+
+    
+    <meta name="description" content="A set of micro-services for connecting millions of devices.">
+    
+    <link rel="canonical" href="https://www.eclipse.org/hono/api/authentication-api/">
+    
+    <meta name="author" content="The Eclipse Hono Project">
+    
+
+    <meta property="og:url" content="https://www.eclipse.org/hono/api/authentication-api/">
+    <meta property="og:title" content="Eclipse Hono">
+    <meta property="og:image" content="https://www.eclipse.org/hono/images/logo-32x32px.png">
+    <meta name="apple-mobile-web-app-title" content="Eclipse Hono">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.eclipse.org/hono/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://www.eclipse.org/hono/images/favicon.ico">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('https://www.eclipse.org/hono/fonts/icon.eot');
+        src: url('https://www.eclipse.org/hono/fonts/icon.eot')
+               format('embedded-opentype'),
+             url('https://www.eclipse.org/hono/fonts/icon.woff')
+               format('woff'),
+             url('https://www.eclipse.org/hono/fonts/icon.ttf')
+               format('truetype'),
+             url('https://www.eclipse.org/hono/fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/application.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/temporary.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/palettes.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu&#43;Mono">
+    <style>
+      body, input {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/css/hono.css">
+    
+    <link rel="stylesheet" href="//www.eclipse.org/eclipse.org-common/themes/solstice/public/stylesheets/vendor/cookieconsent/cookieconsent.min.css">
+    
+    <script src="https://www.eclipse.org/hono/javascripts/modernizr.js"></script>
+    <script src="//www.eclipse.org/eclipse.org-common/themes/solstice/public/javascript/vendor/cookieconsent/default.min.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-orange palette-accent-teal">
+
+
+
+	
+	
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        Authentication API
+      </div>
+    </div>
+
+    
+
+    
+    <div class="button button-github" role="button" aria-label="GitHub">
+      <a href="https://github.com/eclipse/hono" title="@eclipse/hono on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+    </div>
+    
+    
+        
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="https://www.eclipse.org/hono/" class="project">
+    <div class="banner">
+      
+        <div class="drawerlogo">
+          <img src="https://www.eclipse.org/hono/images/logo-32x32px.png">
+        </div>
+      
+      <div class="name">
+        <strong>Eclipse Hono&trade; </strong>
+        
+          <br>
+          eclipse/hono
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+        <ul class="repo">
+          <li class="repo-download">
+            <a href="https://www.eclipse.org/hono/download/" title="Download" data-action="download">
+              <i class="icon icon-download"></i> Download
+            </a>
+          </li>
+          <li class="repo-stars">
+            <a href="https://github.com/eclipse/hono/stargazers" target="_blank" title="Stargazers" data-action="star">
+              <i class="icon icon-star"></i> Stars
+              <span class="count">&ndash;</span>
+            </a>
+          </li>
+        </ul>
+        <hr>
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Getting started" href="/hono/getting-started/">
+	
+	Getting started
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Downloads" href="/hono/download/">
+	
+	Downloads
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Sandbox" href="/hono/sandbox/">
+	
+	Sandbox
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Concepts" href="/hono/concepts/">
+	
+	Concepts
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="User Guide" href="/hono/user-guide/">
+	
+	User Guide
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Admin Guide" href="/hono/admin-guide/">
+	
+	Admin Guide
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Developer Guide" href="/hono/dev-guide/">
+	
+	Developer Guide
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="API" href="/hono/api/">
+	
+	API
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Deployment" href="/hono/deployment/">
+	
+	Deployment
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Architecture" href="/hono/architecture/">
+	
+	Architecture
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Community" href="/hono/community/">
+	
+	Community
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="License" href="/hono/license/">
+	
+	License
+</a>
+
+
+
+  
+</li>
+
+
+        </ul>
+        
+
+        
+        <hr>
+        <span class="section">Build Status:</span>
+
+        <ul>
+          
+          <li>
+            <a href="https://ci.eclipse.org/hono/job/Hono-CI/" title="Eclipse Build Status" target="_blank">
+              <img src="https://ci.eclipse.org/hono/buildStatus/icon?job=Hono-CI">
+            </a>
+          </li>
+          
+
+          <li>
+            <a href="https://travis-ci.org/eclipse/hono" title="Travis Build Status" target="_blank">
+              <img src="https://travis-ci.org/eclipse/hono.svg?branch=master" />
+            </a>
+          </li>
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>Authentication API </h1>
+
+			<p>The <em>Authentication API</em> is used to retrieve a <em>token</em> asserting a subject&rsquo;s identity and granted authorities. Other service implementations use such a token to make authorization decisions on a client&rsquo;s request to read or write from/to a resource or to invoke a certain operation.
+</p>
+
+<p>The Authentication API is defined by means of AMQP 1.0 message exchanges, i.e. a client needs to connect to an Authentication service using an AMQP 1.0 client in order to invoke operations of the API as described in the following sections.</p>
+
+<p>Note that a component implementing this API will most likely need to also provide means to add, alter or remove identities and authorities as well. However, Hono itself does not require this kind of functionality, thus this kind of functionality is considered out of scope of this API.</p>
+
+<p>In a real world environment there will often already be an <em>identity management system</em> in place. In such cases it can make sense to just implement a <em>facade</em> exposing the Authentication API operations and mapping them to the underlying existing system&rsquo;s functionality.</p>
+
+<h1 id="preconditions">Preconditions</h1>
+
+<p>The preconditions for performing any of the operations are as follows:</p>
+
+<ol>
+<li>Client is in possession of credentials for the subject to get a token for.</li>
+</ol>
+
+<h1 id="operations">Operations</h1>
+
+<p>The Authentication API only defines a single operation which is mandatory to implement.</p>
+
+<h2 id="get-token">Get Token</h2>
+
+<p>Clients use this operation to</p>
+
+<ul>
+<li>verify a set of credentials and</li>
+<li>retrieve a token asserting the authenticated subject&rsquo;s identity and granted authorities.</li>
+</ul>
+
+<p><strong>Message Flow</strong></p>
+
+<p>The following sequence diagram illustrates the flow of messages involved in a <em>Client</em> retrieving a token.</p>
+
+<p><img src="../get-token.png" alt="Get Token message flow" /></p>
+
+<ol>
+<li>The <em>Client</em> and <em>Authentication</em> service have agreed to use the SASL PLAIN mechanism for authenticating the client. The <em>Client</em> therefore sends the credentials of the identity it wants to retrieve a token for. The <em>Authentication</em> service successfully verifies the credentials and establishes the <em>authorization ID</em>.
+
+<ol>
+<li>The <em>Authentication</em> service completes the SASL exchange with a successful outcome (SASL OK).</li>
+</ol></li>
+<li>The <em>Client</em> continues by opening an AMQP connection with the <em>Authentication</em> service. The <em>Authentication</em> service creates a token asserting the <em>authorization ID</em> and authorities established during the SASL exchange and associates it with the connection.</li>
+<li>The <em>Client</em> opens a receiving link using source address <code>cbs</code>.
+
+<ol>
+<li>The <em>Authentication</em> service opens the link and</li>
+<li>sends the token associated with the connection to the <em>Client</em>.</li>
+</ol></li>
+<li>The <em>Client</em> closes the connection.</li>
+</ol>
+
+<p><strong>Token Message Format</strong></p>
+
+<p>On successful establishment of the receiving link with the client as described above, the server sends a message to the client containing a token asserting the identity and authorities of the client that has been authenticated as part of establishing the underlying AMQP connection.</p>
+
+<p>The following table provides an overview of the properties of the message sent to the client.</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Location</th>
+<th align="left">Type</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><em>type</em></td>
+<td align="left"><em>application-properties</em></td>
+<td align="left"><em>string</em></td>
+<td align="left"><code>amqp:jwt</code></td>
+</tr>
+</tbody>
+</table>
+
+<p>The message&rsquo;s body consists of a single AMQP 1.0 <em>AmqpValue</em> section which contains the UTF-8 representation of a JSON Web Token as defined in <a href="#token-format">Token Format</a>.</p>
+
+<h1 id="token-format">Token Format</h1>
+
+<p>The token returned by the <em>get Token</em> operation is a cryptographically signed JSON Web Token as defined by <a href="https://tools.ietf.org/html/rfc7519">RFC 7519</a>.</p>
+
+<p>The token contains the following mandatory <em>claims</em>:</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><em>sub</em></td>
+<td align="left"><a href="https://tools.ietf.org/html/rfc7519#section-4.1.2">RFC 7519, Section 4.1.2</a></td>
+<td align="left">The <em>authorization ID</em> of the authenticated client. This represents the asserted identity.</td>
+</tr>
+
+<tr>
+<td align="left"><em>exp</em></td>
+<td align="left"><a href="https://tools.ietf.org/html/rfc7519#section-4.1.4">RFC 7519, Section 4.1.4</a></td>
+<td align="left">The point in time after which the claims contained in this token must be considered no longer valid. Clients MUST NOT use any information from a token that has expired.</td>
+</tr>
+</tbody>
+</table>
+
+<p>The subject&rsquo;s authorities on resources and operations are represented by additional JWT <em>claims</em> with a name identifying the resource or operation and a value containing the activities the subject is allowed to perform. The following activities are supported:</p>
+
+<ul>
+<li>READ - The client is allowed to establish a receiving link using the resource&rsquo;s node address as the link&rsquo;s <em>source address</em>.</li>
+<li>WRITE - The client is allowed to establish a sending link using the resource&rsquo;s node address as the link&rsquo;s <em>target address</em>.</li>
+<li>EXECUTE - The client is allowed to <em>invoke</em> an operation on an endpoint, i.e. send a message over a link with a <em>subject</em> representing the operation name and the link&rsquo;s target address representing the API endpoint&rsquo;s node address.</li>
+</ul>
+
+<p>The allowed activities are encoded in a claim&rsquo;s value by means of simply concatenating the activities&rsquo; initial characters (<code>R</code>, <code>W</code>, <code>E</code>).</p>
+
+<p>The token may contain any number of additional claims which may be ignored by clients that do not understand their meaning.</p>
+
+<h2 id="resource-authorities">Resource Authorities</h2>
+
+<p>A client&rsquo;s authority on a resource is represented by a JWT <em>claim</em> with a name containing the resource node address prefixed with <code>r:</code> and a value containing the activities the client is allowed to perform on the resource. The node address MAY contain one or more wildcard (<code>*</code>) characters to represent <em>any</em> string.</p>
+
+<p><strong>Example:</strong></p>
+
+<p>Assuming a client which is allowed to</p>
+
+<ul>
+<li>send and consume events for tenant <code>my-tenant</code> and</li>
+<li>consume telemetry data for all tenants</li>
+</ul>
+
+<p>the corresponding claims (in the token&rsquo;s JSON representation) would look like this:</p>
+
+<pre><code class="language-json">{
+  ...
+  &quot;r:event/my-tenant&quot;: &quot;RW&quot;,
+  &quot;r:telemetry/*&quot;: &quot;R&quot;,
+  ...
+}
+</code></pre>
+
+<h2 id="operation-authorities">Operation Authorities</h2>
+
+<p>A client&rsquo;s authority to invoke an endpoint&rsquo;s operation(s) is represented by a JWT <em>claim</em> with a name containing the endpoint&rsquo;s node address and operation identifier prefixed with <code>o:</code> and a value of <code>E</code> (for <code>EXECUTE</code>). The endpoint node address MAY contain one or more wildcard (<code>*</code>) characters to represent <em>any</em> string. The operation identifier is the <em>subject</em> value defined by the corresponding API for the operation. The operation identifier MAY be set to <code>*</code> to represent <em>any</em> operation of the endpoint.</p>
+
+<p><strong>Example:</strong></p>
+
+<p>Assuming a client which is allowed to</p>
+
+<ul>
+<li>invoke the Device Registration API&rsquo;s <em>assert Registration</em> operation for any tenant and</li>
+<li>invoke all methods of the Credentials API for tenant <code>my-tenant</code></li>
+</ul>
+
+<p>the corresponding claims (in the token&rsquo;s JSON representation) would look like this:</p>
+
+<pre><code class="language-json">{
+  ...
+  &quot;o:registration/*:assert&quot;: &quot;E&quot;,
+  &quot;o:credentials/my-tenant:*&quot;: &quot;E&quot;,
+  ...
+}
+</code></pre>
+
+      <aside class="copyright" role="note">
+  <div class="logo">
+    <a href="https://www.eclipse.org" target="_blank">
+      <img src="https://www.eclipse.org/hono/images/eclipse_foundation_logo.png" />
+    </a>
+  </div>
+  <p class="notice">
+    
+    &copy; 2018 The Eclipse Hono Project &ndash;
+    
+    Documentation built with
+    <a href="https://www.gohugo.io" target="_blank">Hugo</a>
+    using the
+    <a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+  </p>
+  <p class="quickLinks">
+    <a href="http://www.eclipse.org/legal/privacy.php" target="_blank">
+      &gt; Privacy Policy
+    </a>
+    <a href="http://www.eclipse.org/legal/termsofuse.php" target="_blank">
+      &gt; Terms of Use
+    </a>
+    <a href="http://www.eclipse.org/legal/copyright.php" target="_blank">
+      &gt; Copyright Agent
+    </a>
+    <a href="http://www.eclipse.org/legal" target="_blank">
+      &gt; Legal
+    </a>
+    <a href="https://eclipse.org/security" target="_blank">
+      &gt; Report a Vulnerability
+    </a>
+  </p>
+</aside>
+
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="https://www.eclipse.org/hono/dev-guide/custom_http_adapter/" title="Implement a Custom Hono HTTP Protocol Adapter">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              Implement a Custom Hono HTTP Protocol Adapter
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="https://www.eclipse.org/hono/api/tenant-api/" title="Tenant API">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Tenant API
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = 'https:\/\/www.eclipse.org\/hono\/';
+      var repo_id  = 'eclipse\/hono';
+    
+    </script>
+
+    <script src="https://www.eclipse.org/hono/javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            if(!headers[i].id)
+                a.setAttribute("href", headers[i].parentNode.href);
+            else
+                a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "#";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+      
+      <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-5WLCZXC');
+      </script>
+    
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Deployment on Eclipse Hono</title>
+    <link>https://www.eclipse.org/hono/deployment/</link>
+    <description>Recent content in Deployment on Eclipse Hono</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://www.eclipse.org/hono/deployment/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Kubernetes</title>
+      <link>https://www.eclipse.org/hono/deployment/kubernetes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/deployment/kubernetes/</guid>
+      <description>&lt;p&gt;All the Eclipse Hono&amp;trade; components can be deployed on Kubernetes, thanks to the resources YAML files that are provided through the repository.
+These files describe such components in terms of &lt;em&gt;deployments&lt;/em&gt; and &lt;em&gt;services&lt;/em&gt; in order to have the right pods running in the Kubernetes cluster so that they are able
+to communicate with each other.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>OpenShift with EnMasse</title>
+      <link>https://www.eclipse.org/hono/deployment/openshift/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/deployment/openshift/</guid>
+      <description>&lt;p&gt;This guide describes how to deploy Eclipse Hono™ using EnMasse as messaging
+backend on a single-master/single-node local OpenShift installation using
+&amp;ldquo;minishift&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>OpenShift with source-to-image (S2I)</title>
+      <link>https://www.eclipse.org/hono/deployment/openshift_s2i/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/deployment/openshift_s2i/</guid>
+      <description>&lt;p&gt;This guide described how Eclipse Hono™ can be deployed on OpenShift with
+EnMasse using the source-to-image (S2I) way. Using this approach it is possible
+to customize and refresh the base images where Hono runs in. It also uses
+a more complex, multi-project setup and separates EnMasse and Grafana from
+the core Hono project.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Docker Swarm</title>
+      <link>https://www.eclipse.org/hono/deployment/docker-swarm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/deployment/docker-swarm/</guid>
+      <description>&lt;p&gt;Eclipse Hono&amp;trade; components are distributed by means of Docker images which can be deployed to arbitrary environments where Docker is available. This section provides step-by-step instructions for deploying Hono to a cluster of Docker Engine nodes running in &lt;em&gt;Swarm mode&lt;/em&gt;.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Limiting Resource Usage</title>
+      <link>https://www.eclipse.org/hono/deployment/resource-limitation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/deployment/resource-limitation/</guid>
+      <description>&lt;p&gt;Deploying Eclipse Hono&amp;trade; to a container orchestration platform is easy thanks to the provided Docker images. This page provides some guidance for configuring the resource consumption of these containers in order to make sure that they get enough memory and CPU to run properly, but to also make sure that individual containers do not use up all the resources causing other containers to starve.
+&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

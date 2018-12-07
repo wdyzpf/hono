@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="en-us">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>Multi-Tenancy - Eclipse Hono</title>
+    <meta name="generator" content="Hugo 0.42" />
+
+    
+    <meta name="description" content="A set of micro-services for connecting millions of devices.">
+    
+    <link rel="canonical" href="https://www.eclipse.org/hono/concepts/tenancy/">
+    
+    <meta name="author" content="The Eclipse Hono Project">
+    
+
+    <meta property="og:url" content="https://www.eclipse.org/hono/concepts/tenancy/">
+    <meta property="og:title" content="Eclipse Hono">
+    <meta property="og:image" content="https://www.eclipse.org/hono/images/logo-32x32px.png">
+    <meta name="apple-mobile-web-app-title" content="Eclipse Hono">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.eclipse.org/hono/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://www.eclipse.org/hono/images/favicon.ico">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('https://www.eclipse.org/hono/fonts/icon.eot');
+        src: url('https://www.eclipse.org/hono/fonts/icon.eot')
+               format('embedded-opentype'),
+             url('https://www.eclipse.org/hono/fonts/icon.woff')
+               format('woff'),
+             url('https://www.eclipse.org/hono/fonts/icon.ttf')
+               format('truetype'),
+             url('https://www.eclipse.org/hono/fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/application.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/temporary.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/palettes.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu&#43;Mono">
+    <style>
+      body, input {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <link rel="stylesheet" href="https://www.eclipse.org/hono/css/hono.css">
+    
+    <link rel="stylesheet" href="//www.eclipse.org/eclipse.org-common/themes/solstice/public/stylesheets/vendor/cookieconsent/cookieconsent.min.css">
+    
+    <script src="https://www.eclipse.org/hono/javascripts/modernizr.js"></script>
+    <script src="//www.eclipse.org/eclipse.org-common/themes/solstice/public/javascript/vendor/cookieconsent/default.min.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-orange palette-accent-teal">
+
+
+
+	
+	
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        Multi-Tenancy
+      </div>
+    </div>
+
+    
+
+    
+    <div class="button button-github" role="button" aria-label="GitHub">
+      <a href="https://github.com/eclipse/hono" title="@eclipse/hono on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+    </div>
+    
+    
+        
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="https://www.eclipse.org/hono/" class="project">
+    <div class="banner">
+      
+        <div class="drawerlogo">
+          <img src="https://www.eclipse.org/hono/images/logo-32x32px.png">
+        </div>
+      
+      <div class="name">
+        <strong>Eclipse Hono&trade; </strong>
+        
+          <br>
+          eclipse/hono
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+        <ul class="repo">
+          <li class="repo-download">
+            <a href="https://www.eclipse.org/hono/download/" title="Download" data-action="download">
+              <i class="icon icon-download"></i> Download
+            </a>
+          </li>
+          <li class="repo-stars">
+            <a href="https://github.com/eclipse/hono/stargazers" target="_blank" title="Stargazers" data-action="star">
+              <i class="icon icon-star"></i> Stars
+              <span class="count">&ndash;</span>
+            </a>
+          </li>
+        </ul>
+        <hr>
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Getting started" href="/hono/getting-started/">
+	
+	Getting started
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Downloads" href="/hono/download/">
+	
+	Downloads
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Sandbox" href="/hono/sandbox/">
+	
+	Sandbox
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Concepts" href="/hono/concepts/">
+	
+	Concepts
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="User Guide" href="/hono/user-guide/">
+	
+	User Guide
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Admin Guide" href="/hono/admin-guide/">
+	
+	Admin Guide
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Developer Guide" href="/hono/dev-guide/">
+	
+	Developer Guide
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="API" href="/hono/api/">
+	
+	API
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Deployment" href="/hono/deployment/">
+	
+	Deployment
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Architecture" href="/hono/architecture/">
+	
+	Architecture
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Community" href="/hono/community/">
+	
+	Community
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="License" href="/hono/license/">
+	
+	License
+</a>
+
+
+
+  
+</li>
+
+
+        </ul>
+        
+
+        
+        <hr>
+        <span class="section">Build Status:</span>
+
+        <ul>
+          
+          <li>
+            <a href="https://ci.eclipse.org/hono/job/Hono-CI/" title="Eclipse Build Status" target="_blank">
+              <img src="https://ci.eclipse.org/hono/buildStatus/icon?job=Hono-CI">
+            </a>
+          </li>
+          
+
+          <li>
+            <a href="https://travis-ci.org/eclipse/hono" title="Travis Build Status" target="_blank">
+              <img src="https://travis-ci.org/eclipse/hono.svg?branch=master" />
+            </a>
+          </li>
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>Multi-Tenancy </h1>
+
+			
+
+<p>Hono is designed to structure the set of all internally managed data and data streams into strictly isolated subsets.
+This includes the registration data and credentials of devices, internal users that are used for authentication,
+and the <em>Business Applications</em> that are part of such subsets as well.</p>
+
+<p>This way of <em>strict</em> isolation is generally known as multi-tenancy, where a <strong>tenant</strong> is the term for such a subset.
+Such an isolation is essential for enabling a scalable distributed architecture to handle independent subsets as if each subset had its
+own installation (which would be much harder to maintain and would not benefit from runtime cost sharing).</p>
+
+<p>Hono&rsquo;s multi-tenancy concept is based on handling tenants as own <em>entities</em>. All functionality of Hono is
+provided in the context of a previously created tenant - except the creation of a tenant itself.</p>
+
+<p>In the following the different aspects of multi-tenancy in Hono are addressed and a full overview of the concept is given.</p>
+
+<h2 id="the-tenant-api">The Tenant API</h2>
+
+<p>By means of the <a href="/hono/api/tenant-api/">Tenant API</a> Hono handles tenants as own <em>entities</em>.</p>
+
+<p>The API defines how to <em>retrieve</em> the details of a specific tenant. This offers the possibility to handle arbitrary
+properties on the level of a tenant (see e.g. <a href="#protocol-adapter-configuration">Protocol adapter configuration</a>).</p>
+
+<p>For convenience, there are CRUD operations for the handling of tenants, which can be found in the
+<a href="/hono/user-guide/device-registry/#managing-tenants">Device Registry</a>.</p>
+
+<h2 id="protocol-adapters-respect-the-tenant-api">Protocol Adapters respect the Tenant API</h2>
+
+<p>When a device connects to one of Hono&rsquo;s protocol adapters, the adapter determines the tenant this device belongs to.
+How this is done is described in the User Guide.</p>
+
+<p>After the tenant is determined, the adapter retrieves the details of the determined tenant by means of the Tenant API.
+Only if the tenant exists and is enabled the adapter further processes the data of the device that is connecting. Otherwise
+the connection will be closed.</p>
+
+<h2 id="protocol-adapter-configuration">Protocol Adapter Configuration</h2>
+
+<p>Protocol adapters retrieve parts of their configuration on a tenant level by using the details of the determined tenant.</p>
+
+<p>This includes e.g. if a specific protocol adapter is enabled at all for this tenant, allowing to define tenants with
+only a subset of Hono&rsquo;s functionality. This feature is foreseen to be especially important for production setups.</p>
+
+<p><em>Example</em>: a tenant that</p>
+
+<ul>
+<li>can use the MQTT protocol adapter</li>
+<li>but is not allowed to use the HTTP protocol adapter</li>
+</ul>
+
+<p>Please refer to the <a href="/hono/api/tenant-api/">Tenant API</a> to find out which protocol adapter properties are
+configurable on a tenant level. The number of such properties may grow during further development of Hono.</p>
+
+<h2 id="amqp-1-0-endpoints">AMQP 1.0 Endpoints</h2>
+
+<p>The AMQP 1.0 endpoints for all APIs of Hono are scoped to a tenant, by using the scheme <code>&lt;api-name&gt;/TENANT/...</code>.</p>
+
+<p><em>Examples</em>:</p>
+
+<ul>
+<li><code>telemetry/TENANT</code></li>
+<li><code>registration/TENANT</code></li>
+</ul>
+
+<p>etc.</p>
+
+<p>This separates the AMQP endpoints from each other on a tenant level.</p>
+
+<p>The only exception to this is the <a href="/hono/api/tenant-api/">Tenant API</a>, which does not follow this scheme since it
+is addressing the tenants themselves.</p>
+
+<h2 id="devices-and-tenants">Devices and Tenants</h2>
+
+<p>All devices of Hono belong to exactly one tenant, so any data is sent in the context of the
+tenant a device belongs to.</p>
+
+<p>It is important here to focus on Hono&rsquo;s view of a device: it is on a logical level, meaning a device is created in the
+context of a tenant purely by using Hono&rsquo;s Credentials and Device Registration API.</p>
+
+<p>Usually a physical device will be created in Hono as exactly one logical device, and thus belongs to exactly one tenant.</p>
+
+<p>The following diagram shows the relation between tenants, devices and their credentials:</p>
+
+
+<figure>
+    
+        <img src="../Tenants_Devices_Credentials.png" />
+    
+    
+    <figcaption>
+        <h4>Tenants, Devices and Credentials</h4>
+        
+    </figcaption>
+    
+</figure>
+
+
+<h2 id="tenant-based-flow-control">Tenant based Flow Control</h2>
+
+<p>An important detail in Hono&rsquo;s architecture is that data sent downstream is transported via the tenant
+scoped AMQP 1.0 links from the protocol adapters to the AMQP 1.0 network.</p>
+
+<p>Each tenant has its own pair of AMQP 1.0 links and is treated
+independently from other tenants regarding the back pressure mechanism that AMQP 1.0 offers.</p>
+
+<p>This enables a <em>Business application</em> to limit the rate at which it consumes AMQP 1.0 messages per tenant.</p>
+
+<h2 id="authorization-at-tenant-level">Authorization at Tenant Level</h2>
+
+<p>Hono&rsquo;s components authenticate each other by means of the <a href="/hono/api/authentication-api/">Authentication API</a>.</p>
+
+<p>The returned token for a successful authentication contains authorization information that is addressing the AMQP 1.0
+endpoints. Since the endpoints (as outlined above) are scoped to a tenant, this enables to configure tenants that are
+authorized to only a subset of Hono&rsquo;s full functionality.</p>
+
+<p><em>Example</em>: a tenant (defined by means of authorization configuration) that</p>
+
+<ul>
+<li>is allowed to send telemetry data downstream</li>
+<li>but is not allowed to send event data</li>
+</ul>
+
+<p>This is done by not including the event endpoint in the authorization token for these tenants.</p>
+
+<h2 id="business-applications-and-tenants">Business Applications and Tenants</h2>
+
+<p>The northbound <em>Business applications</em> are always connecting to the AMQP 1.0 endpoints of Hono.</p>
+
+<p>By means of the authentication and authorization setup and the fact that the endpoints are scoped to a tenant, the
+<em>Business application</em> is only acting in the context of one tenant.</p>
+
+<h2 id="separation-of-tenants">Separation of Tenants</h2>
+
+<p>Tenants are separated from each other in all of Hono&rsquo;s components.</p>
+
+<p>Here is a summary of how this is implemented:</p>
+
+<ul>
+<li>the registration of devices are strictly scoped to a tenant</li>
+<li>the credentials of devices are strictly scoped to a tenant</li>
+<li>protocol adapters can be enabled/disabled for a tenant</li>
+<li>the downstream data flow is isolated for every tenant</li>
+<li><em>Business applications</em> need to authenticate to the AMQP 1.0 network and are by that mechanism scoped to their tenant</li>
+</ul>
+
+<h2 id="hints-for-production">Hints for Production</h2>
+
+<p>To be flexible for the different needs of production setups, Hono tries to make as few assumptions about the combination
+of the different APIs as possible.
+This means e.g. that the Device Registry does not enforce referential integrity of the APIs:</p>
+
+<ul>
+<li>devices can be created for a tenant that is not existing (yet)</li>
+<li>credentials can be created for a tenant and/or a device that is not existing (yet)</li>
+<li>tenants can be deleted and leave their scoped devices and credentials still in the configuration (which may not be usable
+anymore, since the tenant is missing)</li>
+</ul>
+
+<p>These are points that production setups may want to implement differently.</p>
+
+
+      <aside class="copyright" role="note">
+  <div class="logo">
+    <a href="https://www.eclipse.org" target="_blank">
+      <img src="https://www.eclipse.org/hono/images/eclipse_foundation_logo.png" />
+    </a>
+  </div>
+  <p class="notice">
+    
+    &copy; 2018 The Eclipse Hono Project &ndash;
+    
+    Documentation built with
+    <a href="https://www.gohugo.io" target="_blank">Hugo</a>
+    using the
+    <a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+  </p>
+  <p class="quickLinks">
+    <a href="http://www.eclipse.org/legal/privacy.php" target="_blank">
+      &gt; Privacy Policy
+    </a>
+    <a href="http://www.eclipse.org/legal/termsofuse.php" target="_blank">
+      &gt; Terms of Use
+    </a>
+    <a href="http://www.eclipse.org/legal/copyright.php" target="_blank">
+      &gt; Copyright Agent
+    </a>
+    <a href="http://www.eclipse.org/legal" target="_blank">
+      &gt; Legal
+    </a>
+    <a href="https://eclipse.org/security" target="_blank">
+      &gt; Report a Vulnerability
+    </a>
+  </p>
+</aside>
+
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="https://www.eclipse.org/hono/concepts/device-identity/" title="Device Identity">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              Device Identity
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="https://www.eclipse.org/hono/concepts/device-notifications/" title="Device notifications">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Device notifications
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = 'https:\/\/www.eclipse.org\/hono\/';
+      var repo_id  = 'eclipse\/hono';
+    
+    </script>
+
+    <script src="https://www.eclipse.org/hono/javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            if(!headers[i].id)
+                a.setAttribute("href", headers[i].parentNode.href);
+            else
+                a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "#";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+      
+      <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-5WLCZXC');
+      </script>
+    
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

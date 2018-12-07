@@ -1,0 +1,48 @@
+hono:
+  app:
+    maxInstances: 1
+  mqtt:
+    bindAddress: 0.0.0.0
+    insecurePortBindAddress: 0.0.0.0
+    insecurePortEnabled: true
+    keyPath: /run/secrets/hono.eclipse.org-key.pem
+    certPath: /run/secrets/hono.eclipse.org-cert.pem
+    jmsVendorPropsEnabled: true
+    maxPayloadSize: 8096
+  messaging:
+    name: 'Hono MQTT Adapter'
+    host: hono-dispatch-router.hono
+    port: 5673
+    amqpHostname: hono-internal
+  registration:
+    name: 'Hono MQTT Adapter'
+    host: ${hono.registration.host}
+    port: 5672
+    credentialsPath: /run/secrets/mqtt-adapter.credentials
+  credentials:
+    name: 'Hono MQTT Adapter'
+    host: ${hono.registration.host}
+    port: 5672
+    credentialsPath: /run/secrets/mqtt-adapter.credentials
+  tenant:
+    name: 'Hono MQTT Adapter'
+    host: ${hono.registration.host}
+    port: 5672
+    credentialsPath: /run/secrets/mqtt-adapter.credentials
+  command:
+    name: 'Hono MQTT Adapter'
+    host: hono-dispatch-router.hono
+    port: 5673
+    amqpHostname: hono-internal
+  metric:
+    reporter:
+      graphite:
+        active: true
+        host: influxdb.hono
+        port: 2003
+# disable spring boot actuator endpoints, enable metrics
+endpoints:
+  enabled: false
+  metrics:
+    enabled: true
+

@@ -1,0 +1,603 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (c) 2016, 2018 Bosch Software Innovations GmbH and others.
+
+    All rights reserved. This program and the accompanying materials 
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+    
+    Contributors:
+      Bosch Software Innovations GmbH - initial API and implementation and initial documentation
+      Red Hat Inc
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.eclipse.hono</groupId>
+  <artifactId>hono-parent</artifactId>
+  <version>0.7-M2-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>Hono</name>
+  <description>Hono provides a scalable messaging infrastructure targeted at Internet of Things use cases.</description>
+  <url>https://www.eclipse.org/hono</url>
+  <inceptionYear>2016</inceptionYear>
+
+  <organization>
+    <name>Eclipse Foundation</name>
+    <url>https://www.eclipse.org/</url>
+  </organization>
+
+  <licenses>
+    <license>
+      <name>Eclipse Public License - Version 1.0</name>
+      <url>http://www.eclipse.org/legal/epl-v10.html</url>
+      <comments>SPDX-License-Identifier: EPL-1.0</comments>
+    </license>
+  </licenses>
+
+  <scm>
+    <developerConnection>scm:git:https://github.com/eclipse/hono.git</developerConnection>
+    <url>https://github.com/eclipse/hono</url>
+    <tag>HEAD</tag>
+  </scm>
+
+  <issueManagement>
+    <system>GitHub Issues</system>
+    <url>https://github.com/eclipse/hono/issues</url>
+  </issueManagement>
+
+  <distributionManagement>
+    <repository>
+      <id>repo.eclipse.org</id>
+      <name>Hono Releases</name>
+      <url>https://repo.eclipse.org/content/repositories/hono-releases/</url>
+    </repository>
+    <snapshotRepository>
+      <id>repo.eclipse.org</id>
+      <name>Hono Snapshots</name>
+      <url>https://repo.eclipse.org/content/repositories/hono-snapshots/</url>
+    </snapshotRepository>
+  </distributionManagement>
+
+  <developers>
+    <developer>
+      <id>hkonsyk</id>
+      <name>Henryk Konsek</name>
+      <email>hekonsek@gmail.com</email>
+      <roles>
+        <role>Committer</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>khudalla</id>
+      <name>Kai Hudalla</name>
+      <email>kai.hudalla@bosch-si.com</email>
+      <url>https://github.com/sophokles73</url>
+      <organization>Bosch Software Innovations GmbH</organization>
+      <organizationUrl>http://www.bosch-si.com</organizationUrl>
+      <roles>
+        <role>Lead</role>
+        <role>Committer</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>dbosanac</id>
+      <name>Dejan Bosanac</name>
+      <email>dejan@sensatic.net</email>
+      <roles>
+        <role>Committer</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>dguggemos</id>
+      <name>Dominik Guggemos</name>
+      <email>dominik.guggemos@bosch-si.com</email>
+      <organization>Bosch Software Innovations GmbH</organization>
+      <organizationUrl>http://www.bosch-si.com</organizationUrl>
+      <roles>
+        <role>Committer</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>ppatierno</id>
+      <name>Paolo Patierno</name>
+      <email>ppatierno@live.com</email>
+      <roles>
+        <role>Lead</role>
+        <role>Committer</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>kfrank</id>
+      <name>Karsten Frank</name>
+      <email>karsten.frank@bosch-si.com</email>
+      <organization>Bosch Software Innovations GmbH</organization>
+      <organizationUrl>http://www.bosch-si.com</organizationUrl>
+      <roles>
+        <role>Committer</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>mpellmann</id>
+      <name>Marc Pellmann</name>
+      <email>marc.pellmann@bosch-si.com</email>
+      <organization>Bosch Software Innovations GmbH</organization>
+      <organizationUrl>http://www.bosch-si.com</organizationUrl>
+      <roles>
+        <role>Committer</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>ctron</id>
+      <name>Jens Reimann</name>
+      <email>ctron@dentrassi.de</email>
+      <url>https://dentrassi.de</url>
+      <organization>Red Hat Inc</organization>
+      <organizationUrl>https://redhat.com</organizationUrl>
+      <roles>
+        <role>Committer</role>
+      </roles>
+    </developer>
+  </developers>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+    <classifier.spring.boot.artifact>exec</classifier.spring.boot.artifact>
+
+    <!-- configure timestamp format to be injected into legal docs -->
+    <maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
+    <timestamp>${maven.build.timestamp}</timestamp>
+
+    <!--
+      during development we allow dependencies on SNAPSHOT versions,
+      when doing a release build, set this property to false.
+     -->
+    <snapshotDependencyAllowed>true</snapshotDependencyAllowed>
+
+    <!-- 
+      Build images defined in modules with packaging type "pom".
+     -->
+    <docker.skip.build.pom>false</docker.skip.build.pom>
+
+    <!-- 
+      The organization name to use for our Docker image names.
+     -->
+     <docker.image.org-name>eclipse</docker.image.org-name>
+  </properties>
+
+  <modules>
+    <module>adapters</module>
+    <module>bom</module>
+    <module>core</module>
+    <module>client</module>
+    <module>demo-certs</module>
+    <module>example</module>
+    <module>jmeter</module>
+    <module>legal</module>
+    <module>service-base</module>
+    <module>services</module>
+    <module>site</module>
+    <module>tests</module>
+  </modules>
+
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>io.fabric8</groupId>
+          <artifactId>docker-maven-plugin</artifactId>
+          <version>0.26.0</version>
+          <executions>
+            <execution>
+              <id>build_images</id>
+              <phase>package</phase>
+              <goals>
+                <goal>build</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <images>
+              <image>
+                <name>${docker.image.org-name}/%a:%v</name>
+                <build>
+                  <maintainer>The Eclipse Hono project</maintainer>
+                  <tags>
+                    <tag>latest</tag>
+                  </tags>
+                </build>
+              </image>
+            </images>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.7.0</version>
+          <configuration>
+            <source>1.8</source>
+            <target>1.8</target>
+            <encoding>UTF-8</encoding>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>3.0.2</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>3.0.2</version>
+          <configuration>
+            <skipIfEmpty>true</skipIfEmpty>
+            <archive>
+              <manifest>
+                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+              </manifest>
+            </archive>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-javadoc-plugin</artifactId>
+          <version>3.0.1</version>
+          <configuration>
+            <doclint>all,-accessibility</doclint>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>2.22.0</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-failsafe-plugin</artifactId>
+          <version>2.22.0</version>
+        </plugin>
+        <plugin>
+          <!-- 
+            Copy legal documents from "legal" module to "target/classes" folder
+            so that we make sure to include legal docs in all modules.
+           -->
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-dependency-plugin</artifactId>
+          <version>3.0.2</version>
+          <executions>
+            <execution>
+              <id>copy_legal_docs</id>
+              <phase>prepare-package</phase>
+              <goals>
+                <goal>unpack-dependencies</goal>
+              </goals>
+              <configuration>
+                <includeArtifactIds>hono-legal</includeArtifactIds>
+                <outputDirectory>${project.build.outputDirectory}/META-INF</outputDirectory>
+                <excludes>META-INF/**,checkstyle/**</excludes>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-maven-plugin</artifactId>
+          <version>1.5.13.RELEASE</version>
+          <executions>
+            <execution>
+              <goals>
+                <goal>repackage</goal>
+              </goals>
+              <configuration>
+                <attach>false</attach>
+                <classifier>${classifier.spring.boot.artifact}</classifier>
+                <excludeArtifactIds>hono-legal,hono-demo-certs</excludeArtifactIds>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-checkstyle-plugin</artifactId>
+          <version>3.0.0</version>
+          <dependencies>
+            <dependency>
+              <groupId>org.eclipse.hono</groupId>
+              <artifactId>hono-legal</artifactId>
+              <version>${project.version}</version>
+            </dependency>
+            <dependency>
+              <groupId>com.puppycrawl.tools</groupId>
+              <artifactId>checkstyle</artifactId>
+              <version>7.8.2</version>
+            </dependency>
+          </dependencies>
+          <executions>
+            <execution>
+              <id>checkstyle-check</id>
+              <phase>verify</phase>
+              <goals>
+                <goal>check</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <configLocation>checkstyle/default.xml</configLocation>
+            <suppressionsLocation>checkstyle/suppressions.xml</suppressionsLocation>
+            <includeTestSourceDirectory>true</includeTestSourceDirectory>
+          </configuration>
+        </plugin>
+        <plugin>
+          <artifactId>maven-assembly-plugin</artifactId>
+          <version>3.0.0</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.felix</groupId>
+          <artifactId>maven-bundle-plugin</artifactId>
+          <version>3.5.0</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>buildnumber-maven-plugin</artifactId>
+        <version>1.4</version>
+        <executions>
+          <execution>
+            <phase>validate</phase>
+            <goals>
+              <goal>create-timestamp</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <timestampFormat>MMM dd, yyyy</timestampFormat>
+          <timestampPropertyName>build.date</timestampPropertyName>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <version>1.4.1</version>
+        <executions>
+          <execution>
+            <!-- Make sure that only non-snapshot versions are used for the dependencies. 
+              Only active when property 'snapshotDependencyAllowed' is false. -->
+            <id>enforce-no-snapshots</id>
+            <goals>
+              <goal>enforce</goal>
+            </goals>
+            <configuration>
+              <skip>${snapshotDependencyAllowed}</skip>
+              <rules>
+                <requireReleaseDeps>
+                  <message>No dependencies on snapshots allowed!</message>
+                </requireReleaseDeps>
+                <requireReleaseVersion>
+                  <message>Cannot release snapshot version!</message>
+                </requireReleaseVersion>
+              </rules>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>3.0.1</version>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>jar-no-fork</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <!-- 
+          Use the Nexus Staging plugin as a full replacement for the standard
+          Maven Deploy plugin.
+          See https://github.com/sonatype/nexus-maven-plugins/tree/master/staging/maven-plugin
+          why this makes sense :-)
+          We can control whether we want to deploy to the Eclipse repo or Maven Central
+          by a combination of the version being a SNAPHOT or release version and property
+          skipStaging=true/false.
+          In any case we can take advantage of the plugin's "deferred deploy" feature which
+          makes sure that all artifacts of a multi-module project are deployed as a whole
+          at the end of the build process instead of deploying each module's artifacts
+          individually as part of building the module.
+         -->
+        <groupId>org.sonatype.plugins</groupId>
+        <artifactId>nexus-staging-maven-plugin</artifactId>
+        <version>1.6.8</version>
+        <extensions>true</extensions>
+        <configuration>
+          <serverId>ossrh</serverId>
+          <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+          <autoReleaseAfterClose>false</autoReleaseAfterClose>
+        </configuration>
+      </plugin>
+
+    </plugins>
+  </build>
+
+  <profiles>
+    <profile>
+      <!-- 
+        This profile is activated by Eclipse IDE automatically.
+       -->
+      <id>eclipse-only</id>
+      <activation>
+        <property>
+          <name>m2e.version</name>
+        </property>
+      </activation>
+      <build>
+        <pluginManagement>
+          <plugins>
+            <plugin>
+              <!--
+                This plugin's configuration is used to store Eclipse m2e settings only.
+                It has no influence on the Maven build itself.
+              -->
+              <groupId>org.eclipse.m2e</groupId>
+              <artifactId>lifecycle-mapping</artifactId>
+              <version>1.0.0</version>
+                <configuration>
+                  <lifecycleMappingMetadata>
+                    <pluginExecutions>
+                      <pluginExecution>
+                        <pluginExecutionFilter>
+                          <groupId>org.codehaus.mojo</groupId>
+                          <artifactId>buildnumber-maven-plugin</artifactId>
+                          <versionRange>[1.4,)</versionRange>
+                          <goals>
+                            <goal>create-timestamp</goal>
+                          </goals>
+                        </pluginExecutionFilter>
+                        <action>
+                          <execute>
+                            <runOnConfiguration>true</runOnConfiguration>
+                            <runOnIncremental>true</runOnIncremental>
+                          </execute>
+                        </action>
+                      </pluginExecution>
+                      <pluginExecution>
+                        <!--
+                         Disable unpack-dependencies goal in order to prevent the m2eclipse
+                         error "Artifact has not been packaged yet..."
+                         -->
+                        <pluginExecutionFilter>
+                          <groupId>org.apache.maven.plugins</groupId>
+                          <artifactId>maven-dependency-plugin</artifactId>
+                          <versionRange>[3,)</versionRange>
+                          <goals>
+                            <goal>unpack-dependencies</goal>
+                          </goals>
+                        </pluginExecutionFilter>
+                        <action>
+                          <ignore></ignore>
+                        </action>
+                      </pluginExecution>
+                    </pluginExecutions>
+                  </lifecycleMappingMetadata>
+                </configuration>
+            </plugin>
+          </plugins>
+        </pluginManagement>
+      </build>
+    </profile>
+    <profile>
+      <!--
+        this profile generates JavaDoc jar files
+        sub-modules can set property maven.javadoc.skip=true in order to skip this
+        (e.g., the tests, application and example modules, which do not require JavaDoc being generated)
+      -->
+      <id>javadoc</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+        <property>
+          <name>createJavadoc</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <executions>
+	            <execution>
+	              <id>attach-javadocs</id>
+	              <goals>
+	                <goal>jar</goal>
+	             </goals>
+	            </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <!-- this profile signs artifacts so that they can be deployed to repo.eclipse.org -->
+      <id>eclipse_jar_signing</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+        <property>
+          <name>enableEclipseJarSigner</name>
+        </property>
+      </activation>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>eclipse-repo</id>
+          <name>Eclipse CBI Repository</name>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <url>https://repo.eclipse.org/content/repositories/cbi-releases/</url>
+        </pluginRepository>
+      </pluginRepositories>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.eclipse.cbi.maven.plugins</groupId>
+            <artifactId>eclipse-jarsigner-plugin</artifactId>
+            <version>1.1.4</version>
+            <configuration>
+              <excludeInnerJars>true</excludeInnerJars>
+            </configuration>
+            <executions>
+              <execution>
+                <id>sign-jars</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <!-- this profile generates GPG signatures -->
+      <id>create_gpg_signature</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+        <property>
+          <name>createGPGSignature</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>1.6</version>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+</project>

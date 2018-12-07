@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Concepts on Eclipse Hono</title>
+    <link>https://www.eclipse.org/hono/concepts/</link>
+    <description>Recent content in Concepts on Eclipse Hono</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://www.eclipse.org/hono/concepts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Device Identity</title>
+      <link>https://www.eclipse.org/hono/concepts/device-identity/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/concepts/device-identity/</guid>
+      <description>&lt;p&gt;This page describes how devices are represented and identified throughout Hono and its API&amp;rsquo;s.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Multi-Tenancy</title>
+      <link>https://www.eclipse.org/hono/concepts/tenancy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/concepts/tenancy/</guid>
+      <description>Hono is designed to structure the set of all internally managed data and data streams into strictly isolated subsets. This includes the registration data and credentials of devices, internal users that are used for authentication, and the Business Applications that are part of such subsets as well.
+This way of strict isolation is generally known as multi-tenancy, where a tenant is the term for such a subset. Such an isolation is essential for enabling a scalable distributed architecture to handle independent subsets as if each subset had its own installation (which would be much harder to maintain and would not benefit from runtime cost sharing).</description>
+    </item>
+    
+    <item>
+      <title>Device notifications</title>
+      <link>https://www.eclipse.org/hono/concepts/device-notifications/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/concepts/device-notifications/</guid>
+      <description>&lt;p&gt;&lt;em&gt;Business applications&lt;/em&gt; can be informed by Hono about specific states of a device. This concept - refered to as
+ &lt;strong&gt;Device notifications&lt;/strong&gt; - is described in detail here.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Command &amp; Control</title>
+      <link>https://www.eclipse.org/hono/concepts/command-and-control/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/concepts/command-and-control/</guid>
+      <description>&lt;p&gt;Since Hono 0.6 &lt;em&gt;Business applications&lt;/em&gt; can send commands to devices following the &lt;a href=&#34;https://www.eclipse.org/hono/hono/api/command-and-control-api/&#34;&gt;Command &amp;amp; Control API&lt;/a&gt;. This concept describes how to use this API to send commands to devices connected to Hono via the Adapters. These direct commands follow a request-response pattern and expect an immediate confirmation of their result.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Connection Events</title>
+      <link>https://www.eclipse.org/hono/concepts/connection-events/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/concepts/connection-events/</guid>
+      <description>Hono internally allows protocol adapters to emit connection events. Indicating if a connection was established between a device and the protocol adapter.
+This functionality is intended for connection oriented protocols (like MQTT and AMQP) and it works on a &amp;ldquo;best effort&amp;rdquo; basis to create such events. It depends on each protocol adapter implementation if it emits such events or not.
+Since 0.6.0
+This feature has been added in Hono 0.6. Previous versions do not support nor implement connection events.</description>
+    </item>
+    
+  </channel>
+</rss>

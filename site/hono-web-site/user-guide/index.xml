@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>User-guide on Eclipse Hono</title>
+    <link>https://www.eclipse.org/hono/user-guide/</link>
+    <description>Recent content in User-guide on Eclipse Hono</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://www.eclipse.org/hono/user-guide/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Device Registry</title>
+      <link>https://www.eclipse.org/hono/user-guide/device-registry/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/user-guide/device-registry/</guid>
+      <description>&lt;p&gt;The Device Registry component is an example implementation of the following Hono APIs:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.eclipse.org/hono/hono/api/tenant-api/&#34;&gt;Tenant API&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.eclipse.org/hono/hono/api/device-registration-api/&#34;&gt;Device Registration API&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.eclipse.org/hono/hono/api/credentials-api/&#34;&gt;Credentials API&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>HTTP Adapter</title>
+      <link>https://www.eclipse.org/hono/user-guide/http-adapter/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/user-guide/http-adapter/</guid>
+      <description>&lt;p&gt;The HTTP protocol adapter exposes an HTTP based API for Eclipse Hono&amp;trade;&amp;rsquo;s Telemetry and Event endpoints.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>MQTT Adapter</title>
+      <link>https://www.eclipse.org/hono/user-guide/mqtt-adapter/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/user-guide/mqtt-adapter/</guid>
+      <description>&lt;p&gt;The MQTT protocol adapter exposes an MQTT topic hierarchy for publishing messages and events to Eclipse Hono&amp;trade;&amp;rsquo;s Telemetry and Event endpoints.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Kura Adapter</title>
+      <link>https://www.eclipse.org/hono/user-guide/kura-adapter/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/user-guide/kura-adapter/</guid>
+      <description>&lt;p&gt;The Kura protocol adapter exposes an MQTT topic hierarchy allowing Eclipse Kura&amp;trade; based gateways to publish &lt;em&gt;control&lt;/em&gt; and &lt;em&gt;data&lt;/em&gt; messages to Eclipse Hono&amp;trade;&amp;rsquo;s Telemetry and Event endpoints.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Command and Control</title>
+      <link>https://www.eclipse.org/hono/user-guide/command-and-control/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/user-guide/command-and-control/</guid>
+      <description>&lt;p&gt;In Hono 0.6 the first implementation of Command and Control is available that enables applications to send a command
+upstream to a device.&lt;/p&gt;
+
+&lt;p&gt;In the following it is shown how a command is sent to a device by using Hono&amp;rsquo;s example application.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Load Tests with JMeter</title>
+      <link>https://www.eclipse.org/hono/user-guide/jmeter_load_tests/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/hono/user-guide/jmeter_load_tests/</guid>
+      <description>&lt;p&gt;Eclipse Hono&amp;trade; comes with an &lt;a href=&#34;https://jmeter.apache.org&#34;&gt;Apache JMeter&lt;/a&gt; plugin which provides &lt;em&gt;samplers&lt;/em&gt; that can be used to send and receive telemetry/event data from JMeter test plans.
+&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
